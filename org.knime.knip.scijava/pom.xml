@@ -1,0 +1,170 @@
+<project>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.scijava</groupId>
+    <artifactId>pom-scijava</artifactId>
+    <version>1.149</version>
+    <relativePath />
+  </parent>
+
+  <groupId>org.knime.knip</groupId>
+  <artifactId>org.knime.knip.scijava</artifactId>
+  <packaging>bundle</packaging>
+  <name>SciJava Commons</name>
+  <version>${scijava-common.version}</version>
+
+  <description>This bundle provides an implementation of the SciJava-Commons framework.</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>${scijava-common.groupId}</groupId>
+      <artifactId>scijava-common</artifactId>
+      <version>${scijava-common.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.1</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}</outputDirectory>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>true</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>2.4.0</version>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>make-manifest</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>manifest</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>build-bundle</id>
+            <phase>package</phase>
+            <goals>
+              <goal>bundle</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <outputDirectory>${basedir}</outputDirectory>
+          <manifestLocation>${basedir}/META-INF</manifestLocation>
+          <supportedProjectTypes>
+            <supportedProjectType>bundle</supportedProjectType>
+          </supportedProjectTypes>
+          <instructions>
+            <Embed-Dependency>*;scope=compile</Embed-Dependency>
+            <Embed-Transitive>true</Embed-Transitive>
+            <Export-Package>org.scijava.*</Export-Package>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+          </instructions>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <version>2.9</version>
+        <executions>
+          <execution>
+            <id>configure-eclipse</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>eclipse</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <pde>true</pde>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>groovy-maven-plugin</artifactId>
+        <version>1.5</version>
+        <executions>
+          <execution>
+            <id>make-paths-relative</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+            <configuration>
+              <source>
+                    def rewrite(path) {
+                      builder = new StringBuilder();
+                      reader = new java.io.BufferedReader(new java.io.FileReader(path));
+                      skip = false;
+                      for (;;) {
+                        line = reader.readLine();
+                        if (line == null) break;
+                        if (line.contains('/linkedResources>')) skip = false;
+                        else if (line.contains('linkedResources>')) skip = true;
+                        else if (!skip) {
+                          builder.append(line
+                            .replaceAll('${user.home}/.m2/[^"]*/', '')
+                            .replaceAll('M2_REPO/[^"]*/', '')).append('\\n');
+                        }
+                      }
+                      reader.close();
+                      out = new java.io.FileOutputStream(path);
+                      out.write(builder.toString().getBytes());
+                      out.close();
+                    }
+                    rewrite("${basedir}/.classpath");
+                    rewrite("${basedir}/.project");
+              </source>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>${basedir}</directory>
+              <includes>
+                <include>META-INF</include>
+                <include>.classpath</include>
+                <include>.project</include>
+                <include>.settings</include>
+                <include>*.jar</include>
+              </includes>
+              <followSymlinks>false</followSymlinks>
+            </fileset>
+            <fileset>
+              <directory>${basedir}/target</directory>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -34,9 +34,6 @@
         <version>2.4.0</version>
         <extensions>true</extensions>
         <configuration>
-          <outputDirectory>${basedir}</outputDirectory>
-          <manifestLocation>${basedir}/META-INF</manifestLocation>
-          <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
           <supportedProjectTypes>
             <supportedProjectType>bundle</supportedProjectType>
           </supportedProjectTypes>
@@ -58,30 +55,6 @@
           <pde>true</pde>
         </configuration>
       </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>2.3</version>
-        <configuration>
-          <filesets>
-            <fileset>
-              <directory>${basedir}</directory>
-              <includes>
-                <include>META-INF</include>
-                <include>.classpath</include>
-                <include>.project</include>
-                <include>.settings</include>
-                <include>*.jar</include>
-              </includes>
-              <followSymlinks>false</followSymlinks>
-            </fileset>
-            <fileset>
-              <directory>${basedir}/target</directory>
-            </fileset>
-          </filesets>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
 
@@ -95,6 +68,27 @@
         </file>
       </activation>
 
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>build-bundle</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>bundle</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>importable-projects</id>
       <build>
         <plugins>
           <plugin>
@@ -130,14 +124,12 @@
                   <goal>manifest</goal>
                 </goals>
               </execution>
-              <execution>
-                <id>build-bundle</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>bundle</goal>
-                </goals>
-              </execution>
             </executions>
+            <configuration>
+              <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
+              <manifestLocation>${basedir}/META-INF</manifestLocation>
+              <outputDirectory>${basedir}</outputDirectory>
+            </configuration>
           </plugin>
 
           <plugin>
@@ -193,6 +185,30 @@
                 </configuration>
               </execution>
             </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>2.3</version>
+            <configuration>
+              <filesets>
+                <fileset>
+                  <directory>${basedir}</directory>
+                  <includes>
+                    <include>META-INF</include>
+                    <include>.classpath</include>
+                    <include>.project</include>
+                    <include>.settings</include>
+                    <include>*.jar</include>
+                  </includes>
+                  <followSymlinks>false</followSymlinks>
+                </fileset>
+                <fileset>
+                  <directory>${basedir}/target</directory>
+                </fileset>
+              </filesets>
+            </configuration>
           </plugin>
         </plugins>
       </build>

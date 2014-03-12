@@ -39,6 +39,7 @@
             <Embed-Transitive>true</Embed-Transitive>
             <Export-Package>org.scijava.*</Export-Package>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+            <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
           </instructions>
         </configuration>
       </plugin>

@@ -17,6 +17,10 @@
 
   <description>A parent POM for the bundles wrapping SciJava and friends.</description>
 
+  <properties>
+    <imglib2.version>2.0.0-knip-SNAPSHOT</imglib2.version>
+  </properties>
+
   <modules>
     <module>org.knime.knip.scijava</module>
     <module>org.knime.knip.imglib2</module>

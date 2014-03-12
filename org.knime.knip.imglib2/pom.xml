@@ -16,6 +16,7 @@
   <description>This bundle provides an implementation of the SciJava-Commons framework.</description>
 
   <properties>
+    <no-embed.dependencies>org.knime.knip.scijava,scijava-common</no-embed.dependencies>
     <export.package>net.imglib2</export.package>
   </properties>
 

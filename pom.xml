@@ -19,6 +19,7 @@
 
   <modules>
     <module>org.knime.knip.scijava</module>
+    <module>org.knime.knip.imglib2</module>
   </modules>
 
   <build>

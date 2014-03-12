@@ -1,0 +1,64 @@
+<project>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.knime.knip</groupId>
+    <artifactId>org.knime.knip.pom-scijava</artifactId>
+    <version>1.149</version>
+  </parent>
+
+  <artifactId>org.knime.knip.imglib2</artifactId>
+  <packaging>bundle</packaging>
+  <name>ImgLib2 bundle</name>
+  <version>${imglib2.version}</version>
+
+  <description>This bundle provides an implementation of the SciJava-Commons framework.</description>
+
+  <properties>
+    <export.package>net.imglib2</export.package>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>${imglib2.groupId}</groupId>
+      <artifactId>imglib2</artifactId>
+      <version>${imglib2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${imglib2.groupId}</groupId>
+      <artifactId>imglib2-algorithms</artifactId>
+      <version>${imglib2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${imglib2.groupId}</groupId>
+      <artifactId>imglib2-algorithms-gpl</artifactId>
+      <version>${imglib2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${imglib2.groupId}</groupId>
+      <artifactId>imglib2-algorithms-legacy</artifactId>
+      <version>${imglib2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${imglib2.groupId}</groupId>
+      <artifactId>imglib2-meta</artifactId>
+      <version>${imglib2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${imglib2.groupId}</groupId>
+      <artifactId>imglib2-ops</artifactId>
+      <version>${imglib2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${imglib2.groupId}</groupId>
+      <artifactId>imglib2-realtransform</artifactId>
+      <version>${imglib2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.knime.knip</groupId>
+      <artifactId>org.knime.knip.scijava</artifactId>
+      <version>${scijava-common.version}</version>
+    </dependency>
+  </dependencies>
+</project>

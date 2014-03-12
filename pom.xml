@@ -17,6 +17,10 @@
 
   <description>A parent POM for the bundles wrapping SciJava and friends.</description>
 
+  <modules>
+    <module>org.knime.knip.scijava</module>
+  </modules>
+
   <build>
     <plugins>
       <plugin>

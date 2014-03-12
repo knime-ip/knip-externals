@@ -13,7 +13,7 @@
   <name>ImgLib2 bundle</name>
   <version>${imglib2.version}</version>
 
-  <description>This bundle provides an implementation of the SciJava-Commons framework.</description>
+  <description>This bundle provides an implementation of the ImgLib2 framework.</description>
 
   <properties>
     <no-embed.dependencies>org.knime.knip.scijava,scijava-common</no-embed.dependencies>

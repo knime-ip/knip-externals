@@ -15,6 +15,10 @@
 
   <description>This bundle provides an implementation of the SciJava-Commons framework.</description>
 
+  <properties>
+    <export.package>org.scijava</export.package>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>${scijava-common.groupId}</groupId>

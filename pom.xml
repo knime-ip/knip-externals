@@ -37,7 +37,7 @@
           <instructions>
             <Embed-Dependency>*;scope=compile</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>
-            <Export-Package>org.scijava.*</Export-Package>
+            <Export-Package>${export.package}.*</Export-Package>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
           </instructions>

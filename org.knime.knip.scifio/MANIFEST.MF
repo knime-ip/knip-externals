@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-Name: SCIFIO Wrapper for KNIP
-Bundle-SymbolicName: org.knime.knip.scifio;singleton:=true
-Bundle-ManifestVersion: 2
-Eclipse-RegisterBuddy: org.knime.knip.scijava
-Bundle-Vendor: University of Konstanz
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-ActivationPolicy: lazy
-

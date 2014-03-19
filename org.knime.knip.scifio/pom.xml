@@ -46,6 +46,7 @@
         <configuration>
           <instructions>
             <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}", org.knime.knip.imglib2;bundle-version="${imglib2.version}"</Require-Bundle>
+	    <Eclipse-RegisterBuddy>org.knime.knip.scijava</Eclipse-RegisterBuddy>
           </instructions>
         </configuration>
       </plugin>

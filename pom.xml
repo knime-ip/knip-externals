@@ -81,6 +81,9 @@
                 <goals>
                   <goal>bundle</goal>
                 </goals>
+                <configuration>
+                  <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
+                </configuration>
               </execution>
             </executions>
           </plugin>

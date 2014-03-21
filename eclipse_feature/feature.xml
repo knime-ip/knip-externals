@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="KNIME_Image_Processing_Dependencies"
+      label="KNIME_Image_Processing_Dependencies"
+      version="1.0.0.qualifier">
+
+   <license url="">
+      [Enter License Description here.]
+   </license>
+
+   <plugin
+         id="org.knime.knip.scijava"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.knime.knip.imglib2"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+         
+    <plugin
+         id="org.knime.knip.scifio"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+         
+     <plugin
+         id="org.knime.knip.scifio-bf-compat"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

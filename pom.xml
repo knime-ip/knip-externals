@@ -25,6 +25,7 @@
     <module>org.knime.knip.scijava</module>
     <module>org.knime.knip.imglib2</module>
     <module>org.knime.knip.scifio</module>
+    <module>org.knime.knip.scifio-bf-compat</module>
   </modules>
 
   <build>

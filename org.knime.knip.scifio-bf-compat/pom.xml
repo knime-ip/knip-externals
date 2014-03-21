@@ -1,0 +1,55 @@
+<project>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.knime.knip</groupId>
+    <artifactId>org.knime.knip.pom-scijava</artifactId>
+    <version>1.149</version>
+  </parent>
+
+  <artifactId>org.knime.knip.scifio-bf-compat</artifactId>
+  <packaging>bundle</packaging>
+  <name>Scifio-bf-compat bundle</name>
+  <version>${scifio-bf-compat.version}</version>
+
+  <description>This bundle provides an implementation of the SCIFIO-Bio-Formats Compatibility library.</description>
+
+  <properties>   
+    <no-embed.dependencies>org.knime.knip.scijava,scijava-common,scifio,imglib2,imglib2-meta</no-embed.dependencies>
+    <export.package>io.scif</export.package>
+    <scifio-bf-compat.version>1.6.2-SNAPSHOT</scifio-bf-compat.version>
+  </properties>
+
+  <dependencies>  
+    <dependency>
+      <groupId>io.scif</groupId>
+      <artifactId>scifio-bf-compat</artifactId>
+      <version>${scifio-bf-compat.version}</version>	
+    </dependency>	
+  </dependencies>
+
+<build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>2.4.0</version>
+        <configuration>
+          <instructions>
+            <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}", org.knime.knip.scifio;bundle-version="${scifio.version}".org.knime.knip.imglib2;bundle-version="${imglib2.version}"</Require-Bundle>
+	    <Eclipse-RegisterBuddy>org.knime.knip.scijava</Eclipse-RegisterBuddy>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+	<repositories>
+	<repository>
+	<id>imagej.public</id>
+	<url>http://maven.imagej.net/content/groups/public</url>
+	</repository>
+	</repositories>
+</project>

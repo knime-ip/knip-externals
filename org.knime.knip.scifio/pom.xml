@@ -16,6 +16,7 @@
   <description>This bundle provides an implementation of the SCIFIO library.</description>
 
   <properties>
+    <no-embed.dependencies>imglib2, imglib2-meta,scijava-common</no-embed.dependencies>
     <export.package>io.scif</export.package>
   </properties>
 
@@ -23,17 +24,7 @@
     <dependency>
       <groupId>${scifio.groupId}</groupId>
       <artifactId>scifio</artifactId>
-      <version>${scifio.version}</version>
-	<exclusions>
-	<exclusion>
-	<groupId>${imglib2.groupId}</groupId>
-	<artifactId>imglib2</artifactId>
-	</exclusion>
-	<exclusion>
-	<groupId>${scijava-common.groupId}</groupId>
-	<artifactId>scijava-common</artifactId>
-	</exclusion>
-	</exclusions>
+      <version>${scifio.version}</version>	
     </dependency>
   </dependencies>
 

@@ -28,6 +28,11 @@
     <module>org.knime.knip.scifio-bf-compat</module>
   </modules>
 
+  <prerequisites>
+    <!-- excludes seem not to work correctly with older Maven -->
+    <maven>3.0.0</maven>
+  </prerequisites>
+
   <build>
     <plugins>
       <plugin>

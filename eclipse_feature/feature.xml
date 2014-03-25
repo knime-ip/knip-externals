@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="KNIME_Image_Processing_Dependencies"
+      id="knime_ip_dependencies"
       label="KNIME_Image_Processing_Dependencies"
       version="1.0.0.qualifier">
 

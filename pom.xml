@@ -19,6 +19,7 @@
 
   <properties>
     <imglib2.version>2.0.0-knip-SNAPSHOT</imglib2.version>
+    <imglib2.bundle.version>2.0.0</imglib2.bundle.version>
   </properties>
 
   <modules>

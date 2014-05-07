@@ -1,24 +1,19 @@
+<?xml version="1.0"?>
 <project>
-
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>org.knime.knip</groupId>
     <artifactId>org.knime.knip.pom-scijava</artifactId>
     <version>1.149</version>
   </parent>
-
   <artifactId>org.knime.knip.scijava</artifactId>
   <packaging>bundle</packaging>
   <name>SciJava Commons</name>
   <version>${scijava-common.version}</version>
-
   <description>This bundle provides an implementation of the SciJava-Commons framework.</description>
-
   <properties>
     <export.package>org.scijava</export.package>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>${scijava-common.groupId}</groupId>
@@ -26,21 +21,53 @@
       <version>${scijava-common.version}</version>
     </dependency>
   </dependencies>
-
-
-<build>
+  <build>
     <plugins>
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
         <version>2.4.0</version>
         <configuration>
-          <instructions>           
-	    <Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
+          <instructions>
+            <Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
           </instructions>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>assembly</id>
+            <phase>install</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>sources.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>src-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <classifier>sources</classifier>
+              <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+              <outputDirectory>target/sources</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
-
 </project>

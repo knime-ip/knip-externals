@@ -46,6 +46,8 @@
               <descriptors>
                 <descriptor>sources.xml</descriptor>
               </descriptors>
+	    <finalName>org.knime.knip.scijava.sources-${scijava-common.version}</finalName>
+	    <appendAssemblyId>false</appendAssemblyId>
             </configuration>
           </execution>
         </executions>

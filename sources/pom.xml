@@ -1,27 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0"?>
+<project>
   <modelVersion>4.0.0</modelVersion>
-	<groupId>org.scijava</groupId>
-  <artifactId>org.knime.knip.scijava.source</artifactId>  
-  <packaging>bundle</packaging>
-  <name>SciJava Commons Sources</name>
-<version>2.19.1</version>
-
-
-  <properties>
- 	<bundle.name>scijava-common</bundle.name>
-	<bundle.version>2.19.1</bundle.version>
-  </properties>
-
-  <description>SciJava-Commons Sources</description>
-  <dependencies>
-    <dependency>
-      <groupId>org.scijava</groupId>
-      <artifactId>scijava-common</artifactId>
-      <version>2.19.1</version>
-      <classifier>sources</classifier>
-    </dependency>
-  </dependencies>
+  <parent>
+    <groupId>org.knime.knip</groupId>
+    <artifactId>org.knime.knip.pom-scijava</artifactId>
+    <version>1.149</version>
+    <relativePath/>
+  </parent>
+  <groupId>org.knime.knip</groupId>
+  <artifactId>org.knime.knip.pom-scijava-sources</artifactId>
+  <version>1.149</version>
+  <packaging>pom</packaging>
+  <name>KNIME/SciJava sources parent</name>
+  <description>A parent POM for the sources bundles wrapping SciJava and friends.</description>
+  <modules>
+    <module>org.knime.knip.scijava</module>   
+  </modules>
+  <prerequisites>
+    <!-- excludes seem not to work correctly with older Maven -->
+    <maven>3.0.0</maven>
+  </prerequisites>
 
   <build>
     <plugins>
@@ -31,10 +29,11 @@
 	<extensions>true</extensions>
         <version>2.4.0</version>
         <configuration>
+	<finalName>${bundle.name}.source_${project.version}</finalName>
           <instructions>
             <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
                         <Bundle-SymbolicName>${bundle.name}.source</Bundle-SymbolicName>
-                        <Bundle-Version>${bundle.version}</Bundle-Version>
+                        <Bundle-Version>${project.version}</Bundle-Version>
                         <!-- This defines the bundle we provide the source for -->
                         <Eclipse-SourceBundle>${bundle.name};version="${bundle.version}";roots:="."</Eclipse-SourceBundle>
                         <!-- Extract all sources into this bundle -->
@@ -44,4 +43,6 @@
       </plugin>
     </plugins>
   </build>
+
 </project>
+

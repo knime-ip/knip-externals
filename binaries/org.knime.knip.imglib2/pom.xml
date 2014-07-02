@@ -4,7 +4,7 @@
 
   <parent>
     <groupId>org.knime.knip</groupId>
-    <artifactId>org.knime.knip.pom-scijava</artifactId>
+    <artifactId>org.knime.knip.pom-scijava-binaries</artifactId>
     <version>1.149</version>
   </parent>
 

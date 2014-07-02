@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.knime.knip</groupId>
+    <artifactId>org.knime.knip.pom-scijava-sources</artifactId>
+    <version>1.149</version>
+  </parent>
+  <artifactId>org.knime.knip.scijava-sources</artifactId>
+  <packaging>bundle</packaging>
+  <name>SciJava Commons Sources</name>
+  <version>${scijava-common.version}</version>
+  <description>This bundle provides the sources of the SciJava-Commons framework.</description>
+ <properties>
+ 	<bundle.name>org.knime.knip.scijava</bundle.name>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>${scijava-common.groupId}</groupId>
+      <artifactId>scijava-common</artifactId>
+      <version>${scijava-common.version}</version>
+      <classifier>sources</classifier>
+    </dependency>
+  </dependencies>
+</project>

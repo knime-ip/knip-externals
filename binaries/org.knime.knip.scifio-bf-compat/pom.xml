@@ -18,8 +18,7 @@
 
   <properties>   
     <no-embed.dependencies>org.knime.knip.scijava,scijava-common,scifio,imglib2,imglib2-meta</no-embed.dependencies>
-    <export.package>io.scif</export.package>
-    <scifio-bf-compat.version>1.6.2-SNAPSHOT</scifio-bf-compat.version>
+    <export.package>io.scif</export.package>    
   </properties>
 
   <dependencies>  

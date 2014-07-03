@@ -4,12 +4,12 @@
   <parent>
     <groupId>org.scijava</groupId>
     <artifactId>pom-scijava</artifactId>
-    <version>1.149</version>
+    <version>2.22</version>
     <relativePath/>
   </parent>
   <groupId>org.knime.knip</groupId>
   <artifactId>org.knime.knip.pom-scijava</artifactId>
-  <version>1.149</version>
+  <version>1.0</version>
   <packaging>pom</packaging>
   <name>KNIME/SciJava binaries/sources parent</name>
   <description>A parent POM for the binary- and source-bundles wrapping SciJava and friends.</description>

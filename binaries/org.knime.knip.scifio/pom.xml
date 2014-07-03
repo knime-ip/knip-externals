@@ -5,7 +5,8 @@
   <parent>
     <groupId>org.knime.knip</groupId>
     <artifactId>org.knime.knip.pom-scijava-binaries</artifactId>
-    <version>1.149</version>
+    <version>1.0</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>org.knime.knip.scifio</artifactId>
@@ -22,7 +23,7 @@
 
   <dependencies>  
     <dependency>
-      <groupId>${scifio.groupId}</groupId>
+      <groupId>io.scif</groupId>
       <artifactId>scifio</artifactId>
       <version>${scifio.version}</version>	
     </dependency>

@@ -72,6 +72,7 @@
         <configuration>
           <instructions>
             <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}"</Require-Bundle>
+            <Import-Package>!*</Import-Package>
           </instructions>
         </configuration>
       </plugin>

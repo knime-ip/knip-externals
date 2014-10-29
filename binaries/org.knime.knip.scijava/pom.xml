@@ -1,46 +1,41 @@
+<?xml version="1.0"?>
 <project>
-
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>org.knime.knip</groupId>
-    <artifactId>org.knime.knip.pom-scijava</artifactId>
-    <version>1.149</version>
+    <artifactId>org.knime.knip.pom-scijava-binaries</artifactId>
+    <version>1.0</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
-
   <artifactId>org.knime.knip.scijava</artifactId>
   <packaging>bundle</packaging>
   <name>SciJava Commons</name>
   <version>${scijava-common.version}</version>
-
   <description>This bundle provides an implementation of the SciJava-Commons framework.</description>
-
   <properties>
     <export.package>org.scijava</export.package>
+    <bundle.type>binaries</bundle.type>
   </properties>
-
   <dependencies>
     <dependency>
-      <groupId>${scijava-common.groupId}</groupId>
+      <groupId>org.scijava</groupId>
       <artifactId>scijava-common</artifactId>
       <version>${scijava-common.version}</version>
     </dependency>
   </dependencies>
-
-
-<build>
+  <build>
     <plugins>
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
+	<extensions>true</extensions>
         <version>2.4.0</version>
         <configuration>
-          <instructions>           
-	    <Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
+          <instructions>
+            <Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
           </instructions>
         </configuration>
       </plugin>
     </plugins>
   </build>
-
 </project>

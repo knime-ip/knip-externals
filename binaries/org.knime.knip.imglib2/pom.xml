@@ -4,14 +4,14 @@
 
   <parent>
     <groupId>org.knime.knip</groupId>
-    <artifactId>org.knime.knip.pom-scijava</artifactId>
+    <artifactId>org.knime.knip.pom-scijava-binaries</artifactId>
     <version>1.149</version>
   </parent>
 
   <artifactId>org.knime.knip.imglib2</artifactId>
   <packaging>bundle</packaging>
   <name>ImgLib2 bundle</name>
-  <version>${imglib2.version}</version>
+  <version>${imglib2.bundle.version}</version>
 
   <description>This bundle provides an implementation of the ImgLib2 framework.</description>
 
@@ -72,6 +72,7 @@
         <configuration>
           <instructions>
             <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}"</Require-Bundle>
+            <Import-Package>!*</Import-Package>
           </instructions>
         </configuration>
       </plugin>

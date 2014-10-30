@@ -1,0 +1,55 @@
+<project>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.knime.knip</groupId>
+    <artifactId>org.knime.knip.pom-scijava-binaries</artifactId>
+    <version>1.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>org.knime.knip.scifio</artifactId>
+  <packaging>bundle</packaging>
+  <name>Scifio bundle</name>
+  <version>${scifio.version}</version>
+
+  <description>This bundle provides an implementation of the SCIFIO library.</description>
+
+  <properties>
+    <no-embed.dependencies>imglib2, imglib2-meta,scijava-common</no-embed.dependencies>
+    <export.package>io.scif</export.package>
+  </properties>
+
+  <dependencies>  
+    <dependency>
+      <groupId>io.scif</groupId>
+      <artifactId>scifio</artifactId>
+      <version>${scifio.version}</version>	
+    </dependency>
+  </dependencies>
+
+<build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>2.4.0</version>
+        <configuration>
+          <instructions>
+            <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}", org.knime.knip.imglib2;bundle-version="${imglib2.bundle.version}"</Require-Bundle>
+	    <Eclipse-RegisterBuddy>org.knime.knip.scijava</Eclipse-RegisterBuddy>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+	<repositories>
+	<repository>
+	<id>imagej.public</id>
+	<url>http://maven.imagej.net/content/groups/public</url>
+	</repository>
+	</repositories>
+</project>

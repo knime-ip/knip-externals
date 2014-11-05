@@ -3,23 +3,19 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.scijava</groupId>
-    <artifactId>pom-scijava</artifactId>
-    <version>1.149</version>
+    <groupId>net.imagej</groupId>
+    <artifactId>pom-imagej</artifactId>
+    <version>5.0</version>
     <relativePath />
   </parent>
 
   <groupId>org.knime.knip</groupId>
   <artifactId>org.knime.knip.pom-scijava</artifactId>
-  <version>1.149</version>
+  <version>1.0</version>
   <packaging>pom</packaging>
   <name>KNIME/SciJava parent</name>
 
   <description>A parent POM for the bundles wrapping SciJava and friends.</description>
-
-  <properties>
-    <imglib2.version>2.0.0-knip-SNAPSHOT</imglib2.version>
-  </properties>
 
   <modules>
     <module>org.knime.knip.scijava</module>
@@ -28,6 +24,10 @@
     <module>org.knime.knip.scifio-bf-compat</module>
   </modules>
 
+  <properties>
+  	<scijava.enforce.skip/>
+  </properties>
+  
   <prerequisites>
     <!-- excludes seem not to work correctly with older Maven -->
     <maven>3.0.0</maven>
@@ -99,6 +99,11 @@
 
     <profile>
       <id>importable-projects</id>
+      <activation>
+        <file>
+          <exists>${basedir}/.project</exists>
+        </file>
+      </activation>
       <build>
         <plugins>
           <plugin>
@@ -139,6 +144,7 @@
               <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
               <manifestLocation>${basedir}/META-INF</manifestLocation>
               <outputDirectory>${basedir}</outputDirectory>
+              <Bundle-RequiredExecutionEnvironment>JavaSE-1.7</Bundle-RequiredExecutionEnvironment>
             </configuration>
           </plugin>
 

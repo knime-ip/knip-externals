@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.knime.knip</groupId>
     <artifactId>org.knime.knip.pom-scijava</artifactId>
-    <version>1.149</version>
+    <version>1.0</version>
   </parent>
 
   <artifactId>org.knime.knip.scijava</artifactId>
@@ -21,12 +21,10 @@
 
   <dependencies>
     <dependency>
-      <groupId>${scijava-common.groupId}</groupId>
+      <groupId>org.scijava</groupId>
       <artifactId>scijava-common</artifactId>
-      <version>${scijava-common.version}</version>
     </dependency>
   </dependencies>
-
 
 <build>
     <plugins>

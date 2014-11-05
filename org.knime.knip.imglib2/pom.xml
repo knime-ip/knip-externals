@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.knime.knip</groupId>
     <artifactId>org.knime.knip.pom-scijava</artifactId>
-    <version>1.149</version>
+    <version>1.0</version>
   </parent>
 
   <artifactId>org.knime.knip.imglib2</artifactId>
@@ -19,47 +19,44 @@
     <no-embed.dependencies>org.knime.knip.scijava,scijava-common</no-embed.dependencies>
     <export.package>net.imglib2</export.package>
   </properties>
+  
+  <repositories>
+	<repository>
+	<id>imagej.public</id>
+	<url>http://maven.imagej.net/content/groups/public</url>
+	</repository>
+  </repositories>
 
   <dependencies>
     <dependency>
-      <groupId>${imglib2.groupId}</groupId>
+      <groupId>net.imglib2</groupId>
       <artifactId>imglib2</artifactId>
-      <version>${imglib2.version}</version>
     </dependency>
     <dependency>
-      <groupId>${imglib2.groupId}</groupId>
-      <artifactId>imglib2-algorithms</artifactId>
-      <version>${imglib2.version}</version>
+      <groupId>net.imglib2</groupId>
+      <artifactId>imglib2-algorithm</artifactId>
     </dependency>
     <dependency>
-      <groupId>${imglib2.groupId}</groupId>
-      <artifactId>imglib2-algorithms-gpl</artifactId>
-      <version>${imglib2.version}</version>
+      <groupId>net.imglib2</groupId>
+      <artifactId>imglib2-algorithm-gpl</artifactId>
     </dependency>
     <dependency>
-      <groupId>${imglib2.groupId}</groupId>
-      <artifactId>imglib2-algorithms-legacy</artifactId>
-      <version>${imglib2.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>${imglib2.groupId}</groupId>
-      <artifactId>imglib2-meta</artifactId>
-      <version>${imglib2.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>${imglib2.groupId}</groupId>
-      <artifactId>imglib2-ops</artifactId>
-      <version>${imglib2.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>${imglib2.groupId}</groupId>
+      <groupId>net.imglib2</groupId>
       <artifactId>imglib2-realtransform</artifactId>
-      <version>${imglib2.version}</version>
     </dependency>
+    
     <dependency>
       <groupId>org.knime.knip</groupId>
       <artifactId>org.knime.knip.scijava</artifactId>
       <version>${scijava-common.version}</version>
+    </dependency>
+    <dependency>
+    	<groupId>net.imglib2</groupId>
+    	<artifactId>imglib2-roi</artifactId>
+    </dependency>
+    <dependency>
+    	<groupId>net.imglib2</groupId>
+    	<artifactId>imglib2-algorithm-fft</artifactId>
     </dependency>
   </dependencies>
 

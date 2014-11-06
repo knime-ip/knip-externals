@@ -145,7 +145,6 @@
               <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
               <manifestLocation>${basedir}/META-INF</manifestLocation>
               <outputDirectory>${basedir}</outputDirectory>
-              <Bundle-RequiredExecutionEnvironment>JavaSE-1.7</Bundle-RequiredExecutionEnvironment>
             </configuration>
           </plugin>
 

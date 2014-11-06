@@ -17,9 +17,8 @@
   <description>This bundle provides an implementation of the SCIFIO-Bio-Formats Compatibility library.</description>
 
   <properties>
-    <no-embed.dependencies>org.knime.knip.scijava,scijava-common,scifio,imglib2,imglib2-meta</no-embed.dependencies>
+    <no-embed.dependencies>org.knime.knip.scijava,scijava-common,scifio,imglib2</no-embed.dependencies>
     <export.package>io.scif</export.package>
-    <scifio-bf-compat.version>1.6.2-SNAPSHOT</scifio-bf-compat.version>
   </properties>
 
   <dependencies>
@@ -38,7 +37,7 @@
         <configuration>
           <instructions>
             <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}",
-              org.knime.knip.scifio;bundle-version="${scifio.version}".org.knime.knip.imglib2;bundle-version="${imglib2.version}"</Require-Bundle>
+              org.knime.knip.scifio;bundle-version="${scifio.version}",org.knime.knip.imglib2;bundle-version="${imglib2.version}"</Require-Bundle>
             <Eclipse-RegisterBuddy>org.knime.knip.scijava</Eclipse-RegisterBuddy>
           </instructions>
         </configuration>

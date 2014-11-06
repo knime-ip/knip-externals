@@ -1,4 +1,5 @@
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -20,14 +21,14 @@
     <export.package>io.scif</export.package>
   </properties>
 
-  <dependencies>  
+  <dependencies>
     <dependency>
       <groupId>io.scif</groupId>
       <artifactId>scifio</artifactId>
     </dependency>
   </dependencies>
 
-<build>
+  <build>
     <plugins>
       <plugin>
         <groupId>org.apache.felix</groupId>
@@ -35,8 +36,9 @@
         <version>2.4.0</version>
         <configuration>
           <instructions>
-            <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}", org.knime.knip.imglib2;bundle-version="${imglib2.version}"</Require-Bundle>
-	    <Eclipse-RegisterBuddy>org.knime.knip.scijava</Eclipse-RegisterBuddy>
+            <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}",
+              org.knime.knip.imglib2;bundle-version="${imglib2.version}"</Require-Bundle>
+            <Eclipse-RegisterBuddy>org.knime.knip.scijava</Eclipse-RegisterBuddy>
           </instructions>
         </configuration>
       </plugin>
@@ -44,10 +46,10 @@
   </build>
 
 
-	<repositories>
-	<repository>
-	<id>imagej.public</id>
-	<url>http://maven.imagej.net/content/groups/public</url>
-	</repository>
-	</repositories>
+  <repositories>
+    <repository>
+      <id>imagej.public</id>
+      <url>http://maven.imagej.net/content/groups/public</url>
+    </repository>
+  </repositories>
 </project>

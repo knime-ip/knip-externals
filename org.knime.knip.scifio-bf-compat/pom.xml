@@ -1,4 +1,5 @@
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -15,20 +16,20 @@
 
   <description>This bundle provides an implementation of the SCIFIO-Bio-Formats Compatibility library.</description>
 
-  <properties>   
+  <properties>
     <no-embed.dependencies>org.knime.knip.scijava,scijava-common,scifio,imglib2,imglib2-meta</no-embed.dependencies>
     <export.package>io.scif</export.package>
     <scifio-bf-compat.version>1.6.2-SNAPSHOT</scifio-bf-compat.version>
   </properties>
 
-  <dependencies>  
+  <dependencies>
     <dependency>
       <groupId>io.scif</groupId>
       <artifactId>scifio-bf-compat</artifactId>
-    </dependency>	
+    </dependency>
   </dependencies>
 
-<build>
+  <build>
     <plugins>
       <plugin>
         <groupId>org.apache.felix</groupId>
@@ -36,8 +37,9 @@
         <version>2.4.0</version>
         <configuration>
           <instructions>
-            <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}", org.knime.knip.scifio;bundle-version="${scifio.version}".org.knime.knip.imglib2;bundle-version="${imglib2.version}"</Require-Bundle>
-	    <Eclipse-RegisterBuddy>org.knime.knip.scijava</Eclipse-RegisterBuddy>
+            <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}",
+              org.knime.knip.scifio;bundle-version="${scifio.version}".org.knime.knip.imglib2;bundle-version="${imglib2.version}"</Require-Bundle>
+            <Eclipse-RegisterBuddy>org.knime.knip.scijava</Eclipse-RegisterBuddy>
           </instructions>
         </configuration>
       </plugin>
@@ -45,10 +47,10 @@
   </build>
 
 
-	<repositories>
-	<repository>
-	<id>imagej.public</id>
-	<url>http://maven.imagej.net/content/groups/public</url>
-	</repository>
-	</repositories>
+  <repositories>
+    <repository>
+      <id>imagej.public</id>
+      <url>http://maven.imagej.net/content/groups/public</url>
+    </repository>
+  </repositories>
 </project>

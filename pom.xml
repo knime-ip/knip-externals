@@ -1,4 +1,5 @@
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -25,9 +26,9 @@
   </modules>
 
   <properties>
-  	<scijava.enforce.skip/>
+    <scijava.enforce.skip />
   </properties>
-  
+
   <prerequisites>
     <!-- excludes seem not to work correctly with older Maven -->
     <maven>3.0.0</maven>
@@ -175,18 +176,22 @@
                 <configuration>
                   <source>
                     def rewrite(path) {
-                      builder = new StringBuilder();
-                      reader = new java.io.BufferedReader(new java.io.FileReader(path));
+                      builder = new
+                      StringBuilder();
+                      reader = new
+                      java.io.BufferedReader(new
+                      java.io.FileReader(path));
                       skip = false;
                       for (;;) {
                         line = reader.readLine();
                         if (line == null) break;
                         if (line.contains('/linkedResources>')) skip = false;
-                        else if (line.contains('linkedResources>')) skip = true;
+                        else if (line.contains('linkedResources>'))
+                          skip = true;
                         else if (!skip) {
                           builder.append(line
-                            .replaceAll('${user.home}/.m2/[^"]*/', '')
-                            .replaceAll('M2_REPO/[^"]*/', '')).append('\\n');
+                          .replaceAll('${user.home}/.m2/[^"]*/', '')
+                          .replaceAll('M2_REPO/[^"]*/', '')).append('\\n');
                         }
                       }
                       reader.close();

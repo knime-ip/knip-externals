@@ -32,7 +32,8 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
-        <version>2.4.0</version>
+        <extensions>true</extensions>
+        <version>${felix-plugin.version}</version>
         <configuration>
           <instructions>
             <Eclipse-BuddyPolicy>registered</Eclipse-BuddyPolicy>
@@ -41,5 +42,5 @@
       </plugin>
     </plugins>
   </build>
-
+  
 </project>

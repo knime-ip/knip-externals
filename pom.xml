@@ -45,6 +45,7 @@
           <supportedProjectTypes>
             <supportedProjectType>bundle</supportedProjectType>
           </supportedProjectTypes>
+          <finalName>${project.artifactId}_${project.version}</finalName>
           <instructions>
             <Embed-Dependency>*;scope=compile</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>

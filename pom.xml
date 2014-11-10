@@ -102,9 +102,9 @@
     <profile>
       <id>importable-projects</id>
       <activation>
-        <file>
-          <exists>${basedir}/.project</exists>
-        </file>
+        <property>
+          <name>m2e.version</name>
+        </property>
       </activation>
       <build>
         <plugins>

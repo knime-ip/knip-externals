@@ -11,13 +11,13 @@
 
   <artifactId>org.knime.knip.scijava</artifactId>
   <packaging>bundle</packaging>
-  <name>SciJava Commons</name>
+  <name>SciJava Common</name>
   <version>${scijava-common.version}</version>
 
-  <description>This bundle provides an implementation of the SciJava-Commons framework.</description>
+  <description>This bundle provides an implementation of the SciJava-Common framework.</description>
 
   <properties>
-    <export.package>org.scijava</export.package>
+    <export.packages>org.scijava.*, org.bushe.swing.event.*</export.packages>
   </properties>
 
   <dependencies>

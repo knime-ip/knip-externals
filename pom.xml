@@ -27,7 +27,7 @@
 
   <properties>
     <scijava.enforce.skip />
-    <felix-plugin.version>2.5.0</felix-plugin.version>
+    <felix-plugin.version>2.5.3</felix-plugin.version>
   </properties>
 
   <prerequisites>
@@ -37,27 +37,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <version>${felix-plugin.version}</version>
-        <extensions>true</extensions>
-        <configuration>
-          <supportedProjectTypes>
-            <supportedProjectType>bundle</supportedProjectType>
-          </supportedProjectTypes>
-          <finalName>${project.artifactId}_${project.version}</finalName>
-          <instructions>
-            <Embed-Dependency>*;scope=compile</Embed-Dependency>
-            <Embed-Transitive>true</Embed-Transitive>
-            <Export-Package>${export.package}.*</Export-Package>
-            <Import-Package></Import-Package>
-            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
-          </instructions>
-        </configuration>
-      </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
@@ -80,6 +59,19 @@
             </goals>
             <configuration>
               <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>make-manifest</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>manifest</goal>
+            </goals>
+            <configuration>
+              <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
+              <manifestLocation>${basedir}/META-INF</manifestLocation>
+              <outputDirectory>${basedir}/target/classes</outputDirectory>
             </configuration>
           </execution>
         </executions>
@@ -107,26 +99,6 @@
       </plugin>
 
       <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <version>${felix-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>make-manifest</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>manifest</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
-          <manifestLocation>${basedir}/META-INF</manifestLocation>
-          <outputDirectory>${basedir}</outputDirectory>
-        </configuration>
-      </plugin>
-
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-clean-plugin</artifactId>
         <configuration>
@@ -149,6 +121,29 @@
 
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>${felix-plugin.version}</version>
+          <extensions>true</extensions>
+          <configuration>
+            <supportedProjectTypes>
+              <supportedProjectType>bundle</supportedProjectType>
+            </supportedProjectTypes>
+            <finalName>${project.artifactId}_${project.version}</finalName>
+            <instructions>
+              <Import-Package></Import-Package>
+              <Private-Package></Private-Package>
+              <Embed-Dependency>*scope=compile,inline=false</Embed-Dependency>
+              <Embed-Transitive>true</Embed-Transitive>
+              <Export-Package>${export.packages}</Export-Package>
+              <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+              <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
+            </instructions>
+          </configuration>
+        </plugin>
+
+
         <!-- eclipse lifecycle mapping -->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>

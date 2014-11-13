@@ -18,7 +18,7 @@
 
   <properties>
     <no-embed.dependencies>org.knime.knip.scijava,scijava-common,scifio,imglib2</no-embed.dependencies>
-    <export.package>io.scif</export.package>
+    <export.packages>io.scif.*, org.w3c.dom.*, loci.*</export.packages>
   </properties>
 
   <dependencies>
@@ -36,8 +36,11 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Require-Bundle>org.knime.knip.scijava;bundle-version="${scijava-common.version}",
-              org.knime.knip.scifio;bundle-version="${scifio.version}",org.knime.knip.imglib2;bundle-version="${imglib2.version}"</Require-Bundle>
+            <Require-Bundle>
+              org.knime.knip.scijava;bundle-version="${scijava-common.version}",
+              org.knime.knip.scifio;bundle-version="${scifio.version}",
+              org.knime.knip.imglib2;bundle-version="${imglib2.version}"
+            </Require-Bundle>
             <Eclipse-RegisterBuddy>org.knime.knip.scijava</Eclipse-RegisterBuddy>
           </instructions>
         </configuration>

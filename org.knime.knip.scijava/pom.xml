@@ -17,7 +17,7 @@
   <description>This bundle provides an implementation of the SciJava-Common framework.</description>
 
   <properties>
-    <export.packages>org.scijava.*, org.bushe.swing.event.*</export.packages>
+    <export.contents>org.scijava.*, org.bushe.swing.event.*</export.contents>
   </properties>
 
   <dependencies>

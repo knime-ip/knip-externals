@@ -140,6 +140,9 @@
               <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
               <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
             </instructions>
+            <archive>
+              <addMavenDescriptor>false</addMavenDescriptor>
+            </archive>
           </configuration>
         </plugin>
 

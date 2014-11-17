@@ -39,6 +39,10 @@
     </dependency>
     <dependency>
       <groupId>net.imglib2</groupId>
+      <artifactId>imglib2-algorithm-gpl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>net.imglib2</groupId>
       <artifactId>imglib2-realtransform</artifactId>
     </dependency>
 
@@ -50,7 +54,14 @@
       <groupId>net.imglib2</groupId>
       <artifactId>imglib2-algorithm-fft</artifactId>
     </dependency>
-
+    
+    <dependency>
+      <groupId>org.knime.knip</groupId>
+      <artifactId>org.knime.knip.scijava</artifactId>
+      <version>${scijava-common.version}</version>
+      <type>bundle</type>
+    </dependency>
+    
   </dependencies>
 
   <build>

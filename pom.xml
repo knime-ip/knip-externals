@@ -137,6 +137,7 @@
               <Embed-Transitive>true</Embed-Transitive>
               <Embed-Dependency>*</Embed-Dependency>
               <Export-Package>${export.packages}</Export-Package>
+              <_exportcontents>${export.contents};-split-package:=merge-last</_exportcontents>
               <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
               <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
             </instructions>

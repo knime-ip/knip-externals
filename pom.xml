@@ -134,8 +134,8 @@
             <instructions>
               <Import-Package></Import-Package>
               <Private-Package></Private-Package>
-              <Embed-Dependency>*scope=compile,inline=false</Embed-Dependency>
               <Embed-Transitive>true</Embed-Transitive>
+              <Embed-Dependency>*</Embed-Dependency>
               <Export-Package>${export.packages}</Export-Package>
               <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
               <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>

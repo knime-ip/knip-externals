@@ -73,24 +73,12 @@
         <extensions>true</extensions>
         <executions>
           <execution>
-            <id>build-bundle</id>
-            <phase>package</phase>
-            <goals>
-              <goal>bundle</goal>
-            </goals>
-            <configuration>
-              <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
-            </configuration>
-          </execution>
-
-          <execution>
             <id>make-manifest</id>
             <phase>compile</phase>
             <goals>
               <goal>manifest</goal>
             </goals>
             <configuration>
-              <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
               <manifestLocation>${basedir}/META-INF</manifestLocation>
               <outputDirectory>${basedir}/target/classes</outputDirectory>
             </configuration>
@@ -146,8 +134,8 @@
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
           <version>${felix-plugin.version}</version>
-          <extensions>true</extensions>
           <configuration>
+            <excludeDependencies>${no-embed.dependencies}</excludeDependencies>
             <supportedProjectTypes>
               <supportedProjectType>bundle</supportedProjectType>
             </supportedProjectTypes>

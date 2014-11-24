@@ -17,8 +17,8 @@
   <description>This bundle provides an implementation of the ImgLib2 framework.</description>
 
   <properties>
-    <no-embed.dependencies>org.knime.knip.scijava, knip-ij</no-embed.dependencies>
-    <export.contents>net.imglib2.*, Jama.*</export.contents>
+    <no-embed.dependencies>org.knime.knip.scijava</no-embed.dependencies>
+    <export.contents> net.imglib2.*, Jama.*</export.contents>
   </properties>
 
   <repositories>

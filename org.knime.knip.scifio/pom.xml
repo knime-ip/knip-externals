@@ -18,7 +18,7 @@
 
   <properties>
     <no-embed.dependencies>org.knime.knip.imglib2, imglib2, org.knime.knip.scijava, scijava-common</no-embed.dependencies>
-    <export.packages>io.scif.*</export.packages>
+    <export.contents>io.scif.*</export.contents>
   </properties>
 
   <dependencies>

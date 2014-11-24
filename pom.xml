@@ -28,12 +28,33 @@
   <properties>
     <scijava.enforce.skip />
     <felix-plugin.version>2.4.0</felix-plugin.version>
+
+    <knip-core.version>1.2.1</knip-core.version>
+    <knip-base.version>1.2.1</knip-base.version>
   </properties>
 
   <prerequisites>
     <!-- excludes seem not to work correctly with older Maven -->
     <maven>3.0.0</maven>
   </prerequisites>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.knime.knip</groupId>
+        <artifactId>org.knime.knip.core</artifactId>
+        <version>${knip-core.version}</version>
+        <type>bundle</type>
+      </dependency>
+
+      <dependency>
+        <groupId>org.knime.knip</groupId>
+        <artifactId>org.knime.knip.base</artifactId>
+        <version>${knip-base.version}</version>
+        <type>bundle</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <build>
     <plugins>

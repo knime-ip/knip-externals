@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+
+	<!-- SciJava -->
+	<bundle id="scijava-common" version="0.0.0" />
+	<bundle id="jep" version="0.0.0" />
+	<bundle id="scijava-log-slf4j" version="0.0.0" />
+	<bundle id="scijava-plugins-commands" version="0.0.0" />
+	<bundle id="scijava-plugins-text-markdown" version="0.0.0" />
+	<bundle id="scijava-plugins-text-plain" version="0.0.0" />
+	<bundle id="scijava-ui-awt" version="0.0.0" />
+	<bundle id="scijava-ui-swing" version="0.0.0" />
+	<bundle id="scripting-jython" version="0.0.0" />
+	<bundle id="scripting-java" version="0.0.0" />
+
+	<bundle id="scifio" version="0.0.0" />
+	<bundle id="scifio-bf-compat" version="0.0.0" />
+	<bundle id="scifio-lifesci" version="0.0.0" />
+
+	<bundle id="imagej-common" version="0.0.0" />
+	<bundle id="ij" version="0.0.0" />
+	<bundle id="imagej-ops" version="0.0.0" />
+
+	<bundle id="imglib2" version="0.0.0" />
+	<bundle id="imglib2-roi" version="0.0.0" />
+	<bundle id="imglib2-algorithm" version="0.0.0" />
+	<bundle id="imglib2-algorithm-fft" version="0.0.0" />
+	<bundle id="imglib2-algorithm-gpl" version="0.0.0" />
+	<bundle id="imglib2-ij" version="0.0.0" />
+	<bundle id="imglib2-realtransform" version="0.0.0" />
+
+	<bundle id="jama" version="0.0.0" />
+	<bundle id="mahout-collections" version="0.0.0" />
+	<bundle id="knip-imglib2-ops" version="0.0.0" />
+	<bundle id="knip-trackmate" version="0.0.0" />
+	
+</site>

@@ -1,0 +1,209 @@
+<!-- build an update site -->
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<tycho-version>0.22.0</tycho-version>
+	</properties>
+
+	<parent>
+		<groupId>org.knime.knip</groupId>
+		<artifactId>knip-externals</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<groupId>org.knime.knip</groupId>
+	<artifactId>knip-osgi-update-site</artifactId>
+	<version>1.0.0</version>
+
+	<!-- we want to build an update site -->
+	<packaging>eclipse-repository</packaging>
+
+	<repositories>
+		<repository>
+			<id>knime211</id>
+			<layout>p2</layout>
+			<url>http://www.knime.org/update/2.11/</url>
+		</repository>
+	</repositories>
+
+
+	<dependencies>
+		<!-- SciJava Dependencies -->
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scijava-common</artifactId>
+			<version>${scijava-common.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scijava-log-slf4j</artifactId>
+			<version>${scijava-log-slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scijava-plugins-commands</artifactId>
+			<version>${scijava-plugins-commands.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scijava-plugins-text-markdown</artifactId>
+			<version>${scijava-plugins-text-markdown.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scijava-plugins-text-plain</artifactId>
+			<version>${scijava-plugins-text-plain.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scijava-ui-awt</artifactId>
+			<version>${scijava-ui-awt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scijava-ui-swing</artifactId>
+			<version>${scijava-ui-swing.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scripting-java</artifactId>
+			<version>${scripting-java.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scripting-jython</artifactId>
+			<version>${scripting-jython.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>jep</artifactId>
+			<version>${scijava-jep.version}</version>
+		</dependency>
+
+		<!-- SCIFIO Dependencies -->
+
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scifio</artifactId>
+			<version>${scifio.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scifio-bf-compat</artifactId>
+			<version>${scifio-bf-compat.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>scifio-lifesci</artifactId>
+			<version>${scifio-lifesci.version}</version>
+		</dependency>
+
+		<!-- ImageJ Dependencies -->
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>ij</artifactId>
+			<version>${imagej1-osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imagej-common</artifactId>
+			<version>${imagej-common.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imagej-ops</artifactId>
+			<version>${imagej-ops.version}</version>
+		</dependency>
+
+		<!-- ImgLib2 Dependencies -->
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imglib2</artifactId>
+			<version>${imglib2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imglib2-roi</artifactId>
+			<version>${imglib2-roi-osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imglib2-algorithm</artifactId>
+			<version>${imglib2-algorithm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imglib2-algorithm-fft</artifactId>
+			<version>${imglib2-algorithm-fft.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imglib2-algorithm-gpl</artifactId>
+			<version>${imglib2-algorithm-gpl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imglib2-realtransform</artifactId>
+			<version>${imglib2-realtransform-osgi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imglib2-ij</artifactId>
+			<version>${imglib2-ij-osgi.version}</version>
+		</dependency>
+
+		<!-- Misc Dependencies -->
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>mahout-collections</artifactId>
+			<version>${mahout-collections.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>jama</artifactId>
+			<version>${jama.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>knip-imglib2-ops</artifactId>
+			<version>${knip-imglib2-ops.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>knip-trackmate</artifactId>
+			<version>${knip-trackmate.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<includeAllDependencies>true</includeAllDependencies>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<!-- this line tells tycho to search maven dependencies for the osgi 
+						bundles/eclipse plugins -->
+					<pomDependencies>consider</pomDependencies>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+

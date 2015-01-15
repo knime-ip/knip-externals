@@ -41,7 +41,7 @@
 		<imglib2-ui-osgi.version>2.0.0</imglib2-ui-osgi.version>
 		<imglib2-realtransform-osgi.version>2.0.0</imglib2-realtransform-osgi.version>
 		<imagej1-osgi.version>1.49</imagej1-osgi.version>
-		<knip-trackmate.version>2.6.4</knip-trackmate.version>
+		<knip-trackmate.version>2.7.1</knip-trackmate.version>
 	</properties>
 
 	<prerequisites>

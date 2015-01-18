@@ -112,10 +112,19 @@
 		</dependency>
 		<dependency>
 			<groupId>org.knime.knip</groupId>
+			<artifactId>imagej-ui-awt</artifactId>
+			<version>${imagej-ui-awt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imagej-ui-swing</artifactId>
+			<version>${imagej-ui-swing.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
 			<artifactId>imagej-ops</artifactId>
 			<version>${imagej-ops.version}</version>
 		</dependency>
-
 		<!-- ImgLib2 Dependencies -->
 		<dependency>
 			<groupId>org.knime.knip</groupId>

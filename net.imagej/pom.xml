@@ -21,6 +21,8 @@
 		<module>ij</module>
 		<module>imagej-common</module>
 		<module>imagej-ops</module>
+		<module>imagej-ui-awt</module>
+		<module>imagej-ui-swing</module>
 	</modules>
 
 </project>

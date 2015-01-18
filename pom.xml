@@ -30,7 +30,7 @@
 
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->
-		<knip-imglib2-ops.version>0.1.3</knip-imglib2-ops.version>
+		<knip-imglib2-ops.version>0.1.4</knip-imglib2-ops.version>
 		<imglib2-roi.version>0.2.1-SNAPSHOT</imglib2-roi.version>
 
 		<!-- TODO OSGi doesn't support non-numerical version numbers. Therefore 

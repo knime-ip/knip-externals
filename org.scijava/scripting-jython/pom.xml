@@ -13,7 +13,7 @@
 		<bundle.parent>org.scijava</bundle.parent>
 		<bundle.name>scripting-jython</bundle.name>
 		<bundle.version>${scripting-jython.version}</bundle.version>
-		<export.contents>org.scijava.plugins.scripting-jython.*</export.contents>
+		<export.contents>org.scijava.plugins.scripting.jython.*</export.contents>
 	</properties>
 
 	<artifactId>${bundle.name}</artifactId>

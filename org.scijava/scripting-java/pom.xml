@@ -7,7 +7,7 @@
 		<bundle.parent>org.scijava</bundle.parent>
 		<bundle.name>scripting-java</bundle.name>
 		<bundle.version>${scripting-java.version}</bundle.version>
-		<export.contents>org.scijava.plugins.scripting-java.*</export.contents>
+		<export.contents>org.scijava.plugins.scripting.java.*</export.contents>
 	</properties>
 
 	<parent>

@@ -22,6 +22,7 @@
 	<bundle id="imagej-ops" version="0.0.0" />
 	<bundle id="imagej-ui-awt" version="0.0.0" />
 	<bundle id="imagej-ui-swing" version="0.0.0" />
+	<bundle id="imagej-plugins-commands" version="0.0.0" />
 
 	<bundle id="imglib2" version="0.0.0" />
 	<bundle id="imglib2-roi" version="0.0.0" />

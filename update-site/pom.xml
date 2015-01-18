@@ -125,6 +125,12 @@
 			<artifactId>imagej-ops</artifactId>
 			<version>${imagej-ops.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.knime.knip</groupId>
+			<artifactId>imagej-plugins-commands</artifactId>
+			<version>${imagej-plugins-commands.version}</version>
+		</dependency>
+
 		<!-- ImgLib2 Dependencies -->
 		<dependency>
 			<groupId>org.knime.knip</groupId>

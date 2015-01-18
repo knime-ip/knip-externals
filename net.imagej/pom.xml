@@ -23,6 +23,7 @@
 		<module>imagej-ops</module>
 		<module>imagej-ui-awt</module>
 		<module>imagej-ui-swing</module>
+		<module>imagej-plugins-commands</module>
 	</modules>
 
 </project>

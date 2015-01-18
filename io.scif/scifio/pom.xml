@@ -44,6 +44,22 @@
 			<type>bundle</type>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-common</artifactId>
+			<version>${imagej-common.version}</version>
+			<scope>provided</scope>
+			<type>bundle</type>
+		</dependency>
+
+		<dependency>
+			<groupId>net.imglib2</groupId>
+			<artifactId>imglib2-roi</artifactId>
+			<version>${imglib2-roi.version}</version>
+			<scope>provided</scope>
+			<type>bundle</type>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -56,7 +72,9 @@
 					<instructions>
 						<Require-Bundle>
 							scijava-common;bundle-version="${scijava-common.version}",
-							imglib2;bundle-version="${imglib2.version}"
+							imglib2;bundle-version="${imglib2.version}",
+							imglib2-roi;bundle-version="${imglib2-roi-osgi.version}",
+							imagej-common;bundle-version="${imagej-common.version}"
 						</Require-Bundle>
 					</instructions>
 				</configuration>

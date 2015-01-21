@@ -1,0 +1,69 @@
+<!--
+	KNIP - External Update Site
+ -->
+<!DOCTYPE updatesite SYSTEM "updatesite.dtd">
+<updatesite>
+	<!-- additional repositories to use -->
+	<repositories>
+		<repository>
+			<id>imagej.public</id>
+			<url>http://maven.imagej.net/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<!-- net.imagej bundles -->
+	<bundlegroup name="net.imagej">
+		<bundle name="ij" version="1.49">
+			<artifacts>
+				<artifact> 
+					<id>ij</id>
+					<group>net.imagej</group>
+					<version>${imagej1.version}</version>
+				</artifact>
+			</artifacts>
+			<export>ij.*</export>
+		</bundle>
+		
+		<bundle name="imagej-common" version="${imagej-common.version}">
+			<artifacts>
+				<artifact> 
+					<id>imagej-common</id>
+					<group>net.imagej</group>
+					<version>${imagej-common.version}</version>
+				</artifact>
+			</artifacts>
+			<dependencies>
+				<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}"/>
+				<bundleref name="net.imglib:imglib2" version="${imglib2.version}"/>
+				<bundleref name="net.imglib:imglib2-roi" version="${imglib2-roi-osgi.version}"/>
+			</dependencies>
+			<export>net.imagej.*, net.imglib2.meta.*</export>
+		</bundle>
+	</bundlegroup>
+	
+	<!-- net.imagej bundles -->
+	<bundlegroup name="net.imglib">
+		<bundle name="imglib2" version="1.0.0">
+			<artifacts>
+				<artifact>
+					<id>imglib2</id>
+					<group>net.imglib2</group>
+					<version>${imglib2.version}</version>
+				</artifact>
+			</artifacts>
+			<export>net.imglib2.*</export>
+			<dependencies>
+				<bundleref name="net.imglib.imglib2" version="${imglib2.version}"/>
+				<bundleref name="net.imglib.imglib2-roi" version="${imglib2-roi-osgi.version}"/>
+				<bundleref name="net.imglib.imglib2-algorithm" version="${imglib2-algorithm.version}"/>
+				<bundleref name="net.imglib.imglib2-algorithm-fft" version="${imglib2-algorithm-fft.version}"/>
+				<bundleref name="net.imagej.imagej-common" version="${imagej-common.version}"/>
+				<bundleref name="net.scijava.scijava-common" version="${scijava-common.version}"/>
+				<bundleref name="net.imglib.imglib2-algorithm-gpl" version="${imglib2-algorithm-gpl.version}"/>
+				<bundleref name="net.imglib.imglib2-realtransform" version="${imglib2-realtransform-osgi.version}"/>
+				<bundleref name="net.imglib.imglib2-ij" version="${imglib2-ij-osgi.version}"/>
+			</dependencies>
+		</bundle>
+	</bundlegroup>
+
+</updatesite>

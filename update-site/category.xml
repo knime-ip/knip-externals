@@ -13,10 +13,12 @@
 	<bundle id="scripting-jython" version="0.0.0" />
 	<bundle id="scripting-java" version="0.0.0" />
 
+	<!-- Scifio -->
 	<bundle id="scifio" version="0.0.0" />
 	<bundle id="scifio-bf-compat" version="0.0.0" />
 	<bundle id="scifio-lifesci" version="0.0.0" />
 
+	<!-- ImageJ -->
 	<bundle id="imagej-common" version="0.0.0" />
 	<bundle id="ij" version="0.0.0" />
 	<bundle id="imagej-ops" version="0.0.0" />
@@ -24,6 +26,7 @@
 	<bundle id="imagej-ui-swing" version="0.0.0" />
 	<bundle id="imagej-plugins-commands" version="0.0.0" />
 
+	<!-- ImgLib2 -->
 	<bundle id="imglib2" version="0.0.0" />
 	<bundle id="imglib2-roi" version="0.0.0" />
 	<bundle id="imglib2-algorithm" version="0.0.0" />
@@ -32,6 +35,7 @@
 	<bundle id="imglib2-ij" version="0.0.0" />
 	<bundle id="imglib2-realtransform" version="0.0.0" />
 
+	<!-- Other -->
 	<bundle id="jama" version="0.0.0" />
 	<bundle id="mahout-collections" version="0.0.0" />
 	<bundle id="knip-imglib2-ops" version="0.0.0" />

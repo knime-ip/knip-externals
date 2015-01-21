@@ -1,0 +1,24 @@
+<!-- dtd for update site xmls -->
+
+<!ELEMENT updatesite (repositories, bundlegroup+, bundle+)>
+	<!ELEMENT repositories (repository?)>
+		<!ELEMENT repository (id, url)>
+	<!ELEMENT bundlegroup (bundle+)>
+	<!ATTLIST bundlegroup name CDATA #REQUIRED>
+		<!ELEMENT bundle (artifacts, export?, import?, dependencies?, instructions?)>
+		<!ATTLIST bundle name CDATA #REQUIRED
+						 version CDATA #REQUIRED>
+						 
+			<!ELEMENT artifacts (artifact+)>
+				<!ELEMENT artifact (id, group, version)>
+			<!ELEMENT export (#PCDATA)>
+			<!ELEMENT import (#PCDATA)>
+			<!ELEMENT dependencies (bundleref*)>
+					<!ELEMENT bundleref EMPTY>
+					<!ATTLIST bundleref name CDATA #REQUIRED
+									version CDATA #REQUIRED>
+			<!ELEMENT instructions ANY>
+	<!ELEMENT id (#PCDATA)>
+	<!ELEMENT url (#PCDATA)>
+	<!ELEMENT group (#PCDATA)>
+	<!ELEMENT version (#PCDATA)>

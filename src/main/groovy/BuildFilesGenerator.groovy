@@ -138,7 +138,11 @@ class UpdateSite {
 	List<BundleGroup> bundleGroups
 	List<Repository> repositories
 	
-	UpdateSite() {
+	String group, name
+	
+	UpdateSite(p_group, p_name) {
+		this.group = p_group
+		this.name  = p_name
 		this.bundleGroups = new ArrayList<BundleGroup>()
 		this.repositories = new ArrayList<Repository>()
 	}
@@ -173,7 +177,7 @@ class DataCollector {
 	UpdateSite site
 	
 	DataCollector() {
-		this.site = new UpdateSite();
+		this.site = null;
 	}
 	
 	void collectDataFromXML(String p_filename) throws IOException {
@@ -191,7 +195,8 @@ class DataCollector {
 			
 			def updateSiteTag = groovy.xml.DOMBuilder.parse(reader).documentElement
 			use (DOMCategory) {
-				
+			def splitName = updateSiteTag.'@name'.split(':')
+			this.site = new UpdateSite(splitName[0], splitName[1]);
 			// assuming "<updatesite>"		
 			if (updateSiteTag.'repositories' != null) {
 				updateSiteTag.repositories[0].'repository'.each {
@@ -305,7 +310,7 @@ def main() {
 	def DataCollector data = new DataCollector()
 	data.collectDataFromXML(buildDir + File.separator + inputFile)
 	
-	log.info("> Generating parnet, bundlegroup and bundle poms...")
+	log.info("> Generating parent, bundlegroup and bundle poms...")
 	
 	/*
 	 * Generate Bundle Poms
@@ -360,7 +365,7 @@ def main() {
 						+ "\t\t<groupId>" + a.group + "</groupId>\n"
 						+ "\t\t<artifactId>" + a.name + "</artifactId>\n"
 						+ "\t\t<version>" + a.version + "</version>\n"
-						+ "\t</dependency>")
+						+ "\t</dependency>\n")
 				}
 				for (BundleRef d : bundle.dependencies) {
 					dependencies += ("\n<depdendency> \n"
@@ -368,7 +373,7 @@ def main() {
 						+ "\t\t<artifactId>" + d.name + "</artifactId>\n"
 						+ "\t\t<version>" + d.version + "</version>\n"
 						+ "\t\t<type>bundle</type>\n\t\t<scope>provided</scope>"
-						+ "\t</dependency>")
+						+ "\t</dependency>\n")
 				}
 				
 				bundleTemplate.writeFile(buildDir + File.separator + group.name + File.separator + bundle.name, "pom.xml", [
@@ -384,16 +389,42 @@ def main() {
 			group_map['MODULES'] = modules + "</modules>\n"
 			
 			bundleGroupTemplate.writeFile(buildDir + File.separator + group.name, "pom.xml", group_map)
-			log.info("Written file: " + buildDir + File.separator + group.name + File.separator + "pom.xml")
 		}
 		parentTemplate.writeFile(buildDir, "pom.xml", ["MODULES":parentModules+"</modules>","REPOSITORIES":parentRepos+"</repositories>"])
 	} catch(IOException e) {
 		fail("Could not open template file '" + p_filename + "'.")
 	}
+	
 	log.info("> Generating update site pom.xml...")
-	//TODO
+	def String updateSiteTemplateFilename = properties['updateSiteTemplate']
+	if (updateSiteTemplateFilename == null) {
+		fail("Property 'updateSiteTemplate' undefined. Please define a .xml template file in <properties> tag.")
+	}
+	
+	def Template updateSiteTemplate = new Template(templateDir + File.separator + updateSiteTemplateFilename)
+	
+	def dependencies = "<dependencies>\n"
+	def bundles = ""
+	data.site.bundleGroups.each {
+		group -> group.bundles.each {
+			bundle-> dependencies += ("\t<dependency> \n"
+				+ "\t\t<groupId>" + data.site.group + "</groupId>\n"
+				+ "\t\t<artifactId>" + bundle.name + "</artifactId>\n"
+				+ "\t\t<version>" + bundle.version + "</version>\n\t</dependencies>"
+				)
+				bundles += "\t<bundle id=\"" + bundle.name + "\" version=\"0.0.0\" />\n"
+		}
+	}
+	updateSiteTemplate.writeFile(buildDir + File.separator + "update-site", "pom.xml", ["GROUP":data.site.group,"NAME":data.site.name,"DEPENDENCIES":dependencies+"\t</dependencies>\n"])
+	
 	log.info("> Generating category.xml...")
-	//TODO
+	def String categoryTemplateFilename = properties['categoryTemplate']
+	if (categoryTemplateFilename == null) {
+		fail("Property 'categoryTemplate' undefined. Please define a .xml template file in <properties> tag.")
+	}
+	
+	def Template categoryTemplate = new Template(templateDir + File.separator + categoryTemplateFilename)
+	categoryTemplate.writeFile(buildDir + File.separator + "update-site", "category.xml", ["BUNDLES":bundles])
 	
 	log.info("> SUCCESS!")
 }

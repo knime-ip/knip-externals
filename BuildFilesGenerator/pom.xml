@@ -47,8 +47,9 @@
 								<input>udapte-site.xml</input>
 								<templateDir>src/main/templates/</templateDir>
 								<bundleTemplate>bundle_template.xml</bundleTemplate>
-								<udpateSiteTemplate>updatesite_template.xml</udpateSiteTemplate>
+								<updateSiteTemplate>updatesite_template.xml</updateSiteTemplate>
 								<parentTemplate>parent_template.xml</parentTemplate>
+								<categoryTemplate>category_template.xml</categoryTemplate>
 								<bundleGroupTemplate>bundlegroup_template.xml</bundleGroupTemplate>
 							</properties>
 							<source>${pom.basedir}/../src/main/groovy/BuildFilesGenerator.groovy</source>

@@ -10,7 +10,7 @@
 						 version CDATA #REQUIRED>
 						 
 			<!ELEMENT artifacts (artifact+)>
-				<!ELEMENT artifact (id|group,version)>
+				<!ELEMENT artifact (id|group|version)>
 			<!ELEMENT export (#PCDATA)>
 			<!ELEMENT import (#PCDATA)>
 			<!ELEMENT dependencies (bundleref*)>

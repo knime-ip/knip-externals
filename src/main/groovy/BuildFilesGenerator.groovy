@@ -180,31 +180,44 @@ class DataCollector {
 		this.site = null;
 	}
 	
-	void collectDataFromXML(String p_filename) throws IOException {
+	void collectDataFromXML(String buildDir, String p_filename) throws IOException {
 		def files = [p_filename] as Queue
 		def path, reader
 		
 		while ((path = files.poll()) != null) {
 			try {
-				reader = new FileReader(path)
+				reader = new FileReader(buildDir + File.separator + path)
 			} catch(IOException e) {
-				log.error("Could not open xml '" + path + "'.")
 				throw e
 			}
 			
 			
-			def updateSiteTag = groovy.xml.DOMBuilder.parse(reader).documentElement
+			def mainTag = groovy.xml.DOMBuilder.parse(reader).documentElement
 			use (DOMCategory) {
-			def splitName = updateSiteTag.'@name'.split(':')
-			this.site = new UpdateSite(splitName[0], splitName[1]);
-			// assuming "<updatesite>"		
-			if (updateSiteTag.'repositories' != null) {
-				updateSiteTag.repositories[0].'repository'.each {
-					repo -> this.site.addRepository(repo.'id'.text(), repo.'url'.text())
-				}
-			}
 				
-			updateSiteTag.'bundlegroup'.each {
+			def bundleGroupTags = null
+			if (mainTag.name() == "updatesite") {
+				def splitName = mainTag.'@name'.split(':')
+				this.site = new UpdateSite(splitName[0], splitName[1]);
+				
+				if (mainTag.'repositories' != null) {
+					mainTag.repositories[0].'repository'.each {
+						repo -> this.site.addRepository(repo.'id'.text(), repo.'url'.text())
+					}
+				}
+				
+				mainTag.'include'.each {
+					filename -> files.offer(filename.text())
+				}
+				bundleGroupTags = mainTag.'bundlegroup'
+				
+			} else if (mainTag.name() == "bundlegroup") {
+				bundleGroupTags = [mainTag]
+			} else {
+				fail "Invalid document element in \"" + buildDir + File.separator + path + "\""
+			}
+			
+			bundleGroupTags.each {
 					bundleGroupTag ->
 						def bundlegroup = new BundleGroup(bundleGroupTag.'@name')
 						
@@ -233,18 +246,6 @@ class DataCollector {
 						}
 						site.addBundleGroup(bundlegroup)
 			}
-			
-			//TODO sub xmls 
-//			if (tag.nodeName == 'sublist') {
-//				String subpath = tag.firstChild.nodeValue
-//				if (!subpath.startsWith('/')) {
-//					// is a relative path (relative to this .xml)
-//					String dir = path.substring(0, path.lastIndexOf('/')+1)
-//					subpath = dir + subpath
-//				}
-//				files.offer(subpath)
-//			}
-			
 			}
 		}
 	}
@@ -308,7 +309,7 @@ def main() {
 	}
 	
 	def DataCollector data = new DataCollector()
-	data.collectDataFromXML(buildDir + File.separator + inputFile)
+	data.collectDataFromXML(buildDir, inputFile)
 	
 	log.info("> Generating parent, bundlegroup and bundle poms...")
 	

@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<bundle.name>%(BUNDLE_NAME)</bundle.name>
+		<bundle.version>%(BUNDLE_VERSION)</bundle.version>
+		<export.contents>%(BUNDLE_EXPORT)</export.contents>
+		<import.packages>%(BUNDLE_IMPORT)</import.packages>
+	</properties>
+
+	<parent>
+		<groupId>org.knime.knip</groupId>
+		<artifactId>%(BUNDLE_GROUP)</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>${bundle.name}</artifactId>
+	<name>${bundle.name}</name>
+	<version>${bundle.version}</version>
+
+	<packaging>bundle</packaging>
+
+%(BUNDLE_ARTIFACTS)
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+%(BUNDLE_INSTRUCTIONS)
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -2,7 +2,7 @@
 	KNIP - External Update Site
  -->
 <!DOCTYPE updatesite SYSTEM "updatesite.dtd">
-<updatesite>
+<updatesite name="org.knime.knip:knip-osgi-update-site">
 	<!-- additional repositories to use -->
 	<repositories>
 		<repository>

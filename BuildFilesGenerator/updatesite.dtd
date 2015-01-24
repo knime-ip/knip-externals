@@ -1,6 +1,7 @@
 <!-- dtd for update site xmls -->
 
 <!ELEMENT updatesite (repositories?,bundlegroup+)>
+<!ATTLIST updatesite name CDATA #REQUIRED>
 	<!ELEMENT repositories (repository?)>
 		<!ELEMENT repository (id,url)>
 	<!ELEMENT bundlegroup (bundle+)>

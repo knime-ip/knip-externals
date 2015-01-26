@@ -1,6 +1,6 @@
 <!-- dtd for update site xmls -->
 
-<!ELEMENT updatesite (repositories?,bundlegroup+)>
+<!ELEMENT updatesite (repositories?|bundlegroup*|include*)>
 <!ATTLIST updatesite name CDATA #REQUIRED>
 	<!ELEMENT repositories (repository?)>
 		<!ELEMENT repository (id,url)>
@@ -23,3 +23,4 @@
 	<!ELEMENT url (#PCDATA)>
 	<!ELEMENT group (#PCDATA)>
 	<!ELEMENT version (#PCDATA)>
+	<!ELEMENT include (#PCDATA)>

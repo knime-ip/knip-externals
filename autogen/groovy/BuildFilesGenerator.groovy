@@ -359,6 +359,7 @@ def main() {
 				modules += "\t<module>" + bundle.name + "</module>\n"
 				
 				String dependencies = "<dependencies>\n"
+				String requireBundles = ""
 				
 				for (Artifact a : bundle.artifacts) {
 					dependencies += ("\n<dependency> \n"
@@ -367,6 +368,7 @@ def main() {
 						+ "\t\t<version>" + a.version + "</version>\n"
 						+ "\t</dependency>\n")
 				}
+				def first = true;
 				for (BundleRef d : bundle.dependencies) {
 					dependencies += ("\n<dependency> \n"
 						+ "\t\t<groupId>" + d.group + "</groupId>\n"
@@ -374,13 +376,21 @@ def main() {
 						+ "\t\t<version>" + d.version + "</version>\n"
 						+ "\t\t<type>bundle</type>\n\t\t<scope>provided</scope>"
 						+ "\t</dependency>\n")
+					if (first) {
+						first = false
+					} else {
+						requireBundles += ",\n"
+					}
+					requireBundles += "\t\t" + d.name + ";bundle-version=\"" + d.version + "\""
 				}
+				
+				requireBundles = (requireBundles.isEmpty()) ? "" : "\t<Require-Bundle>\n" + requireBundles + "\n\t</Require-Bundle>\n"
 				
 				bundleTemplate.writeFile(buildDir + File.separator + group.name + File.separator + bundle.name, "pom.xml", [
 					"BUNDLE_GROUP":bundle.group.name,
 					"BUNDLE_NAME":bundle.name,
 					"BUNDLE_VERSION":bundle.version,
-					"BUNDLE_INSTRUCTIONS":bundle.instructions,
+					"BUNDLE_INSTRUCTIONS":"<instructions>\n" + requireBundles + bundle.instructions + "</instructions>",
 					"BUNDLE_EXPORT":bundle.exports,
 					"BUNDLE_IMPORT":bundle.imports,
 					"BUNDLE_ARTIFACTS":dependencies + "</dependencies>\n"

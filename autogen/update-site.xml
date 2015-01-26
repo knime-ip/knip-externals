@@ -1,0 +1,25 @@
+<!-- KNIP - External Update Site -->
+<!DOCTYPE updatesite SYSTEM "updatesite.dtd">
+<updatesite name="org.knime.knip:knip-osgi-update-site">
+	<!-- additional repositories to use -->
+	<repositories>
+		<repository>
+			<id>imagej.public</id>
+			<url>http://maven.imagej.net/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>knime211</id>
+			<layout>p2</layout>
+			<url>http://www.knime.org/update/2.11/</url>
+		</repository>
+	</repositories>
+
+	<include>bundlegroups/gov.nist.math.xml</include>
+	<include>bundlegroups/io.scif.xml</include>
+	<include>bundlegroups/net.imagej.xml</include>
+	<include>bundlegroups/net.imglib2.xml</include>
+	<include>bundlegroups/net.sf.trove4j.xml</include>
+	<include>bundlegroups/org.knime.knip.xml</include>
+	<include>bundlegroups/org.scijava.xml</include>
+
+</updatesite>

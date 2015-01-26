@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>net.imagej</groupId>
 		<artifactId>pom-imagej</artifactId>
-		<version>5.3.0</version>
+		<version>5.7.0</version>
 		<relativePath />
 	</parent>
 
@@ -19,15 +19,15 @@
   	This project generates multiple pom.xml from a single xml file 
   	which can be used to generate a p2-repository from maven dependencies.
   	</description>
-  	
-  	<dependencies>
-  		<dependency>
-		    <groupId>org.codehaus.gmaven</groupId>
-		    <artifactId>groovy-maven-plugin</artifactId>
-		    <version>2.0</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.codehaus.gmaven</groupId>
+			<artifactId>groovy-maven-plugin</artifactId>
+			<version>2.0</version>
 		</dependency>
-  	</dependencies>
-  	
+	</dependencies>
+
 
 	<build>
 		<plugins>
@@ -43,16 +43,16 @@
 						</goals>
 						<configuration>
 							<properties>
-								<buildDir>${pom.basedir}/../</buildDir>
-								<input>udapte-site.xml</input>
-								<templateDir>src/main/templates/</templateDir>
+								<buildDir>${pom.basedir}/../target/</buildDir>
+								<input>${pom.basedir}/update-site.xml</input>
+								<templateDir>${pom.basedir}/templates/</templateDir>
 								<bundleTemplate>bundle_template.xml</bundleTemplate>
 								<updateSiteTemplate>updatesite_template.xml</updateSiteTemplate>
 								<parentTemplate>parent_template.xml</parentTemplate>
 								<categoryTemplate>category_template.xml</categoryTemplate>
 								<bundleGroupTemplate>bundlegroup_template.xml</bundleGroupTemplate>
 							</properties>
-							<source>${pom.basedir}/../src/main/groovy/BuildFilesGenerator.groovy</source>
+							<source>${pom.basedir}/groovy/BuildFilesGenerator.groovy</source>
 						</configuration>
 					</execution>
 				</executions>

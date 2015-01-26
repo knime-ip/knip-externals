@@ -186,7 +186,7 @@ class DataCollector {
 		
 		while ((path = files.poll()) != null) {
 			try {
-				reader = new FileReader(buildDir + File.separator + path)
+				reader = new FileReader(path)
 			} catch(IOException e) {
 				throw e
 			}
@@ -321,7 +321,6 @@ def main() {
 		log.warn("Property 'templateDir' undefined. Assuming buildDir.")
 		templateDir = ""
 	}
-	templateDir = buildDir + File.separator + templateDir
 	
 	def String parentTemplateFilename = properties['parentTemplate']
 	if (parentTemplateFilename == null) {
@@ -369,7 +368,7 @@ def main() {
 						+ "\t</dependency>\n")
 				}
 				for (BundleRef d : bundle.dependencies) {
-					dependencies += ("\n<depdendency> \n"
+					dependencies += ("\n<dependency> \n"
 						+ "\t\t<groupId>" + d.group + "</groupId>\n"
 						+ "\t\t<artifactId>" + d.name + "</artifactId>\n"
 						+ "\t\t<version>" + d.version + "</version>\n"
@@ -411,7 +410,7 @@ def main() {
 			bundle-> dependencies += ("\t<dependency> \n"
 				+ "\t\t<groupId>" + data.site.group + "</groupId>\n"
 				+ "\t\t<artifactId>" + bundle.name + "</artifactId>\n"
-				+ "\t\t<version>" + bundle.version + "</version>\n\t</dependencies>"
+				+ "\t\t<version>" + bundle.version + "</version>\n\t</dependency>"
 				)
 				bundles += "\t<bundle id=\"" + bundle.name + "\" version=\"0.0.0\" />\n"
 		}

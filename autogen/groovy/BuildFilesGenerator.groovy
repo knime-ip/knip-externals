@@ -362,12 +362,12 @@ def main() {
 		// add bundle groups and generate bundlegroup poms
 		for(BundleGroup group : data.site.bundleGroups) {
 			def Map group_map = ["BUNDLEGROUP_NAME":group.name]
-			modules = "<modules>\n"
-			parentModules += "\t<module>" + group.name + "</module>\n"
+			modules = "\t<modules>\n"
+			parentModules += "\t\t<module>" + group.name + "</module>\n"
 			
 			// add bundles and generate bundle poms
 			for (Bundle bundle : group.bundles) {
-				modules += "\t<module>" + bundle.name + "</module>\n"
+				modules += "\t\t<module>" + bundle.name + "</module>\n"
 				
 				String dependencies = "\t<dependencies>\n"
 				String requireBundles = ""
@@ -407,11 +407,11 @@ def main() {
 					"BUNDLE_ARTIFACTS":dependencies + "\t</dependencies>\n"
 				])
 			}
-			group_map['MODULES'] = modules + "</modules>\n"
+			group_map['MODULES'] = modules + "\t</modules>\n"
 			
 			bundleGroupTemplate.writeFile(buildDir + File.separator + group.name, "pom.xml", group_map)
 		}
-		parentTemplate.writeFile(buildDir, "pom.xml", ["MODULES":parentModules+"</modules>","REPOSITORIES":parentRepos+"\t</repositories>"])
+		parentTemplate.writeFile(buildDir, "pom.xml", ["MODULES":parentModules+"\t</modules>","REPOSITORIES":parentRepos+"\t</repositories>"])
 	} catch(IOException e) {
 		fail("Could not open template file '" + p_filename + "'.")
 	}

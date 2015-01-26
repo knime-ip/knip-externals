@@ -122,11 +122,16 @@ class BundleGroup {
  * Contains information about an additional repository.
  */
 class Repository {
-	String id, url
+	String id, layout, url
 	
-	Repository(p_id,p_url) {
+	Repository(p_id, p_url) {
+		this(p_id, "", p_url)
+	}
+	
+	Repository(p_id, p_layout, p_url) {
 		this.id = p_id
 		this.url = p_url
+		this.layout = p_layout
 	}
 }
 
@@ -155,8 +160,12 @@ class UpdateSite {
 		return
 	}
 	
-	void addRepository(p_id, p_url) {
-		this.repositories.add(new Repository(p_id, p_url))
+	void addRepository(p_id, p_layout, p_url) {
+		if (p_layout != null) {
+			this.repositories.add(new Repository(p_id, p_layout, p_url))
+		} else {
+			this.repositories.add(new Repository(p_id, p_url))
+		}
 	}
 	
 	void addBundleGroup(BundleGroup p_bg) {
@@ -202,7 +211,7 @@ class DataCollector {
 				
 				if (mainTag.'repositories' != null) {
 					mainTag.repositories[0].'repository'.each {
-						repo -> this.site.addRepository(repo.'id'.text(), repo.'url'.text())
+						repo -> this.site.addRepository(repo.'id'.text(), repo.'layout'.text(), repo.'url'.text())
 					}
 				}
 				
@@ -345,7 +354,9 @@ def main() {
 		
 		// add repositories
 		for(Repository repo : data.site.repositories) {
-			parentRepos += "\t<repository><id>" + repo.id + "</id><url>" + repo.url + "</url></repository>\n"
+			parentRepos += ("\t\t<repository>\n\t\t\t<id>" + repo.id + "</id>\n"
+				 + ((repo.layout.isEmpty()) ? ("") : ("\t\t\t<layout>" + repo.layout + "</layout>\n"))
+				 + "\t\t\t<url>" + repo.url + "</url>\n\t\t</repository>\n")
 		}
 		
 		// add bundle groups and generate bundlegroup poms
@@ -400,7 +411,7 @@ def main() {
 			
 			bundleGroupTemplate.writeFile(buildDir + File.separator + group.name, "pom.xml", group_map)
 		}
-		parentTemplate.writeFile(buildDir, "pom.xml", ["MODULES":parentModules+"</modules>","REPOSITORIES":parentRepos+"</repositories>"])
+		parentTemplate.writeFile(buildDir, "pom.xml", ["MODULES":parentModules+"</modules>","REPOSITORIES":parentRepos+"\t</repositories>"])
 	} catch(IOException e) {
 		fail("Could not open template file '" + p_filename + "'.")
 	}

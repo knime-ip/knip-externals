@@ -2,8 +2,8 @@
 
 <!ELEMENT updatesite (repositories?|bundlegroup*|include*)>
 <!ATTLIST updatesite name CDATA #REQUIRED>
-	<!ELEMENT repositories (repository?)>
-		<!ELEMENT repository (id,url)>
+	<!ELEMENT repositories (repository*)>
+		<!ELEMENT repository (id,layout?,url)>
 	<!ELEMENT bundlegroup (bundle+)>
 	<!ATTLIST bundlegroup name CDATA #REQUIRED>
 		<!ELEMENT bundle (artifacts|export?|import?|dependencies?|instructions?)>
@@ -20,6 +20,7 @@
 									version CDATA #REQUIRED>
 			<!ELEMENT instructions ANY>
 	<!ELEMENT id (#PCDATA)>
+	<!ELEMENT layout (#PCDATA)>
 	<!ELEMENT url (#PCDATA)>
 	<!ELEMENT group (#PCDATA)>
 	<!ELEMENT version (#PCDATA)>

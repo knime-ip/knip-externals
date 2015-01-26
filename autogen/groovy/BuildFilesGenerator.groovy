@@ -191,7 +191,8 @@ class DataCollector {
 	
 	void collectDataFromXML(String buildDir, String p_filename) throws IOException {
 		def files = [p_filename] as Queue
-		def path, reader
+		def path, reader		
+		def prefix = p_filename.substring(0, p_filename.lastIndexOf('/'))
 		
 		while ((path = files.poll()) != null) {
 			try {
@@ -216,7 +217,7 @@ class DataCollector {
 				}
 				
 				mainTag.'include'.each {
-					filename -> files.offer(filename.text())
+					filename -> files.offer(prefix + File.separator + filename.text())
 				}
 				bundleGroupTags = mainTag.'bundlegroup'
 				

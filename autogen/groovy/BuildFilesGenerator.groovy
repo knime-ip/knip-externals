@@ -358,24 +358,24 @@ def main() {
 			for (Bundle bundle : group.bundles) {
 				modules += "\t<module>" + bundle.name + "</module>\n"
 				
-				String dependencies = "<dependencies>\n"
+				String dependencies = "\t<dependencies>\n"
 				String requireBundles = ""
 				
 				for (Artifact a : bundle.artifacts) {
-					dependencies += ("\n<dependency> \n"
-						+ "\t\t<groupId>" + a.group + "</groupId>\n"
-						+ "\t\t<artifactId>" + a.name + "</artifactId>\n"
-						+ "\t\t<version>" + a.version + "</version>\n"
-						+ "\t</dependency>\n")
+					dependencies += ("\t\t<dependency> \n"
+						+ "\t\t\t<groupId>" + a.group + "</groupId>\n"
+						+ "\t\t\t<artifactId>" + a.name + "</artifactId>\n"
+						+ "\t\t\t<version>" + a.version + "</version>\n"
+						+ "\t\t</dependency>\n")
 				}
 				def first = true;
 				for (BundleRef d : bundle.dependencies) {
-					dependencies += ("\n<dependency> \n"
-						+ "\t\t<groupId>" + d.group + "</groupId>\n"
-						+ "\t\t<artifactId>" + d.name + "</artifactId>\n"
-						+ "\t\t<version>" + d.version + "</version>\n"
-						+ "\t\t<type>bundle</type>\n\t\t<scope>provided</scope>"
-						+ "\t</dependency>\n")
+					dependencies += ("\n\t\t<dependency> \n"
+						+ "\t\t\t<groupId>" + d.group + "</groupId>\n"
+						+ "\t\t\t<artifactId>" + d.name + "</artifactId>\n"
+						+ "\t\t\t<version>" + d.version + "</version>\n"
+						+ "\t\t\t<type>bundle</type>\n\t\t\t<scope>provided</scope>\n"
+						+ "\t\t</dependency>\n")
 					if (first) {
 						first = false
 					} else {
@@ -393,7 +393,7 @@ def main() {
 					"BUNDLE_INSTRUCTIONS":"<instructions>\n" + requireBundles + bundle.instructions + "</instructions>",
 					"BUNDLE_EXPORT":bundle.exports,
 					"BUNDLE_IMPORT":bundle.imports,
-					"BUNDLE_ARTIFACTS":dependencies + "</dependencies>\n"
+					"BUNDLE_ARTIFACTS":dependencies + "\t</dependencies>\n"
 				])
 			}
 			group_map['MODULES'] = modules + "</modules>\n"
@@ -413,14 +413,14 @@ def main() {
 	
 	def Template updateSiteTemplate = new Template(templateDir + File.separator + updateSiteTemplateFilename)
 	
-	def dependencies = "<dependencies>\n"
+	def dependencies = "\t<dependencies>\n"
 	def bundles = ""
 	data.site.bundleGroups.each {
 		group -> group.bundles.each {
-			bundle-> dependencies += ("\t<dependency> \n"
-				+ "\t\t<groupId>" + data.site.group + "</groupId>\n"
-				+ "\t\t<artifactId>" + bundle.name + "</artifactId>\n"
-				+ "\t\t<version>" + bundle.version + "</version>\n\t</dependency>"
+			bundle-> dependencies += ("\t\t<dependency> \n"
+				+ "\t\t\t<groupId>" + data.site.group + "</groupId>\n"
+				+ "\t\t\t<artifactId>" + bundle.name + "</artifactId>\n"
+				+ "\t\t\t<version>" + bundle.version + "</version>\n\t\t</dependency>\n"
 				)
 				bundles += "\t<bundle id=\"" + bundle.name + "\" version=\"0.0.0\" />\n"
 		}

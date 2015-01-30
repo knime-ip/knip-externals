@@ -27,12 +27,12 @@
 	</bundle>
 
 	<!-- SciJava JEP -->
-	<bundle name="knip-imglib2-ops" version="${knip-imglib2-ops.version}">
+	<bundle name="knip-tmp-imglib2-ops" version="${knip-tmp-imglib2-ops.version}">
 		<artifacts>
 			<artifact>
-				<group>org.knime.knip</group>
-				<id>knip-imglib2-ops</id>
-				<version>${knip-imglib2-ops.version}</version>
+				<group>org.knime.knip.tmp</group>
+				<id>knip-tmp-imglib2-ops</id>
+				<version>${knip-tmp-imglib2-ops.version}</version>
 			</artifact>
 		</artifacts>
 		<export>net.imglib2.ops.*</export>

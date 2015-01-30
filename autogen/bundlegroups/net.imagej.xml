@@ -64,7 +64,7 @@
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 			<bundleref name="io.scif:scifio" version="${scifio.version}" />
 			<!-- TODO Remove this as soon as possible -->
-			<bundleref name="org.knime.knip:knip-imglib2-ops" version="${knip-imglib2-ops.version}" />
+			<bundleref name="org.knime.knip.tmp:knip-tmp-imglib2-ops" version="${knip-tmp-imglib2-ops.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imagej:imagej-ops" version="${imagej-ops.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />

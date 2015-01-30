@@ -1,5 +1,5 @@
 /**
- * BuildFilesGenerator - generates maven poms and category.xml from an udaptesite xml.
+ * BuildFilesGenerator - generates maven poms and category.xml from an update-site.xml.
  *
  * @author Jonathan Hale (University of Konstanz)
  */
@@ -8,6 +8,21 @@ import groovy.xml.DOMBuilder
 import groovy.xml.dom.DOMCategory
 import groovy.util.logging.Slf4j
 
+class Helper{
+	static String resolveProperty(p_project, p_version, p_compatible){
+
+		String version = p_version;
+		if(p_version.startsWith("\${")){
+			// maven version we need to worry!	
+			version = p_project.properties.getProperty(p_version.substring(2, p_version.length()-1));
+		}
+		if(p_compatible)
+			version = version.replaceAll("[^\\d.]", "")
+
+		return version
+	}
+}
+
 /**
  * Artifact
  * A maven artifact.
@@ -15,20 +30,20 @@ import groovy.util.logging.Slf4j
 class Artifact {
 	String group, name, version
 	
-	Artifact(p_group, p_name, p_version) {
+	Artifact(p_project, p_group, p_name, p_version) {
 		this.group 	= p_group
 		this.name 	= p_name
-		this.version= p_version
+		this.version	= Helper.resolveProperty(p_project, p_version, false)
 	}
 }
 
 /**
  * BundleRef
- * Barebones inforamtion about a bundle to reference it via its name, group and version.
+ * Barebones information about a bundle to reference it via its name, group and version.
  */
 class BundleRef extends Artifact {	
-	BundleRef(p_group, p_name, p_version) {
-		super(p_group, p_name, p_version)
+	BundleRef(project, p_group, p_name, p_version) {
+		super(project, p_group, p_name, p_version)
 	}
 }
 /**
@@ -43,31 +58,31 @@ class Bundle {
 	String name, version, instructions
 	String exports, imports
 			
-	Bundle(p_group, p_name, p_version) {
+	Bundle(p_project, p_group, p_name, p_version) {
 		this.group 	= p_group
 		this.name 	= p_name
-		this.version= p_version
+		this.version	= Helper.resolveProperty(p_project, p_version, true)
 		
 		/* default values */
 		this.instructions 	= ""
 		this.exports 		= "*"
-		this.imports		= "*" //TODO: ?
+		this.imports		= "" //TODO: ?
 		
 		
 		this.artifacts = new ArrayList<Artifact>()
 		this.dependencies = new ArrayList<BundleRef>()
 	}
 	
-	void addArtifact(p_group, p_name, p_version) {
-		this.artifacts.add(new Artifact(p_group, p_name, p_version))
+	void addArtifact(p_project, p_group, p_name, p_version) {
+		this.artifacts.add(new Artifact(p_project, p_group, p_name, p_version))
 	}
 	
 	void addArtifact(Artifact p_a) {
 		this.artifacts.add(p_a)
 	}
 	
-	void addDependency(p_group, p_name, p_version) {
-		this.dependencies.add(new BundleRef(p_group, p_name, p_version))
+	void addDependency(p_project, p_group, p_name, p_version) {
+		this.dependencies.add(new BundleRef(p_project, p_group, p_name, p_version))
 	}
 	
 	void addDependency(BundleRef p_br) {
@@ -189,7 +204,7 @@ class DataCollector {
 		this.site = null;
 	}
 	
-	void collectDataFromXML(String buildDir, String p_filename) throws IOException {
+	void collectDataFromXML(p_project, String buildDir, String p_filename) throws IOException {
 		def files = [p_filename] as Queue
 		def path, reader		
 		def prefix = p_filename.substring(0, p_filename.lastIndexOf('/'))
@@ -233,9 +248,9 @@ class DataCollector {
 						
 						bundleGroupTag.'bundle'.each {
 							bundleTag ->
-								def bundle = new Bundle(bundlegroup, bundleTag.'@name', bundleTag.'@version')
+								def bundle = new Bundle(p_project, bundlegroup, bundleTag.'@name', bundleTag.'@version')
 								bundleTag.'artifacts'[0].'artifact'.each {
-									artifact -> bundle.addArtifact(artifact.'group'.text(), artifact.'id'.text(), artifact.'version'.text())
+									artifact -> bundle.addArtifact(p_project, artifact.'group'.text(), artifact.'id'.text(), artifact.'version'.text())
 								}
 								
 								if (bundleTag.'dependencies' != null) {
@@ -243,7 +258,7 @@ class DataCollector {
 										bundleTag.'dependencies'[0].'bundleref'.each {
 											bundleref -> 
 											def name = bundleref.'@name'.split(':')
-											bundle.addDependency(name[0], name[1], bundleref.'@version')
+											bundle.addDependency(p_project, name[0], name[1], bundleref.'@version')
 										}
 									}
 								}
@@ -297,6 +312,7 @@ class Template {
  */
 def String VERSION = "0.0.1"
 
+
 /**
  * Main function
  */
@@ -319,7 +335,7 @@ def main() {
 	}
 	
 	def DataCollector data = new DataCollector()
-	data.collectDataFromXML(buildDir, inputFile)
+	data.collectDataFromXML(project, buildDir, inputFile)
 	
 	log.info("> Generating parent, bundlegroup and bundle poms...")
 	
@@ -393,7 +409,7 @@ def main() {
 					} else {
 						requireBundles += ",\n"
 					}
-					requireBundles += "\t\t" + d.name + ";bundle-version=\"" + d.version + "\""
+					requireBundles += "\t\t" + d.name + ";bundle-version=\"" + Helper.resolveProperty(project, d.version, true) + "\""
 				}
 				
 				requireBundles = (requireBundles.isEmpty()) ? "" : "\t<Require-Bundle>\n" + requireBundles + "\n\t</Require-Bundle>\n"
@@ -401,7 +417,7 @@ def main() {
 				bundleTemplate.writeFile(buildDir + File.separator + group.name + File.separator + bundle.name, "pom.xml", [
 					"BUNDLE_GROUP":bundle.group.name,
 					"BUNDLE_NAME":bundle.name,
-					"BUNDLE_VERSION":bundle.version,
+					"BUNDLE_VERSION":Helper.resolveProperty(project, bundle.version, true),
 					"BUNDLE_INSTRUCTIONS":"<instructions>\n" + requireBundles + bundle.instructions + "</instructions>",
 					"BUNDLE_EXPORT":bundle.exports,
 					"BUNDLE_IMPORT":bundle.imports,

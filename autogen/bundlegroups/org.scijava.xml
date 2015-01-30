@@ -120,7 +120,7 @@
 	</bundle>
 
 	<!-- SciJava Scripting-Java -->
-	<bundle name="scripting-java.java" version="${scripting-java.version}">
+	<bundle name="scripting-java" version="${scripting-java.version}">
 		<artifacts>
 			<artifact>
 				<group>org.scijava</group>

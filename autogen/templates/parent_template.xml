@@ -3,12 +3,6 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>net.imagej</groupId>
-		<artifactId>pom-imagej</artifactId>
-		<version>5.7.0</version>
-	</parent>
-
 	<groupId>org.knime.knip</groupId>
 	<artifactId>knip-externals</artifactId>
 	<packaging>pom</packaging>
@@ -17,23 +11,14 @@
 
 	<description>A parent POM for to create bundles for required dependencies</description>
 
-	<properties>
-		<scijava.enforce.skip />
-		<felix-plugin.version>2.4.0</felix-plugin.version>
-		<jep.version>2.4.2</jep.version>
-
-		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
-			knip-ops should be gone soon -->
-		<knip-tmp-imglib2-ops.version>0.1.4</knip-tmp-imglib2-ops.version>
-		<imglib2-roi.version>0.2.1-SNAPSHOT</imglib2-roi.version>
-		<knip-trackmate-fork.version>2.7.1</knip-trackmate-fork.version>
-		<trove4j.version>3.0.3</trove4j.version>
-	</properties>
-
 	<prerequisites>
 		<!-- excludes seem not to work correctly with older Maven -->
 		<maven>3.0.0</maven>
 	</prerequisites>
+
+	<properties>
+		<felix-plugin.version>2.4.0</felix-plugin.version>
+	</properties>
 
 
 	%(MODULES)

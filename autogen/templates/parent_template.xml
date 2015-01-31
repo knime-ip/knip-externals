@@ -72,8 +72,7 @@
 							<Private-Package></Private-Package>
 							<Embed-Transitive>true</Embed-Transitive>
 							<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
-							<!-- TODO <Export-Package>${export.packages}</Export-Package> -->
-							<_exportcontents>${export.contents};-split-package:=merge-last</_exportcontents>
+							<Export-Package>${export.contents}</Export-Package>
 							<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 							<Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
 						</instructions>

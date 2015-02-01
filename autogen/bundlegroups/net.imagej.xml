@@ -32,7 +32,7 @@
 			<bundleref name="net.imglib2:imglib2-algorithm-gpl" version="${imglib2-algorithm-gpl.version}" />
 			<bundleref name="net.imglib2:imglib2-ij" version="${imglib2-ij.version}" />
 		</dependencies>
-		<export>net.imagej.ops.*, net.imagej.threshold.*, net.imagej.operator.*</export>
+		<export>net.imagej.ops.*, net.imagej.threshold.*, net.imagej.operator.*, net.imagej.overlay.*, net.imagej.measure.*</export>
 	</bundle>
 
 	<!-- ImageJ-Common -->

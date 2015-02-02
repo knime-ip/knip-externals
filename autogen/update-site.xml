@@ -24,5 +24,6 @@
 	<include>bundlegroups/com.miglayout.xml</include>
 	<include>bundlegroups/org.slf4j.xml</include>
 	<include>bundlegroups/org.kohsuke.xml</include>
+	<include>bundlegroups/org.apache.xml</include>
 
 </updatesite>

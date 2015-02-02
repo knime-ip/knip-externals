@@ -94,7 +94,7 @@
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 		</dependencies>
-		<export>net.imagej.plugins.commands.*</export>
+		<export>net.imagej.ui.awt.*</export>
 	</bundle>
 
 	<!-- ImageJ UI Swing -->

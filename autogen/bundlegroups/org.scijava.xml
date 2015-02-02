@@ -108,8 +108,8 @@
 		<artifacts>
 			<artifact>
 				<group>org.scijava</group>
-				<id>scijava-ui-awt</id>
-				<version>${scijava-ui-awt.version}</version>
+				<id>scijava-ui-swing</id>
+				<version>${scijava-ui-swing.version}</version>
 			</artifact>
 		</artifacts>
 		<export>org.scijava.ui.swing.*</export>
@@ -128,10 +128,10 @@
 				<version>${scripting-java.version}</version>
 			</artifact>
 		</artifacts>
-		<export>org.scijava.plugins.scripting.java.*</export>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 		</dependencies>
+		<export>org.scijava.plugins.scripting.java.*</export>
 	</bundle>
 
 	<!-- SciJava Scripting-Jython -->
@@ -143,9 +143,9 @@
 				<version>${scripting-jython.version}</version>
 			</artifact>
 		</artifacts>
-		<export>org.scijava.plugins.scripting.jython.*</export>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 		</dependencies>
+		<export>org.scijava.plugins.scripting.jython.*</export>
 	</bundle>
 </bundlegroup>

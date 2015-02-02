@@ -41,6 +41,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.slf4j:slf4j-api" version="${slf4j-api.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="io.scif:scifio" version="${scifio.version}" />
 		</dependencies>

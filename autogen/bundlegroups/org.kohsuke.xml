@@ -1,0 +1,13 @@
+<!-- trove4j bundle -->
+<bundlegroup name="org.kohsuke">
+	<bundle name="args4j" version="${args4j.version}">
+		<artifacts>
+			<artifact>
+				<group>args4j</group>
+				<id>args4j</id>
+				<version>${args4j.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+</bundlegroup>

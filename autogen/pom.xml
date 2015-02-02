@@ -30,6 +30,12 @@
 		<imglib2-roi.version>0.2.1-20150118.160436-4</imglib2-roi.version>
 		<knip-trackmate-fork.version>2.7.1</knip-trackmate-fork.version>
 		<trove4j.version>3.0.3</trove4j.version>
+		<miglayout.version>3.7.4</miglayout.version>
+		<miglayout-swing.version>4.2</miglayout-swing.version>
+		<commons-collections.version>3.2.1</commons-collections.version>
+		<args4j.version>2.0.29</args4j.version>
+		<slf4j-api.version>1.7.10</slf4j-api.version>
+		<slf4j-log4j12.version>1.7.10</slf4j-log4j12.version>
 	</properties>
 
 	<dependencies>

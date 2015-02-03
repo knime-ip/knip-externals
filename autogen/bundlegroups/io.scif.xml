@@ -37,10 +37,9 @@
 				<id>formats-gpl</id>
 				<version>${bio-formats.version}</version>
 			</artifact>
-
 			<artifact>
-				<groupId>xerces</groupId>
-				<artifactId>xercesImpl</artifactId>
+				<group>xerces</group>
+				<id>xercesImpl</id>
 				<version>${xerces.version}</version>
 			</artifact>
 

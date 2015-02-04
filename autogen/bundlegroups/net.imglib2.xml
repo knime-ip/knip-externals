@@ -25,6 +25,7 @@
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 		</dependencies>
 		<export>net.imglib2.algorithm.*,net.imglib2.multithreading.*</export>
 	</bundle>

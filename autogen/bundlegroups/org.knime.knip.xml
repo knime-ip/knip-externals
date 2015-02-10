@@ -23,7 +23,7 @@
 			<bundleref name="net.imglib2:imglib2-ij" version="${imglib2-ij.version}" />
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
 		</dependencies>
-		<export>*</export>
+		<export>fiji.*,org.jgrapht.*</export>
 	</bundle>
 
 	<!-- SciJava JEP -->

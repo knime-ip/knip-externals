@@ -28,7 +28,7 @@
 			knip-ops should be gone soon -->
 		<knip-tmp-imglib2-ops.version>0.1.4</knip-tmp-imglib2-ops.version>
 		<imglib2-roi.version>0.2.1-SNAPSHOT</imglib2-roi.version>
-		<knip-trackmate-fork.version>2.7.1</knip-trackmate-fork.version>
+		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
 		<trove4j.version>3.0.3</trove4j.version>
 		<miglayout.version>3.7.4</miglayout.version>
 		<miglayout-swing.version>4.2</miglayout-swing.version>

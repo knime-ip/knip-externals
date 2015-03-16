@@ -1,0 +1,13 @@
+<!-- trove4j bundle -->
+<bundlegroup name="gov.nist.math">
+	<bundle name="jama" version="${jama.version}">
+		<artifacts>
+			<artifact>
+				<group>gov.nist.math</group>
+				<id>jama</id>
+				<version>${jama.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+</bundlegroup>

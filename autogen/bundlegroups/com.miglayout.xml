@@ -1,0 +1,24 @@
+<!-- trove4j bundle -->
+<bundlegroup name="com.miglayout">
+	<bundle name="miglayout" version="${miglayout.version}">
+		<artifacts>
+			<artifact>
+				<group>com.miglayout</group>
+				<id>miglayout</id>
+				<version>${miglayout.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+	<bundle name="miglayout-swing" version="${miglayout-swing.version}">
+		<artifacts>
+			<artifact>
+				<group>com.miglayout</group>
+				<id>miglayout-swing</id>
+				<version>${miglayout-swing.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+
+</bundlegroup>

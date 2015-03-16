@@ -1,0 +1,13 @@
+<!-- trove4j bundle -->
+<bundlegroup name="org.apache">
+	<bundle name="commons-collections" version="${commons-collections.version}">
+		<artifacts>
+			<artifact>
+				<group>commons-collections</group>
+				<id>commons-collections</id>
+				<version>${commons-collections.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+</bundlegroup>

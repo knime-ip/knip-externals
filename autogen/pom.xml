@@ -1,0 +1,109 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>net.imagej</groupId>
+		<artifactId>pom-imagej</artifactId>
+		<version>5.12.0</version>
+		<relativePath />
+	</parent>
+
+	<artifactId>org.knime.knip.external.generator</artifactId>
+	<packaging>pom</packaging>
+	<name>KNIME KNIP Externals build files generator</name>
+	<version>1.0.0</version>
+
+	<description>
+  	This project generates multiple pom.xml from a single xml file 
+  	which can be used to generate a p2-repository from maven dependencies.
+  	</description>
+
+	<properties>
+		<scijava.enforce.skip />
+		<jep.version>2.4.2</jep.version>
+
+		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
+			knip-ops should be gone soon -->
+		<knip-tmp-imglib2-ops.version>0.1.4</knip-tmp-imglib2-ops.version>
+		<imglib2-roi.version>0.2.1-SNAPSHOT</imglib2-roi.version>
+		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
+		<trove4j.version>3.0.3</trove4j.version>
+		<miglayout.version>3.7.4</miglayout.version>
+		<miglayout-swing.version>4.2</miglayout-swing.version>
+		<commons-collections.version>3.2.1</commons-collections.version>
+		<args4j.version>2.0.29</args4j.version>
+		<slf4j-api.version>1.7.10</slf4j-api.version>
+		<slf4j-log4j12.version>1.7.10</slf4j-log4j12.version>
+		<xerces.version>2.11.0</xerces.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.codehaus.gmaven</groupId>
+			<artifactId>groovy-maven-plugin</artifactId>
+			<version>2.0</version>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.gmaven</groupId>
+				<artifactId>groovy-maven-plugin</artifactId>
+				<version>2.0</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<properties>
+								<buildDir>${pom.basedir}/../target/</buildDir>
+								<input>${pom.basedir}/update-site.xml</input>
+								<templateDir>${pom.basedir}/templates/</templateDir>
+								<bundleTemplate>bundle_template.xml</bundleTemplate>
+								<updateSiteTemplate>updatesite_template.xml</updateSiteTemplate>
+								<parentTemplate>parent_template.xml</parentTemplate>
+								<categoryTemplate>category_template.xml</categoryTemplate>
+								<bundleGroupTemplate>bundlegroup_template.xml</bundleGroupTemplate>
+							</properties>
+							<source>${pom.basedir}/groovy/BuildFilesGenerator.groovy</source>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.m2e</groupId>
+				<artifactId>lifecycle-mapping</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<lifecycleMappingMetadata>
+						<pluginExecutions>
+							<pluginExecution>
+								<pluginExecutionFilter>
+									<groupId>org.codehaus.gmaven</groupId>
+									<artifactId>gmaven-plugin</artifactId>
+									<versionRange>[2.0,)</versionRange>
+								</pluginExecutionFilter>
+								<goals>
+									<goal>site</goal>
+								</goals>
+								<phase>compile</phase>
+								<action>
+									<execute>
+										<runOnIncremental>true</runOnIncremental>
+									</execute>
+								</action>
+							</pluginExecution>
+						</pluginExecutions>
+					</lifecycleMappingMetadata>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

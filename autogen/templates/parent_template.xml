@@ -1,0 +1,147 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.knime.knip</groupId>
+	<artifactId>knip-externals</artifactId>
+	<packaging>pom</packaging>
+	<name>KNIME External</name>
+	<version>1.0.0</version>
+
+	<description>A parent POM for to create bundles for required dependencies</description>
+
+	<prerequisites>
+		<!-- excludes seem not to work correctly with older Maven -->
+		<maven>3.0.0</maven>
+	</prerequisites>
+
+	<properties>
+		<felix-plugin.version>2.4.0</felix-plugin.version>
+	</properties>
+
+
+	%(MODULES)
+
+	%(REPOSITORIES)
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<pde>true</pde>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>make-manifest</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+						<configuration>
+							<manifestLocation>${basedir}/META-INF</manifestLocation>
+							<outputDirectory>${basedir}/target/classes</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>${felix-plugin.version}</version>
+					<configuration>
+						<!-- TODO <excludeDependencies>${no-embed.dependencies}</excludeDependencies> -->
+						<supportedProjectTypes>
+							<supportedProjectType>bundle</supportedProjectType>
+						</supportedProjectTypes>
+						<finalName>${project.artifactId}_${project.version}</finalName>
+						<instructions>
+							<Import-Package>${import.packages}</Import-Package>
+							<Private-Package></Private-Package>
+							<Embed-Transitive>true</Embed-Transitive>
+							<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
+							<Export-Package>${export.contents}</Export-Package>
+							<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+							<Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
+						</instructions>
+						<archive>
+							<addMavenDescriptor>false</addMavenDescriptor>
+						</archive>
+					</configuration>
+				</plugin>
+
+				<!-- eclipse lifecycle mapping -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-dependency-plugin</artifactId>
+										<versionRange>[1.0.0,)</versionRange>
+										<goals>
+											<goal>copy-dependencies</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute>
+											<runOnIncremental>false</runOnIncremental>
+										</execute>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.scijava</groupId>
+										<artifactId>scijava-maven-plugin</artifactId>
+										<versionRange>[0.2.0,)</versionRange>
+										<goals>
+											<goal>eclipse-helper</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute>
+											<runOnIncremental>true</runOnIncremental>
+										</execute>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.felix</groupId>
+										<artifactId>maven-bundle-plugin</artifactId>
+										<versionRange>[2.4.0,)</versionRange>
+										<goals>
+											<goal>manifest</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute>
+											<runOnIncremental>true</runOnIncremental>
+											<runOnConfigure>true</runOnConfigure>
+										</execute>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
+

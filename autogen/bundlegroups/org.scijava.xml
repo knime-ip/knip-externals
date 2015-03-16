@@ -1,0 +1,156 @@
+<!-- trove4j bundle -->
+<bundlegroup name="org.scijava">
+
+	<!-- SciJava JEP -->
+	<bundle name="jep" version="${jep.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>jep</id>
+				<version>${jep.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+		<dependencies>
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+		</dependencies>
+	</bundle>
+
+	<!-- SciJava Commons -->
+	<bundle name="scijava-common" version="${scijava-common.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-common</id>
+				<version>${scijava-common.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+
+	<!-- SciJava Log slf4j -->
+	<bundle name="scijava-log-slf4j" version="${scijava-log-slf4j.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-log-slf4j</id>
+				<version>${scijava-log-slf4j.version}</version>
+			</artifact>
+		</artifacts>
+		<export>org.scijava.log.slf4j.*</export>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.slf4j:slf4j-api" version="${slf4j-api.version}" />
+		</dependencies>
+	</bundle>
+
+	<!-- SciJava Plugins Commands -->
+	<bundle name="scijava-plugins-commands" version="${scijava-plugins-commands.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-plugins-commands</id>
+				<version>${scijava-plugins-commands.version}</version>
+			</artifact>
+		</artifacts>
+		<export>org.scijava.plugins.commands.*</export>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+	</bundle>
+
+	<!-- SciJava Plugins Text Markdown -->
+	<bundle name="scijava-plugins-text-markdown" version="${scijava-plugins-text-markdown.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-plugins-text-markdown</id>
+				<version>${scijava-plugins-text-markdown.version}</version>
+			</artifact>
+		</artifacts>
+		<export>org.scijava.plugins.text.markdown.*</export>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+	</bundle>
+
+	<!-- SciJava Plugins Text Plain -->
+	<bundle name="scijava-plugins-text-plain" version="${scijava-plugins-text-plain.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-plugins-text-plain</id>
+				<version>${scijava-plugins-text-plain.version}</version>
+			</artifact>
+		</artifacts>
+		<export>org.scijava.plugins.text.plain.*</export>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+	</bundle>
+
+	<!-- SciJava UI AWT -->
+	<bundle name="scijava-ui-awt" version="${scijava-ui-awt.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-ui-awt</id>
+				<version>${scijava-ui-awt.version}</version>
+			</artifact>
+		</artifacts>
+		<export>org.scijava.ui.awt.*</export>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
+			<bundleref name="com.miglayout:miglayout-swing" version="${miglayout-swing.version}" />
+		</dependencies>
+	</bundle>
+
+	<!-- SciJava UI AWT -->
+	<bundle name="scijava-ui-swing" version="${scijava-ui-swing.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-ui-swing</id>
+				<version>${scijava-ui-swing.version}</version>
+			</artifact>
+		</artifacts>
+		<export>org.scijava.ui.swing.*</export>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:scijava-ui-awt" version="${scijava-ui-awt.version}" />
+			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
+			<bundleref name="com.miglayout:miglayout-swing" version="${miglayout-swing.version}" />
+		</dependencies>
+	</bundle>
+
+	<!-- SciJava Scripting-Java -->
+	<bundle name="scripting-java" version="${scripting-java.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scripting-java</id>
+				<version>${scripting-java.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+		<export>org.scijava.plugins.scripting.java.*</export>
+	</bundle>
+
+	<!-- SciJava Scripting-Jython -->
+	<bundle name="scripting-jython" version="${scripting-jython.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scripting-jython</id>
+				<version>${scripting-jython.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+		<export>org.scijava.plugins.scripting.jython.*</export>
+	</bundle>
+</bundlegroup>

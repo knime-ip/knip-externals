@@ -1,12 +1,7 @@
 # Maven #
-target/
+*target/*
 
 # Java #
 *.class
 *.jar
 
-# Eclipse #
-.project
-.classpath
-.settings
-META-INF

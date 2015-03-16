@@ -1,0 +1,121 @@
+<!-- net.imglib bundles -->
+<bundlegroup name="net.imglib2">
+	<!-- ImgLib2 -->
+	<bundle name="imglib2" version="${imglib2.version}">
+		<artifacts>
+			<artifact>
+				<id>imglib2</id>
+				<group>net.imglib2</group>
+				<version>${imglib2.version}</version>
+			</artifact>
+		</artifacts>
+		<export>net.imglib2.*</export>
+	</bundle>
+
+	<!-- ImgLib2-Algorithms -->
+	<bundle name="imglib2-algorithm" version="${imglib2-algorithm.version}">
+		<artifacts>
+			<artifact>
+				<group>net.imglib2</group>
+				<id>imglib2-algorithm</id>
+				<version>${imglib2-algorithm.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+		</dependencies>
+		<export>net.imglib2.algorithm.*,net.imglib2.multithreading.*</export>
+	</bundle>
+
+	<!-- ImgLib2-Algorithms-FFT -->
+	<bundle name="imglib2-algorithm-fft" version="${imglib2-algorithm-fft.version}">
+		<artifacts>
+			<artifact>
+				<group>net.imglib2</group>
+				<id>imglib2-algorithm-fft</id>
+				<version>${imglib2-algorithm-fft.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+		</dependencies>
+		<export>net.imglib2.algorithm.fft2.*</export>
+	</bundle>
+
+	<!-- ImgLib2-Algorithms-GPL -->
+	<bundle name="imglib2-algorithm-gpl" version="${imglib2-algorithm-gpl.version}">
+		<artifacts>
+			<artifact>
+				<group>net.imglib2</group>
+				<id>imglib2-algorithm-gpl</id>
+				<version>${imglib2-algorithm-gpl.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+		</dependencies>
+		<export>net.imglib2.algorithm.*</export>
+	</bundle>
+
+	<!-- ImgLib2-IJ -->
+	<bundle name="imglib2-ij" version="${imglib2-ij.version}">
+		<artifacts>
+			<artifact>
+				<group>net.imglib2</group>
+				<id>imglib2-ij</id>
+				<version>${imglib2-ij.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+			<bundleref name="net.imagej:ij" version="${imagej1.version}" />
+		</dependencies>
+		<export>net.imglib2.ij.*</export>
+	</bundle>
+
+	<!-- ImgLib2-Realtransform -->
+	<bundle name="imglib2-realtransform" version="${imglib2-realtransform.version}">
+		<artifacts>
+			<artifact>
+				<group>net.imglib2</group>
+				<id>imglib2-realtransform</id>
+				<version>${imglib2-realtransform.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+		</dependencies>
+		<export>net.imglib2.realtransform.*</export>
+	</bundle>
+
+	<!-- ImgLib2-ROI -->
+	<bundle name="imglib2-roi" version="${imglib2-roi.version}">
+		<artifacts>
+			<artifact>
+				<group>net.imglib2</group>
+				<id>imglib2-roi</id>
+				<version>${imglib2-roi.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
+		</dependencies>
+		<export>net.imglib2.roi.*,net.imglib2.labeling.*</export>
+	</bundle>
+</bundlegroup>

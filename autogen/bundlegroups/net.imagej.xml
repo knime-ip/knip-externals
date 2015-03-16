@@ -1,0 +1,122 @@
+<!-- net.imagej bundles -->
+<bundlegroup name="net.imagej">
+	<bundle name="ij" version="1.49">
+		<artifacts>
+			<artifact>
+				<id>ij</id>
+				<group>net.imagej</group>
+				<version>${imagej1.version}</version>
+			</artifact>
+		</artifacts>
+		<export>ij.*</export>
+	</bundle>
+
+
+	<!-- ImageJ-Ops -->
+	<bundle name="imagej-ops" version="${imagej-ops.version}">
+		<artifacts>
+			<artifact>
+				<id>imagej-ops</id>
+				<group>net.imagej</group>
+				<version>${imagej-ops.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm-fft" version="${imglib2-algorithm-fft.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm-gpl" version="${imglib2-algorithm-gpl.version}" />
+			<bundleref name="net.imglib2:imglib2-ij" version="${imglib2-ij.version}" />
+		</dependencies>
+		<export>net.imagej.ops.*, net.imagej.threshold.*, net.imagej.operator.*, net.imagej.overlay.*, net.imagej.measure.*</export>
+	</bundle>
+
+	<!-- ImageJ-Common -->
+	<bundle name="imagej-common" version="${imagej-common.version}">
+		<artifacts>
+			<artifact>
+				<group>net.imagej</group>
+				<id>imagej-common</id>
+				<version>${imagej-common.version}</version>
+			</artifact>
+		</artifacts>
+		<export>net.imagej.*,net.imglib2.meta.*</export>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+		</dependencies>
+	</bundle>
+
+	<!-- ImageJ Plugins Commands -->
+	<bundle name="imagej-plugins-commands" version="${imagej-plugins-commands.version}">
+		<artifacts>
+			<artifact>
+				<id>imagej-plugins-commands</id>
+				<group>net.imagej</group>
+				<version>${imagej-plugins-commands.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="io.scif:scifio" version="${scifio.version}" />
+			<!-- TODO Remove this as soon as possible -->
+			<bundleref name="org.knime.knip.tmp:knip-tmp-imglib2-ops" version="${knip-tmp-imglib2-ops.version}" />
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+			<bundleref name="net.imagej:imagej-ops" version="${imagej-ops.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm-fft" version="${imglib2-algorithm-fft.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm-gpl" version="${imglib2-algorithm-gpl.version}" />
+			<bundleref name="net.imglib2:imglib2-ij" version="${imglib2-ij.version}" />
+		</dependencies>
+		<export>net.imagej.plugins.commands.*</export>
+	</bundle>
+
+	<!-- ImageJ UI AWT -->
+	<bundle name="imagej-ui-awt" version="${imagej-ui-awt.version}">
+		<artifacts>
+			<artifact>
+				<id>imagej-ui-awt</id>
+				<group>net.imagej</group>
+				<version>${imagej-ui-awt.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<!-- TODO Remove this as soon as possible -->
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+		</dependencies>
+		<export>net.imagej.ui.awt.*</export>
+	</bundle>
+
+	<!-- ImageJ UI Swing -->
+	<bundle name="imagej-ui-swing" version="${imagej-ui-swing.version}">
+		<artifacts>
+			<artifact>
+				<id>imagej-ui-swing</id>
+				<group>net.imagej</group>
+				<version>${imagej-ui-swing.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="net.imagej:imagej-ops" version="${imagej-ops.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
+			<bundleref name="org.scijava:scijava-ui-awt" version="${scijava-ui-awt.version}" />
+			<bundleref name="org.scijava:scijava-ui-swing" version="${scijava-ui-swing.version}" />
+			<bundleref name="net.imagej:imagej-ui-awt" version="${imagej-ui-awt.version}" />
+			<bundleref name="org.scijava:scripting-java" version="${scripting-java.version}" />
+		</dependencies>
+		<export>net.imagej.ui.swing.*</export>
+	</bundle>
+</bundlegroup>

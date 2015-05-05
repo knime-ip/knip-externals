@@ -23,14 +23,14 @@
 	<bundle name="scifio-bf-compat" version="${scifio-bf-compat.version}">
 		<artifacts>
 			<artifact>
-				<group>io.scif</group>
-				<id>scifio-bf-compat</id>
-				<version>${scifio-bf-compat.version}</version>
-			</artifact>
-			<artifact>
 				<group>ome</group>
 				<id>formats-bsd</id>
 				<version>${bio-formats.version}</version>
+			</artifact>
+			<artifact>
+				<group>io.scif</group>
+				<id>scifio-bf-compat</id>
+				<version>${scifio-bf-compat.version}</version>
 			</artifact>
 			<artifact>
 				<group>ome</group>

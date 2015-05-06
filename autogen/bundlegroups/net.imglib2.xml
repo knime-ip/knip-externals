@@ -118,4 +118,20 @@
 		</dependencies>
 		<export>net.imglib2.roi.*,net.imglib2.labeling.*</export>
 	</bundle>
+
+	<!-- ImgLib2-ROI -->
+	<bundle name="imglib2-ui" version="${imglib2-ui.version}">
+		<artifacts>
+			<artifact>
+				<group>net.imglib2</group>
+				<id>imglib2-ui</id>
+				<version>${imglib2-ui.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+		</dependencies>
+		<export>net.imglib2.ui.*</export>
+	</bundle>
 </bundlegroup>

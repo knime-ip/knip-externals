@@ -84,7 +84,7 @@
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imagej:ij" version="${imagej1.version}" />
 		</dependencies>
-		<export>net.imglib2.img.display.imagej.*,net.imglib2.img.imageplus</export>
+		<export>net.imglib2.img.display.imagej.*,net.imglib2.img.imageplus.*</export>
 	</bundle>
 
 	<!-- ImgLib2-Realtransform -->

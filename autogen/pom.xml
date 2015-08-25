@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>net.imagej</groupId>
 		<artifactId>pom-imagej</artifactId>
-		<version>10.0.2</version>
+		<version>11.0.0</version>
 		<relativePath />
 	</parent>
 
@@ -26,7 +26,6 @@
 
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->
-		<imagej-ops.version>0.16.0</imagej-ops.version>
 		<knip-tmp-imglib2-ops.version>0.1.4</knip-tmp-imglib2-ops.version>
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
 		<trove4j.version>3.0.3</trove4j.version>

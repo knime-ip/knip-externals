@@ -1,6 +1,6 @@
 <!-- net.imagej bundles -->
 <bundlegroup name="net.imagej">
-	<bundle name="ij" version="1.49">
+	<bundle name="ij" version="${imagej1.version}">
 		<artifacts>
 			<artifact>
 				<id>ij</id>

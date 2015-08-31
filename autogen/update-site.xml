@@ -8,9 +8,9 @@
 			<url>http://maven.imagej.net/content/groups/public</url>
 		</repository>
 		<repository>
-			<id>knime211</id>
+			<id>knime212</id>
 			<layout>p2</layout>
-			<url>http://www.knime.org/update/2.11/</url>
+			<url>http://www.knime.org/update/2.12/</url>
 		</repository>
 	</repositories>
 

@@ -1,0 +1,33 @@
+<!-- fifesoft bundle -->
+<bundlegroup name="com.fifesoft">
+	<bundle name="autocomplete" version="${fifesoft.version}">
+		<artifacts>
+			<artifact>
+				<group>com.fifesoft</group>
+				<id>autocomplete</id>
+				<version>${fifesoft.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+	<bundle name="rsyntaxtextarea" version="${fifesoft.version}">
+		<artifacts>
+			<artifact>
+				<group>com.fifesoft</group>
+				<id>rsyntaxtextarea</id>
+				<version>${fifesoft.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+	<bundle name="languagesupport" version="${fifesoft.version}">
+		<artifacts>
+			<artifact>
+				<group>com.fifesoft</group>
+				<id>languagesupport</id>
+				<version>${fifesoft.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+</bundlegroup>

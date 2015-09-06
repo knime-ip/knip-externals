@@ -113,10 +113,17 @@
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="org.scijava:scijava-ui-awt" version="${scijava-ui-awt.version}" />
 			<bundleref name="org.scijava:scijava-ui-swing" version="${scijava-ui-swing.version}" />
 			<bundleref name="net.imagej:imagej-ui-awt" version="${imagej-ui-awt.version}" />
 			<bundleref name="org.scijava:scripting-java" version="${scripting-java.version}" />
+			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
+			<bundleref name="com.miglayout:miglayout-swing" version="${miglayout-swing.version}" />
+			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
+			<bundleref name="com.fifesoft:autocomplete" version="${fifesoft.version}" />
+		        <bundleref name="com.fifesoft:languagesupport" version="${fifesoft.version}" />
+	        	<bundleref name="com.fifesoft:rsyntaxtextarea" version="${fifesoft.version}" />
 		</dependencies>
 		<export>net.imagej.ui.swing.*</export>
 	</bundle>

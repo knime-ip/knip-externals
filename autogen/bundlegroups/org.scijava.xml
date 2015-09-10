@@ -153,4 +153,19 @@
 		</dependencies>
 		<export>org.scijava.plugins.scripting.jython.*</export>
 	</bundle>
+
+	<!-- SciJava Cache -->
+	<bundle name="scijava-cache" version="${scijava-cache.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-cache</id>
+				<version>${scijava-cache.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+		<export>org.scijava.cache.*</export>
+	</bundle>
 </bundlegroup>

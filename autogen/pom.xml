@@ -37,6 +37,7 @@
 		<slf4j-log4j12.version>1.7.10</slf4j-log4j12.version>
 		<xerces.version>2.11.0</xerces.version>
 		<scijava-cache.version>0.1.0</scijava-cache.version>
+		<scijava-common.version>2.47.0</scijava-common.version>
 	</properties>
 
 	<dependencies>

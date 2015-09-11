@@ -165,6 +165,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="com.google.guava:guava" version="${guava.version}" />
 		</dependencies>
 		<export>org.scijava.cache.*</export>
 	</bundle>

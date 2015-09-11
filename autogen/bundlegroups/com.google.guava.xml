@@ -1,0 +1,13 @@
+<!-- fifesoft bundle -->
+<bundlegroup name="com.google.guava">
+	<bundle name="guava" version="${guava.version}">
+		<artifacts>
+			<artifact>
+				<group>com.google.guava</group>
+				<id>guava</id>
+				<version>${guava.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+</bundlegroup>

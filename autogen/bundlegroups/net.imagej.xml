@@ -121,9 +121,6 @@
 			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
 			<bundleref name="com.miglayout:miglayout-swing" version="${miglayout-swing.version}" />
 			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
-			<bundleref name="com.fifesoft:autocomplete" version="${fifesoft.version}" />
-		        <bundleref name="com.fifesoft:languagesupport" version="${fifesoft.version}" />
-	        	<bundleref name="com.fifesoft:rsyntaxtextarea" version="${fifesoft.version}" />
 		</dependencies>
 		<export>net.imagej.ui.swing.*</export>
 	</bundle>

@@ -150,8 +150,36 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:jython-shaded" version="${jython-shaded.version}" />
 		</dependencies>
-		<export>*</export> <!-- '*' to export shaded dependencies aswell -->
+		<export>org.scijava.plugins.scripting.jython.*</export>
+	</bundle>
+	
+	<!-- Scijava Jython-Shaded, needed for Scripting-Jython -->
+	<bundle name="jython-shaded" version="${jython-shaded.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>jython-shaded</id>
+				<version>${jython-shaded.version}</version>
+			</artifact>
+		</artifacts>
+		<export>*</export>
+	</bundle>
+
+	<!-- SciJava Scripting-Javascript -->
+	<bundle name="scripting-javascript" version="${scripting-javascript.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scripting-javascript</id>
+				<version>${scripting-javascript.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+		<export>org.scijava.plugins.scripting.javascript.*</export>
 	</bundle>
 
 	<!-- SciJava Cache -->

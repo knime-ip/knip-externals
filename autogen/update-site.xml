@@ -10,7 +10,7 @@
 		<repository>
 			<id>knime212</id>
 			<layout>p2</layout>
-			<url>http://www.knime.org/update/3.0/</url>
+			<url>http://www.knime.org/update/2.12.1/</url>
 		</repository>
 	</repositories>
 

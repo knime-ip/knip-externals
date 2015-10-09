@@ -115,7 +115,7 @@
 				<version>${scijava-ui-swing.version}</version>
 			</artifact>
 		</artifacts>
-		<export>*</export>
+		<export>!com.fifesoft.*, *</export>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 			<bundleref name="org.scijava:scijava-ui-awt" version="${scijava-ui-awt.version}" />

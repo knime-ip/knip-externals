@@ -53,6 +53,24 @@
 		</dependencies>
 	</bundle>
 
+	<!-- ImageJ Deprecated -->
+	<bundle name="imagej-deprecated" version="${imagej-deprecated.version}">
+		<artifacts>
+			<artifact>
+				<id>imagej-deprecated</id>
+				<group>net.imagej</group>
+				<version>${imagej-deprecated.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+		</dependencies>
+		<export>net.imagej.imglib2.*,net.imagej.imagej.*</export>
+	</bundle>
+
 	<!-- ImageJ Plugins Commands -->
 	<bundle name="imagej-plugins-commands" version="${imagej-plugins-commands.version}">
 		<artifacts>
@@ -69,6 +87,7 @@
 			<bundleref name="org.knime.knip.tmp:knip-tmp-imglib2-ops" version="${knip-tmp-imglib2-ops.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imagej:imagej-ops" version="${imagej-ops.version}" />
+			<bundleref name="net.imagej:imagej-deprecated" version="${imagej-deprecated.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />

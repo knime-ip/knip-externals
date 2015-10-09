@@ -122,6 +122,6 @@
 			<bundleref name="com.miglayout:miglayout-swing" version="${miglayout-swing.version}" />
 			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
 		</dependencies>
-		<export>net.imagej.ui.swing.*</export>
+		<export>net.imagej.ui.swing.*, org.*</export>
 	</bundle>
 </bundlegroup>

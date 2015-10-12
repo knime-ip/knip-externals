@@ -25,9 +25,12 @@
 		<jep.version>2.4.2</jep.version>
 		<fifesoft.version>2.5.7</fifesoft.version>
 
+		<imglib2-roi.version>0.4.1</imglib2-roi.version>
+		<scifio.version>0.25.1</scifio.version>
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->
-		<scifio.version>0.25.1</scifio.version>
+
+
 		<knip-tmp-imglib2-ops.version>0.4.0</knip-tmp-imglib2-ops.version>
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
 		<trove4j.version>3.0.3</trove4j.version>

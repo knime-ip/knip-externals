@@ -17,7 +17,7 @@
 			<!ELEMENT dependencies (bundleref*)>
 					<!ELEMENT bundleref EMPTY>
 					<!ATTLIST bundleref name CDATA #REQUIRED
-									version CDATA #REQUIRED>
+									version CDATA #REQUIRED isExternal CDATA "false" >
 			<!ELEMENT instructions ANY>
 	<!ELEMENT id (#PCDATA)>
 	<!ELEMENT layout (#PCDATA)>

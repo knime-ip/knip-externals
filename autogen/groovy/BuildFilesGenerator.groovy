@@ -41,10 +41,22 @@ class Artifact {
  * BundleRef
  * Barebones information about a bundle to reference it via its name, group and version.
  */
-class BundleRef extends Artifact {	
-	BundleRef(project, p_group, p_name, p_version) {
+class BundleRef extends Artifact {
+	Boolean isExternal	
+	BundleRef(project, p_group, p_name, p_version, p_isExternal) {
 		super(project, p_group, p_name, p_version)
+		this.isExternal = p_isExternal
 	}
+
+	String getBundleName(){
+		if(!isExternal){
+			return name
+		}
+		else{
+			return group + "." + name
+		}
+	}
+
 }
 /**
  * Bundle
@@ -81,8 +93,8 @@ class Bundle {
 		this.artifacts.add(p_a)
 	}
 	
-	void addDependency(p_project, p_group, p_name, p_version) {
-		this.dependencies.add(new BundleRef(p_project, p_group, p_name, p_version))
+	void addDependency(p_project, p_group, p_name, p_version, p_isExternal) {
+		this.dependencies.add(new BundleRef(p_project, p_group, p_name, p_version, p_isExternal))
 	}
 	
 	void addDependency(BundleRef p_br) {
@@ -258,7 +270,8 @@ class DataCollector {
 										bundleTag.'dependencies'[0].'bundleref'.each {
 											bundleref -> 
 											def name = bundleref.'@name'.split(':')
-											bundle.addDependency(p_project, name[0], name[1], bundleref.'@version')
+											def isExternal = Boolean.parseBoolean(bundleref.'@isExternal')
+											bundle.addDependency(p_project, name[0], name[1], bundleref.'@version',isExternal)
 										}
 									}
 								}
@@ -409,7 +422,8 @@ def main() {
 					} else {
 						requireBundles += ",\n"
 					}
-					requireBundles += "\t\t" + d.name + ";bundle-version=\"" + Helper.resolveProperty(project, d.version, true) + "\""
+
+					requireBundles += "\t\t" + d.getBundleName() + ";bundle-version=\"" + Helper.resolveProperty(project, d.version, true) + "\""
 				}
 				
 				requireBundles = (requireBundles.isEmpty()) ? "" : "\t<Require-Bundle>\n" + requireBundles + "\n\t</Require-Bundle>\n"

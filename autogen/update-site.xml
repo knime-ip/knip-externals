@@ -15,7 +15,7 @@
 		<repository>
 			<id>knime30</id>
 			<layout>p2</layout>
-			<url>https://jenkins.knime.org/download/3.0/Desktop/org.knime.update</url>
+			<url>https://jenkins.knime.org/download/3.0/Desktop/org.knime.update/org.knime.update.org</url>
 		</repository>
 	</repositories>
 

@@ -68,7 +68,7 @@
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 		</dependencies>
-		<export>net.imagej.*,net.imagej.*</export>
+		<export>net.imagej.*,net.imglib2.meta.units.*</export>
 	</bundle>
 
 	<!-- ImageJ Plugins Commands -->

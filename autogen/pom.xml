@@ -25,7 +25,9 @@
 		<jep.version>2.4.2</jep.version>
 		<fifesoft.version>2.5.7</fifesoft.version>
 
-		<imglib2-roi.version>0.4.1</imglib2-roi.version>
+	        <imglib2-roi.version>0.4.2</imglib2-roi.version>
+		<imagej-ops.version>0.22.0</imagej-ops.version>
+
 		<scifio.version>0.25.1</scifio.version>
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->

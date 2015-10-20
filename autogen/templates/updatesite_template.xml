@@ -23,7 +23,7 @@
 		<repository>
 			<id>knime30</id>
 			<layout>p2</layout>
-			<url>https://jenkins.knime.org/download/3.0/Desktop/org.knime.update</url>
+			<url>http://update.knime.org/analytics-platform/3.0</url>
 		</repository>
 	</repositories>
 

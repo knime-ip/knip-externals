@@ -45,7 +45,7 @@
 				<version>${imagej-common.version}</version>
 			</artifact>
 		</artifacts>
-		<export>net.imagej.*,net.imglib2.meta.*</export>
+		<export>net.imagej.*</export>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
@@ -68,7 +68,7 @@
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 		</dependencies>
-		<export>net.imagej.*,net.imglib2.meta.units.*</export>
+		<export>net.imagej.*, net.imglib2.meta.*, net.imglib2.meta.units.*</export>
 	</bundle>
 
 	<!-- ImageJ Plugins Commands -->

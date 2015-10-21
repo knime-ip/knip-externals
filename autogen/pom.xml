@@ -28,13 +28,13 @@
 	        <imglib2-roi.version>0.4.2</imglib2-roi.version>
 		<imagej-ops.version>0.22.0</imagej-ops.version>
 
-		<scifio.version>0.25.1</scifio.version>
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->
 
 
 		<knip-tmp-imglib2-ops.version>0.4.0</knip-tmp-imglib2-ops.version>
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
+
 		<trove4j.version>3.0.3</trove4j.version>
 		<miglayout.version>3.7.4</miglayout.version>
 		<miglayout-swing.version>4.2</miglayout-swing.version>
@@ -43,8 +43,6 @@
 		<slf4j-api.version>1.7.10</slf4j-api.version>
 		<slf4j-log4j12.version>1.7.10</slf4j-log4j12.version>
 		<xerces.version>2.11.0</xerces.version>
-		<scijava-cache.version>0.1.0</scijava-cache.version>
-		<scijava-common.version>2.47.0</scijava-common.version>
 		<jython-shaded.version>2.5.3</jython-shaded.version>
 		<guava.version>18.0</guava.version>
 	</properties>

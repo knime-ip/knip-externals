@@ -26,5 +26,6 @@
 	<include>bundlegroups/org.kohsuke.xml</include>
 	<include>bundlegroups/org.apache.xml</include>
 	<include>bundlegroups/com.google.guava.xml</include>
+	<include>bundlegroups/xml-apis.xml</include>
 
 </updatesite>

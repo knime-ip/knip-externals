@@ -1,0 +1,13 @@
+<!-- trove4j bundle -->
+<bundlegroup name="xml-apis">
+	<bundle name="xml-apis" version="1.4.01">
+		<artifacts>
+			<artifact>
+				<group>xml-apis</group>
+				<id>xml-apis</id>
+				<version>1.4.01</version>
+			</artifact>
+		</artifacts>
+		<export></export>
+	</bundle>
+</bundlegroup>

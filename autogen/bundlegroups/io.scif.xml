@@ -51,7 +51,7 @@
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="io.scif:scifio" version="${scifio.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
-			<bundleref name="xml-apis:xml-apis" version="1.4.0" />
+			<bundleref name="xml-apis:xml-apis" version="1.4.01" />
 		</dependencies>
 		<export>io.scif.bf.*,loci.*,ome.xml.*,io.scif.ome.*</export>
 	</bundle>

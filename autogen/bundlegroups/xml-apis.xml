@@ -1,6 +1,6 @@
 <!-- xml-apis bundle -->
 <bundlegroup name="xml-apis">
-	<bundle name="xml-apis" version="1.4.0">
+	<bundle name="xml-apis" version="1.4.01">
 		<artifacts>
 			<artifact>
 				<group>xml-apis</group>

@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>net.imagej</groupId>
 		<artifactId>pom-imagej</artifactId>
-		<version>14.4.1</version>
+		<version>14.6.2</version>
 		<relativePath />
 	</parent>
 
@@ -24,7 +24,6 @@
 		<scijava.enforce.skip />
 		<jep.version>2.4.2</jep.version>
 		<fifesoft.version>2.5.8</fifesoft.version>
-		<imglib2.version>2.6.0</imglib2.version>
 
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->

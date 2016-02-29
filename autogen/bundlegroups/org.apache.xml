@@ -10,7 +10,7 @@
 		</artifacts>
 		<export>*</export>
 	</bundle>
-	<bundle name="math3" version="${commons-math3.version}">
+	<bundle name="commons-math3" version="${commons-math3.version}">
 		<artifacts>
 			<artifact>
 				<group>org.apache.commons</group>

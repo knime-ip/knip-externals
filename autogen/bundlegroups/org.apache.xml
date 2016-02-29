@@ -10,12 +10,12 @@
 		</artifacts>
 		<export>*</export>
 	</bundle>
-	<bundle name="math3" version="${commons-math.version}">
+	<bundle name="math3" version="${commons-math3.version}">
 		<artifacts>
 			<artifact>
 				<group>org.apache.commons</group>
-				<id>math3</id>
-				<version>${commons-math.version}</version>
+				<id>commons-math3</id>
+				<version>${commons-math3.version}</version>
 			</artifact>
 		</artifacts>
 		<export>*</export>

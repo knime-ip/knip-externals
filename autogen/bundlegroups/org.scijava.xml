@@ -194,7 +194,7 @@
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 		</dependencies>
-		<export>org.scijava.plugins.scripting.jruby.*</export> <!-- scripting-jruby only contains this package. -->
+		<export>org.scijava.plugins.scripting.jruby.*, org.jruby.* </export>
 	</bundle>
 
 	<!-- SciJava Scripting-Groovy -->

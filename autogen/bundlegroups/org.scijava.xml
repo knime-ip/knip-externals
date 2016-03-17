@@ -154,7 +154,7 @@
 		</dependencies>
 		<export>org.scijava.plugins.scripting.jython.*</export>
 	</bundle>
-	
+
 	<!-- Scijava Jython-Shaded, needed for Scripting-Jython -->
 	<bundle name="jython-shaded" version="${jython-shaded.version}">
 		<artifacts>
@@ -181,6 +181,68 @@
 		</dependencies>
 		<export>org.scijava.plugins.scripting.javascript.*</export> <!-- scripting-javascript only contains this package with one class inside -->
 	</bundle>
+
+	<!-- SciJava Scripting-JRuby -->
+	<bundle name="scripting-jruby" version="${scripting-jruby.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scripting-jruby</id>
+				<version>${scripting-jruby.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+		<export>org.scijava.plugins.scripting.jruby.*, org.jruby.* </export>
+	</bundle>
+
+	<!-- SciJava Scripting-Groovy -->
+	<bundle name="scripting-groovy" version="${scripting-groovy.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scripting-groovy</id>
+				<version>${scripting-groovy.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+		<export>org.scijava.plugins.scripting.groovy.*</export> <!-- scripting-groovy only contains this package. -->
+	</bundle>
+
+
+	<!-- SciJava Scripting-Clojure -->
+	<bundle name="scripting-clojure" version="${scripting-clojure.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scripting-clojure</id>
+				<version>${scripting-clojure.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+		<export>org.scijava.plugins.scripting.clojure.*</export> <!-- scripting-clojure only contains this package. -->
+	</bundle>
+
+	<!-- SciJava Scripting-Beanshell-->
+	<bundle name="scripting-beanshell" version="${scripting-beanshell.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scripting-beanshell</id>
+				<version>${scripting-beanshell.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+		<export>org.scijava.plugins.scripting.beanshell.*</export> <!-- scripting-beanshell only contains this package. -->
+	</bundle>
+
 
 	<!-- SciJava Cache -->
 	<bundle name="scijava-cache" version="${scijava-cache.version}">

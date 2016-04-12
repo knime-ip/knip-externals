@@ -24,6 +24,7 @@
 		<scijava.enforce.skip />
 		<jep.version>2.4.2</jep.version>
 		<fifesoft.version>2.5.8</fifesoft.version>
+		<bigdataviewer-core.version>2.2.1</bigdataviewer-core.version>
 
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->

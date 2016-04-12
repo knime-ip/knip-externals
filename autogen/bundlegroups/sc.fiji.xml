@@ -1,0 +1,22 @@
+
+<!-- fiji bundles-->
+<bundlegroup name="sc.fiji">
+	<!-- Bigdataviewer bundle -->
+	<bundle name="bigdataviewer-core" version="${bigdataviewer-core.version}">
+		<artifacts>
+			<artifact>
+				<group>sc.fiji</group>
+				<id>bigdataviewer-core</id>
+				<version>${bigdataviewer-core.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-ui" version="${imglib2-ui.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
+		</dependencies>
+		<export>bdv.*, net.imglib2.img.basictypeaccess.volatiles.*, net.imglib2.interpolation.randomaccess.*, net.imglib2.type.volatiles.*</export>
+	</bundle>
+</bundlegroup>

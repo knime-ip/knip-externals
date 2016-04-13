@@ -28,5 +28,6 @@
 	<include>bundlegroups/com.google.guava.xml</include>
 	<include>bundlegroups/xml-apis.xml</include>
 	<include>bundlegroups/sc.fiji.xml</include>
+	<include>bundlegroups/org.jdom.xml</include>
 
 </updatesite>

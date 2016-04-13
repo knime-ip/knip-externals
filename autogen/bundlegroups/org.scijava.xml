@@ -124,6 +124,22 @@
 		</dependencies>
 	</bundle>
 
+	<!-- SciJava UI Behaviour-->
+	<bundle name="scijava-ui-behaviour" version="${scijava-ui-behaviour.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-ui-behaviour</id>
+				<version>${scijava-ui-behaviour.version}</version>
+			</artifact>
+		</artifacts>
+		<export>org.scijava.ui.behaviour.*</export>
+		<dependencies>
+			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
+			<bundleref name="com.google.code.gson:gson" version="${gson.version}" />
+		</dependencies>
+	</bundle>
+
 	<!-- SciJava Scripting-Java -->
 	<bundle name="scripting-java" version="${scripting-java.version}">
 		<artifacts>

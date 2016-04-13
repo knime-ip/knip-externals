@@ -16,7 +16,26 @@
 			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
 			<bundleref name="net.imglib2:imglib2-ui" version="${imglib2-ui.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
+			<bundleref name="com.google.code.gson:gson" version="${gson.version}" />
 		</dependencies>
 		<export>bdv.*, net.imglib2.img.basictypeaccess.volatiles.*, net.imglib2.interpolation.randomaccess.*, net.imglib2.type.volatiles.*</export>
+	</bundle>
+
+	<!-- SPIMDATA Bundle -->
+	<bundle name="spim_data" version="${spim_data.version}">
+		<artifacts>
+			<artifact>
+				<group>sc.fiji</group>
+				<id>spim_data</id>
+				<version>${spim_data.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.jdom:jdom2" version="${jdom2.version}" />
+		</dependencies>
+		<export>mpicbg.spim.data.*</export>
 	</bundle>
 </bundlegroup>

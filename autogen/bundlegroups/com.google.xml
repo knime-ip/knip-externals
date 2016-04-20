@@ -10,7 +10,7 @@
 		</artifacts>
 		<export>*</export>
 	</bundle>
-	<bundle name="gson" version="{gson.version}">
+	<bundle name="gson" version="${gson.version}">
 		<artifacts>
 			<artifact>
 				<group>com.google.code.gson</group>
@@ -19,5 +19,5 @@
 			</artifact>
 		</artifacts>
 		<export>*</export>
-		</bundle>
+	</bundle>
 </bundlegroup>

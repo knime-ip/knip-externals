@@ -28,7 +28,6 @@
 		<!-- bigdataviewer versions -->
 		<bigdataviewer-core.version>2.2.1</bigdataviewer-core.version>
 		<spim_data.version>2.0.1</spim_data.version>
-		<scijava-ui-behaviour.version>1.0.2</scijava-ui-behaviour.version>
 
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->

@@ -25,9 +25,9 @@
 	<include>bundlegroups/org.slf4j.xml</include>
 	<include>bundlegroups/org.kohsuke.xml</include>
 	<include>bundlegroups/org.apache.xml</include>
-	<include>bundlegroups/com.google.guava.xml</include>
 	<include>bundlegroups/xml-apis.xml</include>
 	<include>bundlegroups/sc.fiji.xml</include>
 	<include>bundlegroups/org.jdom.xml</include>
+	<include>bundlegroups/com.google.xml</include>
 
 </updatesite>

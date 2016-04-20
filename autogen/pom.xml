@@ -25,9 +25,13 @@
 		<jep.version>2.4.2</jep.version>
 		<fifesoft.version>2.5.8</fifesoft.version>
 
+		<!-- bigdataviewer versions -->
+		<bigdataviewer-core.version>2.2.1</bigdataviewer-core.version>
+		<spim_data.version>2.0.1</spim_data.version>
+		<scijava-ui-behaviour.version>1.0.2</scijava-ui-behaviour.version>
+
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->
-
 		<knip-tmp-imglib2-ops.version>0.4.0</knip-tmp-imglib2-ops.version>
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
 

@@ -18,7 +18,7 @@
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="com.google.code.gson:gson" version="${gson.version}" />
 		</dependencies>
-		<export>bdv.*, net.imglib2.img.basictypeaccess.volatiles.*, net.imglib2.interpolation.randomaccess.*, net.imglib2.type.volatiles.*</export>
+		<export>bdv.*, net.imglib2.img.basictypeaccess.volatiles.*, net.imglib2.interpolation.randomaccess.*, net.imglib2.type.volatiles.*, net.imglib2.display.*</export>
 	</bundle>
 
 	<!-- SPIMDATA Bundle -->

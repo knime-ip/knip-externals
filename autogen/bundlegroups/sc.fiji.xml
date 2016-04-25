@@ -38,4 +38,19 @@
 		</dependencies>
 		<export>mpicbg.spim.data.*</export>
 	</bundle>
+
+	<!-- vistools Bundle -->
+	<bundle name="bigdataviewer-vistools" version="${vistools.version}">
+		<artifacts>
+			<artifact>
+				<group>sc.fiji</group>
+				<id>bigdataviewer-vistools</id>
+				<version>${vistools.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="sc.fiji:bigdataviewer-core" version="${bigdataviewer-core.version}" />
+		</dependencies>
+		<export>bdv.util.*</export>
+	</bundle>
 </bundlegroup>

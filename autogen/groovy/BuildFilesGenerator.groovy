@@ -463,7 +463,7 @@ def main() {
 			bundle-> dependencies += ("\t\t<dependency> \n"
 				+ "\t\t\t<groupId>" + data.site.group + "</groupId>\n"
 				+ "\t\t\t<artifactId>" + bundle.name + "</artifactId>\n"
-				+ "\t\t\t<version>" + bundle.version + ".\${ktimestamp}" +"</version>\n\t\t</dependency>\n"
+				+ "\t\t\t<version>" + bundle.version + ".\${buildstamp}" +"</version>\n\t\t</dependency>\n"
 				)
 				bundles += "\t<bundle id=\"" + bundle.name + "\" version=\"0.0.0\" />\n"
 		}

@@ -8,10 +8,6 @@ import groovy.xml.DOMBuilder
 import groovy.xml.dom.DOMCategory
 import groovy.util.logging.Slf4j
 
-/**
- * Globals
- */
-def String VERSION = "0.0.1"
 
 
 /**
@@ -19,7 +15,7 @@ def String VERSION = "0.0.1"
  */
 def main() {
 	
-	log.info("--- Version Injector Version " + VERSION + "---")
+	log.info("--- Buildstamp Injector ---")
 
 	def targetFile = properties['targetFile']
 	if (targetFile == null) {
@@ -31,7 +27,7 @@ def main() {
 		fail("Property 'buildStamp' undefined.")
 	}
 
-	ant.replace(file: targetFile, token: "%(BUILDSTAMP)", value: "<ktimestamp>" + timeStamp +"</ktimestamp>")
+	ant.replace(file: targetFile, token: "%(BUILDSTAMP)", value: "<buildstamp>" + timeStamp +"</buildstamp>")
 }
 main()
 

@@ -50,6 +50,12 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="sc.fiji:bigdataviewer-core" version="${bigdataviewer-core.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-ui" version="${imglib2-ui.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
+			<bundleref name="com.google.code.gson:gson" version="${gson.version}" />
 		</dependencies>
 		<export>bdv.util.*</export>
 	</bundle>

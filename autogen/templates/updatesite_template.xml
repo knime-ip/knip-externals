@@ -4,6 +4,7 @@
 
 	<properties>
 		<tycho-version>0.22.0</tycho-version>
+		%(BUILDSTAMP)
 	</properties>
 
 	<parent>

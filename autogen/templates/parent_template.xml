@@ -18,8 +18,9 @@
 
 	<properties>
 		<felix-plugin.version>2.4.0</felix-plugin.version>
+	   	<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+		<timestamp>${maven.build.timestamp}</timestamp>
 	</properties>
-
 
 	%(MODULES)
 

@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.knime.knip</groupId>
+		<artifactId>knip-externals</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<name>KNIP External Build version writer</name>
+
+	<artifactId>buildversion</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+<build>
+  <resources>
+    <resource>
+      <directory>src/main/resources</directory>
+      <filtering>true</filtering>
+      <includes>
+        <include>**/version.properties</include>
+      </includes>
+    </resource>
+    <resource>
+      <directory>src/main/resources</directory>
+      <filtering>false</filtering>
+      <excludes>
+        <exclude>**/version.properties</exclude>
+      </excludes>
+    </resource>
+  </resources>
+   <plugins>
+	  <plugin>
+		  <groupId>org.codehaus.gmaven</groupId>
+		  <artifactId>groovy-maven-plugin</artifactId>
+		  <version>2.0</version>
+		  <executions>
+			  <execution>
+				  <phase>process-resources</phase>
+				  <goals>
+					  <goal>execute</goal>
+				  </goals>
+				  <configuration>
+					  <properties>
+						<targetFile>${pom.basedir}/../update-site/pom.xml</targetFile>
+						<buildStamp>${timestamp}</buildStamp>
+					  </properties>
+					  <source>${pom.basedir}/groovy/Replacer.groovy</source>
+				  </configuration>
+			  </execution>
+		  </executions>
+	  </plugin>
+   </plugins>
+</build>
+
+</project>
+

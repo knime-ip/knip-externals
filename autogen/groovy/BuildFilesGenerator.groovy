@@ -431,7 +431,7 @@ def main() {
 				bundleTemplate.writeFile(buildDir + File.separator + group.name + File.separator + bundle.name, "pom.xml", [
 					"BUNDLE_GROUP":bundle.group.name,
 					"BUNDLE_NAME":bundle.name,
-					"BUNDLE_VERSION":Helper.resolveProperty(project, bundle.version, true),
+					"BUNDLE_VERSION":Helper.resolveProperty(project, bundle.version, true) + ".\${timestamp}",
 					"BUNDLE_INSTRUCTIONS":"<instructions>\n" + requireBundles + bundle.instructions + "</instructions>",
 					"BUNDLE_EXPORT":bundle.exports,
 					"BUNDLE_IMPORT":bundle.imports,
@@ -442,6 +442,7 @@ def main() {
 			
 			bundleGroupTemplate.writeFile(buildDir + File.separator + group.name, "pom.xml", group_map)
 		}
+		parentModules += "<module>knip.buildversion</module>\n"
 		parentTemplate.writeFile(buildDir, "pom.xml", ["MODULES":parentModules+"\t</modules>","REPOSITORIES":parentRepos+"\t</repositories>"])
 	} catch(IOException e) {
 		fail("Could not open template file '" + p_filename + "'.")
@@ -462,7 +463,7 @@ def main() {
 			bundle-> dependencies += ("\t\t<dependency> \n"
 				+ "\t\t\t<groupId>" + data.site.group + "</groupId>\n"
 				+ "\t\t\t<artifactId>" + bundle.name + "</artifactId>\n"
-				+ "\t\t\t<version>" + bundle.version + "</version>\n\t\t</dependency>\n"
+				+ "\t\t\t<version>" + bundle.version + ".\${buildstamp}" +"</version>\n\t\t</dependency>\n"
 				)
 				bundles += "\t<bundle id=\"" + bundle.name + "\" version=\"0.0.0\" />\n"
 		}
@@ -477,7 +478,7 @@ def main() {
 	
 	def Template categoryTemplate = new Template(templateDir + File.separator + categoryTemplateFilename)
 	categoryTemplate.writeFile(buildDir + File.separator + "update-site", "category.xml", ["BUNDLES":bundles])
-	
+
 	log.info("> SUCCESS!")
 }
 main()

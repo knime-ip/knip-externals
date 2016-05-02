@@ -125,7 +125,7 @@
 	</bundle>
 
 	<!-- SciJava UI Behaviour-->
-	<bundle name="scijava-ui-behaviour" version="${ui-behaviour.version}">
+	<bundle name="ui-behaviour" version="${ui-behaviour.version}">
 		<artifacts>
 			<artifact>
 				<group>org.scijava</group>

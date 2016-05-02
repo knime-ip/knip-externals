@@ -26,7 +26,7 @@
 		<fifesoft.version>2.5.8</fifesoft.version>
 
 		<!-- bigdataviewer versions -->
-		<bigdataviewer-core.version>2.4.1</bigdataviewer-core.version>
+		<bigdataviewer-core.version>2.4.0</bigdataviewer-core.version>
 		<spim_data.version>2.0.1</spim_data.version>
 		<ui-behaviour.version>1.0.4</ui-behaviour.version>
 		<vistools.version>1.0.0-beta-2</vistools.version>

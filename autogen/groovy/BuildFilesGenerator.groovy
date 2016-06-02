@@ -365,12 +365,17 @@ def main() {
 	if (bundleTemplateFilename == null) {
 		fail("Property 'bundleTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
+	def String sourceBundleTemplateFilename = properties['sourceBundleTemplate']
+	if (sourceBundleTemplateFilename == null) {
+		fail("Property 'sourceBundleTemplate' undefined. Please define a .xml template file in <properties> tag.")
+	}
 	def String bundleGroupTemplateFilename = properties['bundleGroupTemplate']
 	if (bundleGroupTemplateFilename == null) {
 		fail("Property 'bundleGroupTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
 
 	def Template bundleTemplate = new Template(templateDir + File.separator + bundleTemplateFilename)
+	def Template sourceBundleTemplate = new Template(templateDir + File.separator + sourceBundleTemplateFilename)
 	def Template bundleGroupTemplate = new Template(templateDir + File.separator + bundleGroupTemplateFilename)
 	def Template parentTemplate = new Template(templateDir + File.separator + parentTemplateFilename)
 	try {
@@ -396,21 +401,29 @@ def main() {
 				modules += "\t\t<module>" + bundle.name + "</module>\n"
 
 				String dependencies = "\t<dependencies>\n"
+				String sourceDependencies = "\t<dependencies>\n"
 				String requireBundles = ""
 
-				for (Artifact a : bundle.artifacts) {
-					dependencies += ("\t\t<dependency> \n"
-						+ "\t\t\t<groupId>" + a.group + "</groupId>\n"
-						+ "\t\t\t<artifactId>" + a.name + "</artifactId>\n"
-						+ "\t\t\t<version>" + a.version + "</version>\n"
+				for (Artifact artifact : bundle.artifacts) {
+					dependencies += ("\t\t<dependency>\n"
+						+ "\t\t\t<groupId>" + artifact.group + "</groupId>\n"
+						+ "\t\t\t<artifactId>" + artifact.name + "</artifactId>\n"
+						+ "\t\t\t<version>" + artifact.version + "</version>\n"
 						+ "\t\t</dependency>\n")
+
+                    sourceDependencies += ("\n\t\t<dependency>\n"
+                        + "\t\t\t<groupId>" + artifact.group + "</groupId>\n"
+                        + "\t\t\t<artifactId>" + artifact.name + "</artifactId>\n"
+                        + "\t\t\t<version>" + artifact.version + "</version>\n"
+                        + "\t\t\t<classifier>sources</classifier>\n"
+                        + "\t\t</dependency>\n")
 				}
 				def first = true;
-				for (BundleRef d : bundle.dependencies) {
-					dependencies += ("\n\t\t<dependency> \n"
-						+ "\t\t\t<groupId>" + d.group + "</groupId>\n"
-						+ "\t\t\t<artifactId>" + d.name + "</artifactId>\n"
-						+ "\t\t\t<version>" + d.version + "</version>\n"
+				for (BundleRef bundleRef : bundle.dependencies) {
+					dependencies += ("\n\t\t<dependency>\n"
+						+ "\t\t\t<groupId>" + bundleRef.group + "</groupId>\n"
+						+ "\t\t\t<artifactId>" + bundleRef.name + "</artifactId>\n"
+						+ "\t\t\t<version>" + bundleRef.version + "</version>\n"
 						+ "\t\t\t<type>bundle</type>\n\t\t\t<scope>provided</scope>\n"
 						+ "\t\t</dependency>\n")
 					if (first) {
@@ -419,11 +432,12 @@ def main() {
 						requireBundles += ",\n"
 					}
 
-					requireBundles += "\t\t" + d.getBundleName() + ";bundle-version=\"" + Helper.resolveProperty(project, d.version, true) + "\""
+					requireBundles += "\t\t" + bundleRef.getBundleName() + ";bundle-version=\"" + Helper.resolveProperty(project, bundleRef.version, true) + "\""
 				}
 
 				requireBundles = (requireBundles.isEmpty()) ? "" : "\t<Require-Bundle>\n" + requireBundles + "\n\t</Require-Bundle>\n"
 
+				// write bundle pom
 				bundleTemplate.writeFile(buildDir + File.separator + group.name + File.separator + bundle.name, "pom.xml", [
 					"BUNDLE_GROUP":bundle.group.name,
 					"BUNDLE_NAME":bundle.name,
@@ -433,7 +447,17 @@ def main() {
 					"BUNDLE_IMPORT":bundle.imports,
 					"BUNDLE_ARTIFACTS":dependencies + "\t</dependencies>\n"
 				])
+
+				// write source bundle pom
+				sourceBundleTemplate.writeFile(buildDir + File.separator + group.name + File.separator + bundle.name + "-sources", "pom.xml", [
+						"BUNDLE_GROUP":bundle.group.name,
+						"BUNDLE_NAME":bundle.name,
+						"BUNDLE_VERSION":Helper.resolveProperty(project, bundle.version, true) + "." + buildStamp,
+						"BUNDLE_ARTIFACTS":sourceDependencies+ "\t</dependencies>\n"
+				])
+				modules += "\t\t<module>" + bundle.name +"-sources" + "</module>\n"
 			}
+
 			group_map['MODULES'] = modules + "\t</modules>\n"
 
 			bundleGroupTemplate.writeFile(buildDir + File.separator + group.name, "pom.xml", group_map)
@@ -449,6 +473,7 @@ def main() {
 		fail("Property 'updateSiteTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
 
+	// Create updatesite pom
 	def Template updateSiteTemplate = new Template(templateDir + File.separator + updateSiteTemplateFilename)
 
 	def dependencies = "\t<dependencies>\n"
@@ -461,6 +486,7 @@ def main() {
 				+ "\t\t\t<version>" + bundle.version + "." + buildStamp +"</version>\n\t\t</dependency>\n"
 				)
 				bundles += "\t<bundle id=\"" + bundle.name + "\" version=\"0.0.0\" />\n"
+				bundles += "\t<bundle id=\"" + bundle.name + ".source" + "\" version=\"0.0.0\" />\n"
 		}
 	}
 	updateSiteTemplate.writeFile(buildDir + File.separator + "update-site", "pom.xml", ["GROUP":data.site.group,"NAME":data.site.name,"DEPENDENCIES":dependencies+"\t</dependencies>\n"])

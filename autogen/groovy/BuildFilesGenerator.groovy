@@ -29,11 +29,25 @@ class Helper{
  */
 class Artifact {
 	String group, name, version
+	Boolean attachSource
 
 	Artifact(p_project, p_group, p_name, p_version) {
 		this.group 	= p_group
 		this.name 	= p_name
 		this.version	= Helper.resolveProperty(p_project, p_version, false)
+		this.attachSource = true
+	}
+	Artifact(project, group, name, version, attachSource) {
+		this.group 	= group
+		this.name 	= name
+		this.version	= Helper.resolveProperty(project, version, false)
+		if(attachSource.equals("") || attachSource.equals("true")) {
+			this.attachSource = true
+		} else if (attachSource.equals("false")) {
+			this.attachSource = false
+		} else {
+			throw new IllegalArgumentException("The property \"attachSource\" must be either 'false','true', or unset!")
+		}
 	}
 }
 
@@ -69,11 +83,12 @@ class Bundle {
 	BundleGroup group
 	String name, version, instructions
 	String exports, imports
+	Boolean attachSources = true
 
-	Bundle(p_project, p_group, p_name, p_version) {
-		this.group 	= p_group
-		this.name 	= p_name
-		this.version	= Helper.resolveProperty(p_project, p_version, true)
+	Bundle(project, group, name, version) {
+		this.group 	= group
+		this.name 	= name
+		this.version	= Helper.resolveProperty(project, version, true)
 
 		/* default values */
 		this.instructions 	= ""
@@ -84,12 +99,12 @@ class Bundle {
 		this.dependencies = new ArrayList<BundleRef>()
 	}
 
-	void addArtifact(p_project, p_group, p_name, p_version) {
-		this.artifacts.add(new Artifact(p_project, p_group, p_name, p_version))
+	void addArtifact(project, group, name, version, attachSource) {
+		this.artifacts.add(new Artifact(project, group, name, version, attachSource))
 	}
 
-	void addArtifact(Artifact p_a) {
-		this.artifacts.add(p_a)
+	void addArtifact(Artifact artifact) {
+		this.artifacts.add(artifact)
 	}
 
 	void addDependency(p_project, p_group, p_name, p_version, p_isExternal) {
@@ -215,7 +230,7 @@ class DataCollector {
 		this.site = null;
 	}
 
-	void collectDataFromXML(p_project, String buildDir, String p_filename) throws IOException {
+	void collectDataFromXML(project, String buildDir, String p_filename) throws IOException {
 		def files = [p_filename] as Queue
 		def path, reader
 		def prefix = p_filename.substring(0, p_filename.lastIndexOf('/'))
@@ -259,9 +274,9 @@ class DataCollector {
 
 						bundleGroupTag.'bundle'.each {
 							bundleTag ->
-								def bundle = new Bundle(p_project, bundlegroup, bundleTag.'@name', bundleTag.'@version')
+								def bundle = new Bundle(project, bundlegroup, bundleTag.'@name', bundleTag.'@version')
 								bundleTag.'artifacts'[0].'artifact'.each {
-									artifact -> bundle.addArtifact(p_project, artifact.'group'.text(), artifact.'id'.text(), artifact.'version'.text())
+									artifact -> bundle.addArtifact(project, artifact.'group'.text(), artifact.'id'.text(), artifact.'version'.text(), artifact.'attachSource'.text())
 								}
 
 								if (bundleTag.'dependencies' != null) {
@@ -270,7 +285,7 @@ class DataCollector {
 											bundleref ->
 											def name = bundleref.'@name'.split(':')
 											def isExternal = Boolean.parseBoolean(bundleref.'@isExternal')
-											bundle.addDependency(p_project, name[0], name[1], bundleref.'@version',isExternal)
+											bundle.addDependency(project, name[0], name[1], bundleref.'@version',isExternal)
 										}
 									}
 								}
@@ -411,12 +426,14 @@ def main() {
 						+ "\t\t\t<version>" + artifact.version + "</version>\n"
 						+ "\t\t</dependency>\n")
 
-                    sourceDependencies += ("\n\t\t<dependency>\n"
-                        + "\t\t\t<groupId>" + artifact.group + "</groupId>\n"
-                        + "\t\t\t<artifactId>" + artifact.name + "</artifactId>\n"
-                        + "\t\t\t<version>" + artifact.version + "</version>\n"
-                        + "\t\t\t<classifier>sources</classifier>\n"
-                        + "\t\t</dependency>\n")
+					if(artifact.attachSource) {
+						sourceDependencies += ("\n\t\t<dependency>\n"
+								+ "\t\t\t<groupId>" + artifact.group + "</groupId>\n"
+								+ "\t\t\t<artifactId>" + artifact.name + "</artifactId>\n"
+								+ "\t\t\t<version>" + artifact.version + "</version>\n"
+								+ "\t\t\t<classifier>sources</classifier>\n"
+								+ "\t\t</dependency>\n")
+					}
 				}
 				def first = true;
 				for (BundleRef bundleRef : bundle.dependencies) {
@@ -448,12 +465,16 @@ def main() {
 					"BUNDLE_ARTIFACTS":dependencies + "\t</dependencies>\n"
 				])
 
+				if (sourceDependencies.equals("\t<dependencies>\n")){  // if all artifacts have no source attachment, we skip this bundle
+					bundle.attachSources = false;
+					continue
+				}
 				// write source bundle pom
 				sourceBundleTemplate.writeFile(buildDir + File.separator + group.name + File.separator + bundle.name + "-sources", "pom.xml", [
 						"BUNDLE_GROUP":bundle.group.name,
 						"BUNDLE_NAME":bundle.name,
 						"BUNDLE_VERSION":Helper.resolveProperty(project, bundle.version, true) + "." + buildStamp,
-						"BUNDLE_ARTIFACTS":sourceDependencies+ "\t</dependencies>\n"
+						"BUNDLE_ARTIFACTS":sourceDependencies + "\t</dependencies>\n"
 				])
 				modules += "\t\t<module>" + bundle.name +"-sources" + "</module>\n"
 			}
@@ -481,12 +502,20 @@ def main() {
 	data.site.bundleGroups.each {
 		group -> group.bundles.each {
 			bundle-> dependencies += ("\t\t<dependency> \n"
-				+ "\t\t\t<groupId>" + data.site.group + "</groupId>\n"
-				+ "\t\t\t<artifactId>" + bundle.name + "</artifactId>\n"
-				+ "\t\t\t<version>" + bundle.version + "." + buildStamp +"</version>\n\t\t</dependency>\n"
+                    + "\t\t\t<groupId>" + data.site.group + "</groupId>\n"
+                    + "\t\t\t<artifactId>" + bundle.name + "</artifactId>\n"
+                    + "\t\t\t<version>" + bundle.version + "." + buildStamp +"</version>\n\t\t</dependency>\n"
 				)
+
+				if(bundle.attachSources){
+				dependencies +=	("\t\t<dependency> \n"
+                    + "\t\t\t<groupId>" + data.site.group + "</groupId>\n"
+                    + "\t\t\t<artifactId>" + bundle.name + ".source" + "</artifactId>\n"
+                    + "\t\t\t<version>" + bundle.version + "." + buildStamp +"</version>\n\t\t</dependency>\n")
+					bundles += "\t<bundle id=\"" + bundle.name + ".source" + "\" version=\"0.0.0\" />\n"
+				}
+
 				bundles += "\t<bundle id=\"" + bundle.name + "\" version=\"0.0.0\" />\n"
-				bundles += "\t<bundle id=\"" + bundle.name + ".source" + "\" version=\"0.0.0\" />\n"
 		}
 	}
 	updateSiteTemplate.writeFile(buildDir + File.separator + "update-site", "pom.xml", ["GROUP":data.site.group,"NAME":data.site.name,"DEPENDENCIES":dependencies+"\t</dependencies>\n"])

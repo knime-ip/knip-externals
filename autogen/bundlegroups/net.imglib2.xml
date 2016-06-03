@@ -57,6 +57,7 @@
 				<group>net.imglib2</group>
 				<id>imglib2-algorithm-gpl</id>
 				<version>${imglib2-algorithm-gpl.version}</version>
+				<attachSource>false</attachSource>
 			</artifact>
 		</artifacts>
 		<dependencies>
@@ -76,6 +77,7 @@
 				<group>net.imglib2</group>
 				<id>imglib2-ij</id>
 				<version>${imglib2-ij.version}</version>
+				<attachSource>false</attachSource>
 			</artifact>
 		</artifacts>
 		<dependencies>

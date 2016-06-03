@@ -8,6 +8,7 @@
 				<group>org.knime.knip.tmp</group>
 				<id>knip-trackmate-fork</id>
 				<version>${knip-trackmate-fork.version}</version>
+				<attachSource>false</attachSource>
 			</artifact>
 		</artifacts>
 		<dependencies>

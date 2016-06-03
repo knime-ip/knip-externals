@@ -178,6 +178,7 @@
 				<group>org.scijava</group>
 				<id>jython-shaded</id>
 				<version>${jython-shaded.version}</version>
+				<attachSource>false</attachSource> <!-- Jython-shaded sources don't conform to OSGi standards -->
 			</artifact>
 		</artifacts>
 		<export>*</export>
@@ -205,6 +206,7 @@
 				<group>org.scijava</group>
 				<id>scripting-jruby</id>
 				<version>${scripting-jruby.version}</version>
+				<attachSource>false</attachSource>
 			</artifact>
 		</artifacts>
 		<dependencies>

@@ -76,6 +76,7 @@
 								<input>${pom.basedir}/update-site.xml</input>
 								<templateDir>${pom.basedir}/templates/</templateDir>
 								<bundleTemplate>bundle_template.xml</bundleTemplate>
+								<sourceBundleTemplate>source_bundle_template.xml</sourceBundleTemplate>
 								<updateSiteTemplate>updatesite_template.xml</updateSiteTemplate>
 								<parentTemplate>parent_template.xml</parentTemplate>
 								<categoryTemplate>category_template.xml</categoryTemplate>

@@ -13,7 +13,7 @@ class Helper{
 
 		String version = p_version;
 		if(p_version.startsWith("\${")){
-			// maven version we need to worry!	
+			// maven version we need to worry!
 			version = p_project.properties.getProperty(p_version.substring(2, p_version.length()-1));
 		}
 		if(p_compatible)
@@ -29,11 +29,25 @@ class Helper{
  */
 class Artifact {
 	String group, name, version
-	
+	Boolean attachSource
+
 	Artifact(p_project, p_group, p_name, p_version) {
 		this.group 	= p_group
 		this.name 	= p_name
 		this.version	= Helper.resolveProperty(p_project, p_version, false)
+		this.attachSource = true
+	}
+	Artifact(project, group, name, version, attachSource) {
+		this.group 	= group
+		this.name 	= name
+		this.version	= Helper.resolveProperty(project, version, false)
+		if(attachSource.equals("") || attachSource.equals("true")) {
+			this.attachSource = true
+		} else if (attachSource.equals("false")) {
+			this.attachSource = false
+		} else {
+			throw new IllegalArgumentException("The property \"attachSource\" must be either 'false','true', or unset!")
+		}
 	}
 }
 
@@ -42,7 +56,7 @@ class Artifact {
  * Barebones information about a bundle to reference it via its name, group and version.
  */
 class BundleRef extends Artifact {
-	Boolean isExternal	
+	Boolean isExternal
 	BundleRef(project, p_group, p_name, p_version, p_isExternal) {
 		super(project, p_group, p_name, p_version)
 		this.isExternal = p_isExternal
@@ -65,56 +79,56 @@ class BundleRef extends Artifact {
 class Bundle {
 	List<Artifact> artifacts
 	List<BundleRef> dependencies
-	
+
 	BundleGroup group
 	String name, version, instructions
 	String exports, imports
-			
-	Bundle(p_project, p_group, p_name, p_version) {
-		this.group 	= p_group
-		this.name 	= p_name
-		this.version	= Helper.resolveProperty(p_project, p_version, true)
-		
+	Boolean attachSources = true
+
+	Bundle(project, group, name, version) {
+		this.group 	= group
+		this.name 	= name
+		this.version	= Helper.resolveProperty(project, version, true)
+
 		/* default values */
 		this.instructions 	= ""
 		this.exports 		= "*"
 		this.imports		= "" //TODO: ?
-		
-		
+
 		this.artifacts = new ArrayList<Artifact>()
 		this.dependencies = new ArrayList<BundleRef>()
 	}
-	
-	void addArtifact(p_project, p_group, p_name, p_version) {
-		this.artifacts.add(new Artifact(p_project, p_group, p_name, p_version))
+
+	void addArtifact(project, group, name, version, attachSource) {
+		this.artifacts.add(new Artifact(project, group, name, version, attachSource))
 	}
-	
-	void addArtifact(Artifact p_a) {
-		this.artifacts.add(p_a)
+
+	void addArtifact(Artifact artifact) {
+		this.artifacts.add(artifact)
 	}
-	
+
 	void addDependency(p_project, p_group, p_name, p_version, p_isExternal) {
 		this.dependencies.add(new BundleRef(p_project, p_group, p_name, p_version, p_isExternal))
 	}
-	
+
 	void addDependency(BundleRef p_br) {
 		this.dependencies.add(p_br)
 	}
-	
+
 	void setInstructions(p_instructions) {
 		if (p_instructions != null) {
 			this.instructions = p_instructions
 		}
 		return
 	}
-	
+
 	void setImport(p_imports) {
 		if (p_imports != null) {
 			this.imports = p_imports
 		}
 		return
 	}
-	
+
 	void setExport(p_exports) {
 		if (p_exports != null) {
 			this.exports = p_exports
@@ -130,12 +144,12 @@ class Bundle {
 class BundleGroup {
 	String name
 	List<Bundle> bundles
-	
+
 	BundleGroup(p_name) {
 		this.name = p_name
 		this.bundles = new ArrayList<Bundle>()
 	}
-	
+
 	void addBundle(Bundle p_bundle) {
 		if (p_bundle != null) {
 			this.bundles.add(p_bundle)
@@ -150,11 +164,11 @@ class BundleGroup {
  */
 class Repository {
 	String id, layout, url
-	
+
 	Repository(p_id, p_url) {
 		this(p_id, "", p_url)
 	}
-	
+
 	Repository(p_id, p_layout, p_url) {
 		this.id = p_id
 		this.url = p_url
@@ -169,16 +183,16 @@ class Repository {
 class UpdateSite {
 	List<BundleGroup> bundleGroups
 	List<Repository> repositories
-	
+
 	String group, name
-	
+
 	UpdateSite(p_group, p_name) {
 		this.group = p_group
 		this.name  = p_name
 		this.bundleGroups = new ArrayList<BundleGroup>()
 		this.repositories = new ArrayList<Repository>()
 	}
-	
+
 	void addRepository(Repository p_repo) {
 		if (p_repo == null) {
 			return
@@ -186,7 +200,7 @@ class UpdateSite {
 		this.repositories.add(p_repo)
 		return
 	}
-	
+
 	void addRepository(p_id, p_layout, p_url) {
 		if (p_layout != null) {
 			this.repositories.add(new Repository(p_id, p_layout, p_url))
@@ -194,7 +208,7 @@ class UpdateSite {
 			this.repositories.add(new Repository(p_id, p_url))
 		}
 	}
-	
+
 	void addBundleGroup(BundleGroup p_bg) {
 		if (p_bg == null) {
 			return
@@ -211,79 +225,79 @@ class UpdateSite {
  */
 class DataCollector {
 	UpdateSite site
-	
+
 	DataCollector() {
 		this.site = null;
 	}
-	
-	void collectDataFromXML(p_project, String buildDir, String p_filename) throws IOException {
+
+	void collectDataFromXML(project, String buildDir, String p_filename) throws IOException {
 		def files = [p_filename] as Queue
-		def path, reader		
+		def path, reader
 		def prefix = p_filename.substring(0, p_filename.lastIndexOf('/'))
-		
+
 		while ((path = files.poll()) != null) {
 			try {
 				reader = new FileReader(path)
 			} catch(IOException e) {
 				throw e
 			}
-			
-			
+
+
 			def mainTag = groovy.xml.DOMBuilder.parse(reader).documentElement
 			use (DOMCategory) {
-				
+
 			def bundleGroupTags = null
 			if (mainTag.name() == "updatesite") {
 				def splitName = mainTag.'@name'.split(':')
 				this.site = new UpdateSite(splitName[0], splitName[1]);
-				
+
 				if (mainTag.'repositories' != null) {
 					mainTag.repositories[0].'repository'.each {
 						repo -> this.site.addRepository(repo.'id'.text(), repo.'layout'.text(), repo.'url'.text())
 					}
 				}
-				
+
 				mainTag.'include'.each {
 					filename -> files.offer(prefix + File.separator + filename.text())
 				}
 				bundleGroupTags = mainTag.'bundlegroup'
-				
+
 			} else if (mainTag.name() == "bundlegroup") {
 				bundleGroupTags = [mainTag]
 			} else {
 				fail "Invalid document element in \"" + buildDir + File.separator + path + "\""
 			}
-			
+
 			bundleGroupTags.each {
 					bundleGroupTag ->
 						def bundlegroup = new BundleGroup(bundleGroupTag.'@name')
-						
+
 						bundleGroupTag.'bundle'.each {
 							bundleTag ->
-								def bundle = new Bundle(p_project, bundlegroup, bundleTag.'@name', bundleTag.'@version')
+								def bundle = new Bundle(project, bundlegroup, bundleTag.'@name', bundleTag.'@version')
 								bundleTag.'artifacts'[0].'artifact'.each {
-									artifact -> bundle.addArtifact(p_project, artifact.'group'.text(), artifact.'id'.text(), artifact.'version'.text())
+									artifact -> bundle.addArtifact(project, artifact.'group'.text(), artifact.'id'.text(), artifact.'version'.text(), artifact.'attachSource'.text())
 								}
-								
+
 								if (bundleTag.'dependencies' != null) {
 									if (bundleTag.'dependencies'.size() > 0) {
 										bundleTag.'dependencies'[0].'bundleref'.each {
-											bundleref -> 
+											bundleref ->
 											def name = bundleref.'@name'.split(':')
 											def isExternal = Boolean.parseBoolean(bundleref.'@isExternal')
-											bundle.addDependency(p_project, name[0], name[1], bundleref.'@version',isExternal)
+											bundle.addDependency(project, name[0], name[1], bundleref.'@version',isExternal)
 										}
 									}
 								}
-								
+
 								bundle.setInstructions(bundleTag.'instructions'.text())
 								bundle.setImport(bundleTag.'import'.text())
 								bundle.setExport(bundleTag.'export'.text())
-								
+
 								bundlegroup.addBundle(bundle)
 						}
 						site.addBundleGroup(bundlegroup)
-			}
+				}
 			}
 		}
 	}
@@ -295,35 +309,30 @@ class DataCollector {
  */
 class Template {
 	String templateString
-	
+
 	Template(p_filename) throws IOException {
 		templateString = ""
 		new File(p_filename).eachLine {
 			line -> templateString += line + "\n"
 		}
 	}
-	
+
 	void writeFile(p_path, p_name, Map<String, String> keywords) throws IOException {
 		def outFile = new File(p_path, p_name)
 		outFile.getParentFile().mkdirs()
 		outFile.createNewFile()
-		
+
 		// prepare the String with replaced keywords
 		String result = templateString
 		for (Map.Entry entry : keywords.entrySet()) {
 			result = result.replaceAll('%\\(' + entry.getKey() + '\\)', {entry.getValue()})
 		}
-		
+
 		outFile.withWriter { w ->
 				w << result
 		}
 	}
 }
-
-/**
- * Globals
- */
-def String VERSION = "0.0.1"
 
 /**
  * Main function
@@ -335,25 +344,25 @@ def main() {
 	log.info("--- Build Files Generator Version 1.0.0 ---")
 	log.info("--- Build Timestamp is " + buildStamp +  " ---")
 	log.info("> Initializing...")
-	
+
 	def buildDir = properties['buildDir']
 	if (buildDir == null) {
 		log.warn("Property 'buildDir' undefined. Assuming working directory.")
 		buildDir = "."
 	}
-	
+
 	log.info("> Collecting Information...")
-	
+
 	def inputFile = properties['input']
 	if (inputFile == null) {
 		fail("Property 'input' undefined. Please define a .xml input file in <properties> tag.")
 	}
-	
+
 	def DataCollector data = new DataCollector()
 	data.collectDataFromXML(project, buildDir, inputFile)
-	
+
 	log.info("> Generating parent, bundlegroup and bundle poms...")
-	
+
 	/*
 	 * Generate Bundle Poms
 	 */
@@ -362,7 +371,7 @@ def main() {
 		log.warn("Property 'templateDir' undefined. Assuming buildDir.")
 		templateDir = ""
 	}
-	
+
 	def String parentTemplateFilename = properties['parentTemplate']
 	if (parentTemplateFilename == null) {
 		fail("Property 'parentTemplate' undefined. Please define a .xml template file in <properties> tag.")
@@ -371,52 +380,67 @@ def main() {
 	if (bundleTemplateFilename == null) {
 		fail("Property 'bundleTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
+	def String sourceBundleTemplateFilename = properties['sourceBundleTemplate']
+	if (sourceBundleTemplateFilename == null) {
+		fail("Property 'sourceBundleTemplate' undefined. Please define a .xml template file in <properties> tag.")
+	}
 	def String bundleGroupTemplateFilename = properties['bundleGroupTemplate']
 	if (bundleGroupTemplateFilename == null) {
 		fail("Property 'bundleGroupTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
-	
+
 	def Template bundleTemplate = new Template(templateDir + File.separator + bundleTemplateFilename)
+	def Template sourceBundleTemplate = new Template(templateDir + File.separator + sourceBundleTemplateFilename)
 	def Template bundleGroupTemplate = new Template(templateDir + File.separator + bundleGroupTemplateFilename)
 	def Template parentTemplate = new Template(templateDir + File.separator + parentTemplateFilename)
 	try {
 		def String modules = ""
 		def String parentModules = "<modules>\n"
 		def String parentRepos = "<repositories>\n"
-		
+
 		// add repositories
 		for(Repository repo : data.site.repositories) {
 			parentRepos += ("\t\t<repository>\n\t\t\t<id>" + repo.id + "</id>\n"
 				 + ((repo.layout.isEmpty()) ? ("") : ("\t\t\t<layout>" + repo.layout + "</layout>\n"))
 				 + "\t\t\t<url>" + repo.url + "</url>\n\t\t</repository>\n")
 		}
-		
+
 		// add bundle groups and generate bundlegroup poms
 		for(BundleGroup group : data.site.bundleGroups) {
 			def Map group_map = ["BUNDLEGROUP_NAME":group.name]
 			modules = "\t<modules>\n"
 			parentModules += "\t\t<module>" + group.name + "</module>\n"
-			
+
 			// add bundles and generate bundle poms
 			for (Bundle bundle : group.bundles) {
 				modules += "\t\t<module>" + bundle.name + "</module>\n"
-				
+
 				String dependencies = "\t<dependencies>\n"
+				String sourceDependencies = "\t<dependencies>\n"
 				String requireBundles = ""
-				
-				for (Artifact a : bundle.artifacts) {
-					dependencies += ("\t\t<dependency> \n"
-						+ "\t\t\t<groupId>" + a.group + "</groupId>\n"
-						+ "\t\t\t<artifactId>" + a.name + "</artifactId>\n"
-						+ "\t\t\t<version>" + a.version + "</version>\n"
+
+				for (Artifact artifact : bundle.artifacts) {
+					dependencies += ("\t\t<dependency>\n"
+						+ "\t\t\t<groupId>" + artifact.group + "</groupId>\n"
+						+ "\t\t\t<artifactId>" + artifact.name + "</artifactId>\n"
+						+ "\t\t\t<version>" + artifact.version + "</version>\n"
 						+ "\t\t</dependency>\n")
+
+					if(artifact.attachSource) {
+						sourceDependencies += ("\n\t\t<dependency>\n"
+								+ "\t\t\t<groupId>" + artifact.group + "</groupId>\n"
+								+ "\t\t\t<artifactId>" + artifact.name + "</artifactId>\n"
+								+ "\t\t\t<version>" + artifact.version + "</version>\n"
+								+ "\t\t\t<classifier>sources</classifier>\n"
+								+ "\t\t</dependency>\n")
+					}
 				}
 				def first = true;
-				for (BundleRef d : bundle.dependencies) {
-					dependencies += ("\n\t\t<dependency> \n"
-						+ "\t\t\t<groupId>" + d.group + "</groupId>\n"
-						+ "\t\t\t<artifactId>" + d.name + "</artifactId>\n"
-						+ "\t\t\t<version>" + d.version + "</version>\n"
+				for (BundleRef bundleRef : bundle.dependencies) {
+					dependencies += ("\n\t\t<dependency>\n"
+						+ "\t\t\t<groupId>" + bundleRef.group + "</groupId>\n"
+						+ "\t\t\t<artifactId>" + bundleRef.name + "</artifactId>\n"
+						+ "\t\t\t<version>" + bundleRef.version + "</version>\n"
 						+ "\t\t\t<type>bundle</type>\n\t\t\t<scope>provided</scope>\n"
 						+ "\t\t</dependency>\n")
 					if (first) {
@@ -425,11 +449,12 @@ def main() {
 						requireBundles += ",\n"
 					}
 
-					requireBundles += "\t\t" + d.getBundleName() + ";bundle-version=\"" + Helper.resolveProperty(project, d.version, true) + "\""
+					requireBundles += "\t\t" + bundleRef.getBundleName() + ";bundle-version=\"" + Helper.resolveProperty(project, bundleRef.version, true) + "\""
 				}
-				
+
 				requireBundles = (requireBundles.isEmpty()) ? "" : "\t<Require-Bundle>\n" + requireBundles + "\n\t</Require-Bundle>\n"
-				
+
+				// write bundle pom
 				bundleTemplate.writeFile(buildDir + File.separator + group.name + File.separator + bundle.name, "pom.xml", [
 					"BUNDLE_GROUP":bundle.group.name,
 					"BUNDLE_NAME":bundle.name,
@@ -439,44 +464,68 @@ def main() {
 					"BUNDLE_IMPORT":bundle.imports,
 					"BUNDLE_ARTIFACTS":dependencies + "\t</dependencies>\n"
 				])
+
+				if (sourceDependencies.equals("\t<dependencies>\n")){  // if all artifacts have no source attachment, we skip this bundle
+					bundle.attachSources = false;
+					continue
+				}
+				// write source bundle pom
+				sourceBundleTemplate.writeFile(buildDir + File.separator + group.name + File.separator + bundle.name + "-sources", "pom.xml", [
+						"BUNDLE_GROUP":bundle.group.name,
+						"BUNDLE_NAME":bundle.name,
+						"BUNDLE_VERSION":Helper.resolveProperty(project, bundle.version, true) + "." + buildStamp,
+						"BUNDLE_ARTIFACTS":sourceDependencies + "\t</dependencies>\n"
+				])
+				modules += "\t\t<module>" + bundle.name +"-sources" + "</module>\n"
 			}
+
 			group_map['MODULES'] = modules + "\t</modules>\n"
-			
+
 			bundleGroupTemplate.writeFile(buildDir + File.separator + group.name, "pom.xml", group_map)
 		}
 		parentTemplate.writeFile(buildDir, "pom.xml", ["MODULES":parentModules+"\t</modules>","REPOSITORIES":parentRepos+"\t</repositories>"])
 	} catch(IOException e) {
 		fail("Could not open template file '" + p_filename + "'.")
 	}
-	
+
 	log.info("> Generating update site pom.xml...")
 	def String updateSiteTemplateFilename = properties['updateSiteTemplate']
 	if (updateSiteTemplateFilename == null) {
 		fail("Property 'updateSiteTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
-	
+
+	// Create updatesite pom
 	def Template updateSiteTemplate = new Template(templateDir + File.separator + updateSiteTemplateFilename)
-	
+
 	def dependencies = "\t<dependencies>\n"
 	def bundles = ""
 	data.site.bundleGroups.each {
 		group -> group.bundles.each {
 			bundle-> dependencies += ("\t\t<dependency> \n"
-				+ "\t\t\t<groupId>" + data.site.group + "</groupId>\n"
-				+ "\t\t\t<artifactId>" + bundle.name + "</artifactId>\n"
-				+ "\t\t\t<version>" + bundle.version + "." + buildStamp +"</version>\n\t\t</dependency>\n"
+                    + "\t\t\t<groupId>" + data.site.group + "</groupId>\n"
+                    + "\t\t\t<artifactId>" + bundle.name + "</artifactId>\n"
+                    + "\t\t\t<version>" + bundle.version + "." + buildStamp +"</version>\n\t\t</dependency>\n"
 				)
+
+				if(bundle.attachSources){
+				dependencies +=	("\t\t<dependency> \n"
+                    + "\t\t\t<groupId>" + data.site.group + "</groupId>\n"
+                    + "\t\t\t<artifactId>" + bundle.name + ".source" + "</artifactId>\n"
+                    + "\t\t\t<version>" + bundle.version + "." + buildStamp +"</version>\n\t\t</dependency>\n")
+					bundles += "\t<bundle id=\"" + bundle.name + ".source" + "\" version=\"0.0.0\" />\n"
+				}
+
 				bundles += "\t<bundle id=\"" + bundle.name + "\" version=\"0.0.0\" />\n"
 		}
 	}
 	updateSiteTemplate.writeFile(buildDir + File.separator + "update-site", "pom.xml", ["GROUP":data.site.group,"NAME":data.site.name,"DEPENDENCIES":dependencies+"\t</dependencies>\n"])
-	
+
 	log.info("> Generating category.xml...")
 	def String categoryTemplateFilename = properties['categoryTemplate']
 	if (categoryTemplateFilename == null) {
 		fail("Property 'categoryTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
-	
+
 	def Template categoryTemplate = new Template(templateDir + File.separator + categoryTemplateFilename)
 	categoryTemplate.writeFile(buildDir + File.separator + "update-site", "category.xml", ["BUNDLES":bundles])
 

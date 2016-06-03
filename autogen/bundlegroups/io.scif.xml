@@ -26,21 +26,25 @@
 				<group>ome</group>
 				<id>formats-bsd</id>
 				<version>${bio-formats.version}</version>
+				<attachSource>false</attachSource>
 			</artifact>
 			<artifact>
 				<group>io.scif</group>
 				<id>scifio-bf-compat</id>
 				<version>${scifio-bf-compat.version}</version>
+				<attachSource>false</attachSource>
 			</artifact>
 			<artifact>
 				<group>ome</group>
 				<id>formats-gpl</id>
 				<version>${bio-formats.version}</version>
+				<attachSource>false</attachSource>
 			</artifact>
 			<artifact>
 				<group>xerces</group>
 				<id>xercesImpl</id>
 				<version>${xerces.version}</version>
+				<attachSource>false</attachSource>
 			</artifact>
 
 		</artifacts>

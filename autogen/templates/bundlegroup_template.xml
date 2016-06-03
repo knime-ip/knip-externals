@@ -9,7 +9,7 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<name>KNIME Image Processing SciJava Bundles</name>
+	<name>KNIP Externals Bundlegroup : %(BUNDLEGROUP_NAME) </name>
 
 	<artifactId>%(BUNDLEGROUP_NAME)</artifactId>
 	<version>1.0.0</version>

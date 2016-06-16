@@ -5,3 +5,8 @@
 *.class
 *.jar
 
+# IDE files
+autogen/.project
+autogen/.idea
+*.iml
+autogen/.settings

@@ -8,6 +8,6 @@
 				<version>${jama.version}</version>
 			</artifact>
 		</artifacts>
-		<export>*</export>
+		<export>Jama.*</export>
 	</bundle>
 </bundlegroup>

@@ -8,6 +8,6 @@
 				<version>${args4j.version}</version>
 			</artifact>
 		</artifacts>
-		<export>*</export>
+		<export>org.kohsuke.args4j.*</export>
 	</bundle>
 </bundlegroup>

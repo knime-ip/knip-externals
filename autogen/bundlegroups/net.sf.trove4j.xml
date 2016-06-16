@@ -8,6 +8,6 @@
 				<version>${trove4j.version}</version>
 			</artifact>
 		</artifacts>
-		<export>*</export>
+		<export>gnu.trove.*</export>
 	</bundle>
 </bundlegroup>

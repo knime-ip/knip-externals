@@ -10,7 +10,7 @@
 				<version>${jep.version}</version>
 			</artifact>
 		</artifacts>
-		<export>*</export>
+		<export>org.nfunk.jep.*, org.lsmp.djep.*</export>
 		<dependencies>
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
 		</dependencies>
@@ -115,7 +115,8 @@
 				<version>${scijava-ui-swing.version}</version>
 			</artifact>
 		</artifacts>
-		<export>!com.fifesoft.*, *</export>
+		<!-- <export>!com.fifesoft.*, *</export> -->
+		<export>org.scijava.ui.swing.*</export>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 			<bundleref name="org.scijava:scijava-ui-awt" version="${scijava-ui-awt.version}" />

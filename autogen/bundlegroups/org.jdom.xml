@@ -10,7 +10,7 @@
 				<version>${jdom2.version}</version>
 			</artifact>
 		</artifacts>
-		<export>jdom2.*</export>
+		<export>org.jdom2.*</export>
 	</bundle>
 
 </bundlegroup>

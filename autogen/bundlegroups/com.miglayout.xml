@@ -8,7 +8,7 @@
 				<version>${miglayout.version}</version>
 			</artifact>
 		</artifacts>
-		<export>*</export>
+		<export>net.miginfocom.layout.*</export>
 	</bundle>
 	<bundle name="miglayout-swing" version="${miglayout-swing.version}">
 		<artifacts>
@@ -18,7 +18,7 @@
 				<version>${miglayout-swing.version}</version>
 			</artifact>
 		</artifacts>
-		<export>*</export>
+		<export>net.miginfocom.swing.*</export>
 	</bundle>
 
 </bundlegroup>

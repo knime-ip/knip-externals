@@ -142,6 +142,7 @@
 			<bundleref name="org.scijava:scripting-java" version="${scripting-java.version}" />
 			<bundleref name="com.miglayout:miglayout-swing" version="${miglayout-swing.version}" />
 			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
+			<bundleref name="net.imagej:imagej-deprecated" version="${imagej-deprecated.version}" />
 			<bundleref name="com.fifesoft:autocomplete" version="${fifesoft.version}" isExternal="true" />
 		    <bundleref name="com.fifesoft:languagesupport" version="${fifesoft.version}" isExternal="true" />
 	        <bundleref name="com.fifesoft:rsyntaxtextarea" version="${fifesoft.version}" isExternal="true" />

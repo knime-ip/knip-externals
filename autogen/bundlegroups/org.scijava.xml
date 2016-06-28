@@ -278,4 +278,16 @@
 		</dependencies>
 		<export>org.scijava.cache.*</export>
 	</bundle>
+
+	<!-- SciJava Expression Parser -->
+	<bundle name="scijava-expression-parser" version="${scijava-expression-parser.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-expression-parser</id>
+				<version>${scijava-expression-parser.version}</version>
+			</artifact>
+		</artifacts>
+		<export>org.scijava.sjep.*</export>
+	</bundle>
 </bundlegroup>

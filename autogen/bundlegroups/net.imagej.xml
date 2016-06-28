@@ -143,10 +143,32 @@
 			<bundleref name="com.miglayout:miglayout-swing" version="${miglayout-swing.version}" />
 			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
 			<bundleref name="net.imagej:imagej-deprecated" version="${imagej-deprecated.version}" />
+			<bundleref name="net.imagej:imagej-updater" version="${imagej-updater.version}" />
 			<bundleref name="com.fifesoft:autocomplete" version="${fifesoft.version}" isExternal="true" />
 		    <bundleref name="com.fifesoft:languagesupport" version="${fifesoft.version}" isExternal="true" />
 	        <bundleref name="com.fifesoft:rsyntaxtextarea" version="${fifesoft.version}" isExternal="true" />
 		</dependencies>
 		<export>net.imagej.ui.swing.*</export>
 	</bundle>
+
+	<!-- ImageJ Updater (shouldn't be required actually) -->
+	<bundle name="imagej-updater" version="${imagej-updater.version}">
+		<artifacts>
+			<artifact>
+				<id>imagej-updater</id>
+				<group>net.imagej</group>
+				<version>${imagej-updater.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:scijava-expression-parser" version="${scijava-expression-parser.version}" />
+				<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+		</dependencies>
+		<export>net.imagej.updater.*</export>
+	</bundle>
+
 </bundlegroup>

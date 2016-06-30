@@ -37,6 +37,7 @@
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
 
 		<trove4j.version>3.0.3</trove4j.version>
+		<miglayout-swing.version>${miglayout.version}</miglayout-swing.version>
 		<commons-collections.version>3.2.1</commons-collections.version>
 		<commons-math3.version>3.5</commons-math3.version>
 		<args4j.version>2.0.29</args4j.version>

@@ -98,7 +98,7 @@
 				<version>${scijava-ui-awt.version}</version>
 			</artifact>
 		</artifacts>
-		<export>org.scijava.ui.awt.*</export>
+		<export>org.scijava.ui.awt.*,net.miginfocom.swing.*</export>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
@@ -115,7 +115,7 @@
 			</artifact>
 		</artifacts>
 		<!-- <export>!com.fifesoft.*, *</export> -->
-		<export>org.scijava.ui.swing.*</export>
+		<export>org.scijava.ui.swing.*,net.miginfocom.swing.*</export>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 			<bundleref name="org.scijava:scijava-ui-awt" version="${scijava-ui-awt.version}" />

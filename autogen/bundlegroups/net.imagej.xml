@@ -148,7 +148,7 @@
 		    <bundleref name="com.fifesoft:languagesupport" version="${fifesoft.version}" isExternal="true" />
 	        <bundleref name="com.fifesoft:rsyntaxtextarea" version="${fifesoft.version}" isExternal="true" />
 		</dependencies>
-		<export>net.imagej.ui.swing.*</export>
+		<export>net.imagej.ui.swing.*,net.miginfocom.swing.*</export>
 	</bundle>
 
 	<!-- ImageJ Updater (shouldn't be required actually) -->

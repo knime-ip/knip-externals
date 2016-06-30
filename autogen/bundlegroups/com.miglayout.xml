@@ -1,4 +1,4 @@
-<!-- trove4j bundle -->
+<!-- miglayout bundle -->
 <bundlegroup name="com.miglayout">
 	<bundle name="miglayout" version="${miglayout.version}">
 		<artifacts>

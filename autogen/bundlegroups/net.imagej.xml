@@ -141,6 +141,7 @@
 			<bundleref name="net.imagej:imagej-ui-awt" version="${imagej-ui-awt.version}" />
 			<bundleref name="org.scijava:scripting-java" version="${scripting-java.version}" />
 			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
+			<bundleref name="org.jfree:jfreechart" version="${jfreechart.version}" />
 			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
 			<bundleref name="net.imagej:imagej-deprecated" version="${imagej-deprecated.version}" />
 			<bundleref name="net.imagej:imagej-updater" version="${imagej-updater.version}" />

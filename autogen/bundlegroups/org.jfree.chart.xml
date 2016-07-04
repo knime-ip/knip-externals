@@ -1,0 +1,13 @@
+<!-- miglayout bundle -->
+<bundlegroup name="com.miglayout">
+	<bundle name="miglayout" version="${miglayout.version}">
+		<artifacts>
+			<artifact>
+				<group>org.jfree</group>
+				<id>jfreechart</id>
+				<version>${jfreechart.version}</version>
+			</artifact>
+		</artifacts>
+		<export>org.jfree.chart.*</export>
+	</bundle>
+</bundlegroup>

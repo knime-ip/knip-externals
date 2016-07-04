@@ -260,6 +260,28 @@
 		<export>org.scijava.plugins.scripting.beanshell.*,bsh.*</export> <!-- scripting-beanshell only contains these packages. -->
 	</bundle>
 
+	<!-- SciJava Script-editor-->
+	<bundle name="script-editor" version="${script-editor.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>script-editor</id>
+				<version>${script-editor.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:scijava-expression-parser" version="${scijava-expression-parser.version}" />
+			<bundleref name="org.scijava:scripting-java" version="${scripting-java.version}" />
+			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
+
+		    <bundleref name="com.fifesoft:languagesupport" version="${fifesoft.version}" isExternal="true" />
+	        <bundleref name="com.fifesoft:rsyntaxtextarea" version="${fifesoft.version}" isExternal="true" />
+		</dependencies>
+		<export>org.scijava.ui.swing.script.*</export>
+	</bundle>
+	
+
 
 	<!-- SciJava Cache -->
 	<bundle name="scijava-cache" version="${scijava-cache.version}">

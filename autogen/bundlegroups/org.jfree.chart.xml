@@ -1,6 +1,6 @@
-<!-- miglayout bundle -->
-<bundlegroup name="com.miglayout">
-	<bundle name="miglayout" version="${miglayout.version}">
+<!-- jfreechart bundle -->
+<bundlegroup name="org.jfree">
+	<bundle name="jfreechart" version="${jfreechart.version}">
 		<artifacts>
 			<artifact>
 				<group>org.jfree</group>

@@ -8,6 +8,6 @@
 				<version>${jfreechart.version}</version>
 			</artifact>
 		</artifacts>
-		<export>org.jfree.chart.*</export>
+		<export>org.jfree.*</export>
 	</bundle>
 </bundlegroup>

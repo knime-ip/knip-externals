@@ -139,15 +139,11 @@
 			<bundleref name="org.scijava:scijava-ui-awt" version="${scijava-ui-awt.version}" />
 			<bundleref name="org.scijava:scijava-ui-swing" version="${scijava-ui-swing.version}" />
 			<bundleref name="net.imagej:imagej-ui-awt" version="${imagej-ui-awt.version}" />
-			<bundleref name="org.scijava:scripting-java" version="${scripting-java.version}" />
 			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
 			<bundleref name="org.jfree:jfreechart" version="${jfreechart.version}" />
 			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
 			<bundleref name="net.imagej:imagej-deprecated" version="${imagej-deprecated.version}" />
 			<bundleref name="net.imagej:imagej-updater" version="${imagej-updater.version}" />
-			<bundleref name="com.fifesoft:autocomplete" version="${fifesoft.version}" isExternal="true" />
-		    <bundleref name="com.fifesoft:languagesupport" version="${fifesoft.version}" isExternal="true" />
-	        <bundleref name="com.fifesoft:rsyntaxtextarea" version="${fifesoft.version}" isExternal="true" />
 		</dependencies>
 		<export>net.imagej.ui.swing.*,net.miginfocom.swing.*</export>
 	</bundle>

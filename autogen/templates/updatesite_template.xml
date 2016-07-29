@@ -23,7 +23,7 @@
 		<repository>
 			<id>knime31</id>
 			<layout>p2</layout>
-			<url>http://update.knime.org/analytics-platform/3.1</url>
+			<url>http://update.knime.org/analytics-platform/3.2</url>
 		</repository>
 	</repositories>
 

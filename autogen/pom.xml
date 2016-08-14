@@ -36,6 +36,7 @@
 		<knip-tmp-imglib2-ops.version>0.4.1</knip-tmp-imglib2-ops.version>
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
 		<imglib2.version>3.1.1</imglib2.version>
+		<imagej-ops.version>0.31.0</imagej-ops.version>
 
 		<trove4j.version>3.0.3</trove4j.version>
 		<commons-collections.version>3.2.1</commons-collections.version>

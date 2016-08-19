@@ -30,6 +30,7 @@
 		<spim_data.version>2.0.1</spim_data.version>
 		<ui-behaviour.version>1.0.4</ui-behaviour.version>
 		<vistools.version>1.0.0-beta-2</vistools.version>
+		<scifio.version>0.28.1</scifio.version>
 
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->

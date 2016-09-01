@@ -28,18 +28,19 @@
 				<version>${scifio-ome-xml.version}</version>
 				<attachSource>false</attachSource>
 			</artifact>
+			<artifact>
 				<group>ome</group>
 				<id>formats-api</id>
 				<version>${bio-formats.version}</version>
 				<attachSource>false</attachSource>
 			</artifact>
-			</artifact>
+			<artifact>
 				<group>ome</group>
 				<id>formats-common</id>
 				<version>${bio-formats.version}</version>
 				<attachSource>false</attachSource>
 			</artifact>
-			</artifact>
+			<artifact>
 				<group>ome</group>
 				<id>ome-xml</id>
 				<version>${bio-formats.version}</version>
@@ -69,7 +70,6 @@
 				<version>${xerces.version}</version>
 				<attachSource>false</attachSource>
 			</artifact>
-
 		</artifacts>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />

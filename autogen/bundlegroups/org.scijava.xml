@@ -161,6 +161,8 @@
 				<group>org.scijava</group>
 				<id>scripting-jython</id>
 				<version>${scripting-jython.version}</version>
+				<attachSource>false</attachSource>
+        <!-- scripting-jython sources don't conform to OSGi standard-->
 			</artifact>
 		</artifacts>
 		<dependencies>

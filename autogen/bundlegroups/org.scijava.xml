@@ -183,6 +183,9 @@
 			</artifact>
 		</artifacts>
 		<export>*</export>
+        <instructions>
+          &lt;failok&gt;true&lt;/failok&gt;
+        </instructions>
 	</bundle>
 
 	<!-- SciJava Scripting-Javascript -->

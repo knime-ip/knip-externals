@@ -43,7 +43,7 @@
 		<slf4j-api.version>1.7.10</slf4j-api.version>
 		<slf4j-log4j12.version>1.7.10</slf4j-log4j12.version>
 		<xerces.version>2.11.0</xerces.version>
-		<jython-shaded.version>2.5.3</jython-shaded.version>
+		<jython-shaded.version>2.7.0</jython-shaded.version>
 		<guava.version>18.0</guava.version>
 	</properties>
 

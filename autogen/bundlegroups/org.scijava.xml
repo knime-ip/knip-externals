@@ -182,7 +182,7 @@
 				<attachSource>false</attachSource> <!-- Jython-shaded sources don't conform to OSGi standards -->
 			</artifact>
 		</artifacts>
-		<export>*</export>
+        <export>org.scijava.jython.shaded.*,org.python.*</export>
         <instructions>
           &lt;_failok&gt;true&lt;/_failok&gt;
         </instructions>

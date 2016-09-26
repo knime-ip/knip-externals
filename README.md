@@ -1,6 +1,107 @@
-knip-scijava-bundles
-====================
+# knip-scijava-bundles
 
-Wraps SciJava projects into OSGi Bundles for use with KNIME Image Processing
+Wraps artifacts distributed via maven into OSGi Bundles for use with KNIME Image
+Processing.
 
-Build by running ```mvn clean install -Dscijava.enforce.skip``` or import as Existing Maven Project and add scijava.enforce.skip symbol in run configuration.
+## How to build
+
+### Requirements:
+
+To be able to build this project the following projects must be installed via
+maven beforehand:
+
+- [knip-imglib2-ops](https://github.com/knime-ip/knip-imglib2-ops) 
+- [knip-trackmate-fork](https://github.com/dietzc/TrackMate)
+
+Checkout these projects and run `mvn clean install` in each of their root directories.
+
+### Building
+
+Build the update site by running the ``rebuild.sh`` script.
+
+## How to install into your eclipse
+
+After successfully building the update site is available in two forms:
+
+- As archive: `target/update-site/target/knip-osgi-update-site-1.0.0.zip`
+- As folder:  `target/update-site/target/repository`
+
+
+## How to add a new bundles
+
+1. Create or locate the appropriate bundle group file in the ``auogen/bundlegroups``
+   folder. There is one bundlegroup per maven group. The example artifact
+   `com.examplegroup.exampleartifact` thus would be placed into the
+   bundle group `com.examplegroup.xml`. A bundlegroup file has the following structure:
+   ```xml
+  <bundlegroup name="org.examplegroup">
+      <!-- bundles -->
+  </bundlegroup>
+  ```
+  Don't forget to add new bundlegroups to the `updatesite.xml` file in the `autogen` folder.
+  ```xml
+  <include>bundlegroups/com.examplegroup.xml</include>
+  ```
+
+2. Add a bundle to a bundlegroup following this template:
+```xml
+<bundle name="example-bundle-name" version="${example-bundle-name.version}">
+    <artifacts>
+    <!-- List all artifacts that belong to this bundle. -->
+        <artifact>
+            <group>com.examplegroup</group>
+            <id>exampleartifact</id>
+            <version>${example-bundle-name.version}</version>
+        </artifact>
+    </artifacts>
+    <dependencies>
+        <!-- You can define dependencies to other bundles created by this project -->
+        <bundleref name="org.examplegroup:exampledependency" version="${exampledependency.version}" />
+        <!-- You can also define a depency as external if it is sattisfied  by a KNIME update site  -->
+        <bundleref name="com.examplegroup:externaldependency" version="${externaldependency.version}" isExternal="true" />
+    </dependencies>
+    <!-- List all the packages you need to export: you can use the wildcard: "*" to export a packaga and all subpackages, different roots are seperated by ","  -->
+    <export>com.examplegroup.exampleartifact.*, com.examplegroup.otherartifact.*</export> 
+</bundle>
+```
+
+### Optional parameters for bundles
+- __Don't attach a source bundle:__
+    In some cases you might not want to attach a source bundle to an artifact. E.g. if the
+    creation takes a very long time or the source bundle causes problems do to a layout that
+    is incompatible with OSGi (e.g. classes in the default package). To skip
+    the creation of a source bundle, set the ``attachSource`` property to
+    `false` by adding the following code to an artifact:
+    ```xml
+    <artifact>
+        ...
+        <attachSource>false</attachSource>
+    </artifact>
+    ```
+
+- __Additional instructions:__ You can pass additional arguments to the apache
+    felix build plugin for a specific bundle. Remember to escape the xml code:
+    ```xml
+	<bundle name="jython-shaded" version="${jython-shaded.version}">
+		<artifacts>
+            <!-- ... -->
+		</artifacts>
+        <export>   
+            <!-- ... -->
+        </export>
+        <instructions>
+            <!-- instrucitons must use escaped xml
+          &lt;_failok&gt;true&lt;/_failok&gt;
+        </instructions>
+	</bundle>
+    ```
+    - __Accept OSGi errors:__ One such instruction is `_failok` which will allow
+      the bundle to be build even if errors occur. This is needed if you want to
+      bundle code that does not follow to OSGi standards, e.g. has classes in the
+      default package. The code snippet for `_failok`:
+        ```xml 
+          <instructions>
+            &lt;_failok&gt;true&lt;/_failok&gt; 
+          </instructions>
+          ```
+     Note the xml escaping:  `&lt;` for `<` and `&gt;` for `>`

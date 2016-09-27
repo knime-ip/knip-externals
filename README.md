@@ -90,7 +90,7 @@ After successfully building the update site is available in two forms:
             <!-- ... -->
         </export>
         <instructions>
-            <!-- instrucitons must use escaped xml
+            <!-- instrucitons must use escaped xml -->
           &lt;_failok&gt;true&lt;/_failok&gt;
         </instructions>
 	</bundle>
@@ -99,9 +99,10 @@ After successfully building the update site is available in two forms:
       the bundle to be build even if errors occur. This is needed if you want to
       bundle code that does not follow to OSGi standards, e.g. has classes in the
       default package. The code snippet for `_failok`:
-        ```xml 
+        
+        ```xml
           <instructions>
             &lt;_failok&gt;true&lt;/_failok&gt; 
           </instructions>
-          ```
+        ```
      Note the xml escaping:  `&lt;` for `<` and `&gt;` for `>`

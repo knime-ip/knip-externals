@@ -184,7 +184,7 @@
 		</artifacts>
         <export>org.scijava.jython.shaded.*,org.python.*</export>
         <instructions>
-          &lt;failok&gt;true&lt;/failok&gt;
+		&lt;_failok&gt;true&lt;/_failok&gt;
         </instructions>
 	</bundle>
 

@@ -44,26 +44,26 @@ After successfully building the update site is available in two forms:
   ```
 
 2. Add a bundle to a bundlegroup following this template:
-```xml
-<bundle name="example-bundle-name" version="${example-bundle-name.version}">
-    <artifacts>
-    <!-- List all artifacts that belong to this bundle. -->
-        <artifact>
-            <group>com.examplegroup</group>
-            <id>exampleartifact</id>
-            <version>${example-bundle-name.version}</version>
-        </artifact>
-    </artifacts>
-    <dependencies>
-        <!-- You can define dependencies to other bundles created by this project -->
-        <bundleref name="org.examplegroup:exampledependency" version="${exampledependency.version}" />
-        <!-- You can also define a depency as external if it is sattisfied  by a KNIME update site  -->
-        <bundleref name="com.examplegroup:externaldependency" version="${externaldependency.version}" isExternal="true" />
-    </dependencies>
-    <!-- List all the packages you need to export: you can use the wildcard: "*" to export a packaga and all subpackages, different roots are seperated by ","  -->
-    <export>com.examplegroup.exampleartifact.*, com.examplegroup.otherartifact.*</export> 
-</bundle>
-```
+   ```xml
+   <bundle name="example-bundle-name" version="${example-bundle-name.version}">
+       <artifacts>
+       <!-- List all artifacts that belong to this bundle. -->
+           <artifact>
+               <group>com.examplegroup</group>
+               <id>exampleartifact</id>
+               <version>${example-bundle-name.version}</version>
+           </artifact>
+       </artifacts>
+       <dependencies>
+           <!-- You can define dependencies to other bundles created by this project -->
+           <bundleref name="org.examplegroup:exampledependency" version="${exampledependency.version}" />
+           <!-- You can also define a depency as external if it is sattisfied  by a KNIME update site  -->
+           <bundleref name="com.examplegroup:externaldependency" version="${externaldependency.version}" isExternal="true" />
+       </dependencies>
+       <!-- List all the packages you need to export: you can use the wildcard: "*" to export a packaga and all subpackages, different roots are seperated by ","  -->
+       <export>com.examplegroup.exampleartifact.*, com.examplegroup.otherartifact.*</export> 
+   </bundle>
+  ```
 
 ### Optional parameters for bundles
 - __Don't attach a source bundle:__
@@ -79,10 +79,12 @@ After successfully building the update site is available in two forms:
     </artifact>
     ```
 
-- __Additional instructions:__ You can pass additional arguments to the apache
-    felix build plugin for a specific bundle. Remember to escape the xml code:
+- __Additional instructions:__ You can pass additional arguments for a specific
+  bundle to the [Apache felix bundle plugin](http://felix.apache.org/documentation/subprojects/apache-felix-maven-bundle-plugin-bnd.html).
+  The xml code must be escaped ([syntax](http://stackoverflow.com/questions/1091945/what-characters-do-i-need-to-escape-in-xml-documents)).
+  Example 
     ```xml
-	<bundle name="jython-shaded" version="${jython-shaded.version}">
+	<bundle name="example-bundle" version="${example-bundle.version}">
 		<artifacts>
             <!-- ... -->
 		</artifacts>
@@ -90,8 +92,8 @@ After successfully building the update site is available in two forms:
             <!-- ... -->
         </export>
         <instructions>
-            <!-- instrucitons must use escaped xml -->
-          &lt;_failok&gt;true&lt;/_failok&gt;
+            <!-- instrucitons must escaped xml: <exampleInstruction>exampleValue</exampleInstruction> becomes:-->
+          &lt;exampleInstruction&gt;exampleValue&lt;/exampleInstruction&gt;
         </instructions>
 	</bundle>
     ```
@@ -104,5 +106,5 @@ After successfully building the update site is available in two forms:
           <instructions>
             &lt;_failok&gt;true&lt;/_failok&gt; 
           </instructions>
-        ```
-     Note the xml escaping:  `&lt;` for `<` and `&gt;` for `>`
+          ```
+     Note the xml escaping:  `&lt;` for `<` and `&gt;` for `>`.

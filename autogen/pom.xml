@@ -30,7 +30,7 @@
 		<spim_data.version>2.2.0</spim_data.version>
 		<ui-behaviour.version>1.0.5</ui-behaviour.version>
 		<vistools.version>1.0.0-beta-3</vistools.version>
-		<imagej1.version>1.51g</imagej.version>
+		<imagej1.version>1.51g</imagej1.version>
 
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->

@@ -63,4 +63,29 @@
 		</dependencies>
 		<export>bdv.util.*</export>
 	</bundle>
+
+	<!-- vistools Bundle -->
+	<bundle name="threedviewer" version="${threedviewer.version}">
+		<artifacts>
+			<artifact>
+				<group>sc.fiji</group>
+				<id>threedviewer</id>
+				<version>${threedviewer.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-ij" version="${imglib2-ij.version}" />
+			<bundleref name="org.scijava:scijava-ui-swing" version="${scijava-ui-swing.version}" />
+			<bundleref name="org.scijava:ui-behaviour" version="${ui-behaviour.version}" />	
+			<bundleref name="org.scijava:script-editor" version="${script-editor.version}" />
+			<bundleref name="net.imagej:imagej-ui-swing" version="${imagej-ui-swing.version}" />
+			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
+			<bundleref name="net.imagej:imagej-ops" version="${imagej-ops.version}" />
+			<bundleref name="net.imagej:imagej-deprecated" version="${imagej-deprecated.version}" />
+			<bundleref name="net.imagej:ij" version="${imagej1.version}" />		
+		</dependencies>
+		<export> sc.fiji.threed.*</export>
+	</bundle>
 </bundlegroup>

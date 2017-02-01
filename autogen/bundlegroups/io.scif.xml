@@ -36,32 +36,32 @@
 			</artifact>
 			<artifact>
 				<group>ome</group>
-				<id>formats-common</id>
-				<version>${bio-formats.version}</version>
-				<attachSource>false</attachSource>
-			</artifact>
-			<artifact>
-				<group>ome</group>
-				<id>ome-xml</id>
-				<version>${bio-formats.version}</version>
-				<attachSource>false</attachSource>
-			</artifact>
-			<artifact>
-				<group>ome</group>
 				<id>formats-bsd</id>
 				<version>${bio-formats.version}</version>
-				<attachSource>false</attachSource>
-			</artifact>
-			<artifact>
-				<group>io.scif</group>
-				<id>scifio-bf-compat</id>
-				<version>${scifio-bf-compat.version}</version>
 				<attachSource>false</attachSource>
 			</artifact>
 			<artifact>
 				<group>ome</group>
 				<id>formats-gpl</id>
 				<version>${bio-formats.version}</version>
+				<attachSource>false</attachSource>
+			</artifact>
+			<artifact>
+				<group>org.openmicroscopy</group>
+				<id>ome-common</id>
+				<version>${ome-common.version}</version>
+				<attachSource>false</attachSource>
+			</artifact>
+			<artifact>
+				<group>org.openmicroscopy</group>
+				<id>ome-xml</id>
+				<version>${ome-xml.version}</version>
+				<attachSource>false</attachSource>
+			</artifact>
+			<artifact>
+				<group>io.scif</group>
+				<id>scifio-bf-compat</id>
+				<version>${scifio-bf-compat.version}</version>
 				<attachSource>false</attachSource>
 			</artifact>
 			<artifact>

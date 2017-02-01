@@ -276,12 +276,12 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
-			<bundleref name="org.scijava:scijava-expression-parser" version="${scijava-expression-parser.version}" />
+			<bundleref name="org.scijava:parsington" version="${parsington.version}" />
 			<bundleref name="org.scijava:scripting-java" version="${scripting-java.version}" />
 			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
 
-		    <bundleref name="com.fifesoft:languagesupport" version="${fifesoft.version}" isExternal="true" />
-	        <bundleref name="com.fifesoft:rsyntaxtextarea" version="${fifesoft.version}" isExternal="true" />
+		    <bundleref name="com.fifesoft:languagesupport" version="${rsyntaxtextarea.version}" isExternal="true" />
+	        <bundleref name="com.fifesoft:rsyntaxtextarea" version="${rsyntaxtextarea.version}" isExternal="true" />
 		</dependencies>
 		<export>org.scijava.ui.swing.script.*</export>
 	</bundle>
@@ -304,13 +304,13 @@
 		<export>org.scijava.cache.*</export>
 	</bundle>
 
-	<!-- SciJava Expression Parser -->
-	<bundle name="scijava-expression-parser" version="${scijava-expression-parser.version}">
+	<!-- SciJava Expression Parser aka Parsington -->
+	<bundle name="parsington" version="${parsington.version}">
 		<artifacts>
 			<artifact>
 				<group>org.scijava</group>
-				<id>scijava-expression-parser</id>
-				<version>${scijava-expression-parser.version}</version>
+				<id>parsington</id>
+				<version>${parsington.version}</version>
 			</artifact>
 		</artifacts>
 		<export>org.scijava.sjep.*</export>

@@ -4,44 +4,41 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>net.imagej</groupId>
-		<artifactId>pom-imagej</artifactId>
-		<version>17.0.0</version>
-		<relativePath />
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>13.0.0</version>
+		<relativePath/>
 	</parent>
 
 	<artifactId>org.knime.knip.external.generator</artifactId>
 	<packaging>pom</packaging>
-	<name>KNIME KNIP Externals build files generator</name>
+	<name>KNIP Externals build files generator</name>
 	<version>1.0.0</version>
 
 	<description>
-  	This project generates multiple pom.xml from a single xml file 
-  	which can be used to generate a p2-repository from maven dependencies.
+	  	This project generates multiple pom.xml from a single xml file 
+	  	which can be used to generate a p2-repository from maven dependencies.
   	</description>
 
 	<properties>
-		<jep.version>2.4.2</jep.version>
-		<fifesoft.version>2.6.0</fifesoft.version>
-
-		<!-- bigdataviewer versions -->
-		<bigdataviewer-core.version>3.0.3</bigdataviewer-core.version>
-		<spim_data.version>2.2.0</spim_data.version>
+		<!-- There are several properties enforced, which we currently don't maintain -->
+		<enforcer.skip>true</enforcer.skip>		
+	
+		<!-- manually manged versions -->
 		<ui-behaviour.version>1.2.0</ui-behaviour.version>
 		<vistools.version>1.0.0-beta-4</vistools.version>
+		<trove4j.version>3.0.3</trove4j.version>
+		<commons-collections.version>3.2.2</commons-collections.version>
+		<args4j.version>2.0.29</args4j.version>
+		<xerces.version>2.11.0</xerces.version>
+		<jython-shaded.version>2.7.0</jython-shaded.version>
+		<slf4j-api.version>1.7.10</slf4j-api.version>
+		<slf4j-log4j12.version>1.7.10</slf4j-log4j12.version>
 
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->
 		<knip-tmp-imglib2-ops.version>0.4.1</knip-tmp-imglib2-ops.version>
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
-
-		<trove4j.version>3.0.3</trove4j.version>
-		<commons-collections.version>3.2.2</commons-collections.version>
-		<args4j.version>2.0.29</args4j.version>
-		<slf4j-api.version>1.7.10</slf4j-api.version>
-		<slf4j-log4j12.version>1.7.10</slf4j-log4j12.version>
-		<xerces.version>2.11.0</xerces.version>
-		<jython-shaded.version>2.7.0</jython-shaded.version>
 	</properties>
 
 	<dependencies>

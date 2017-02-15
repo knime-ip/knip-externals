@@ -32,8 +32,6 @@
 		<args4j.version>2.0.29</args4j.version>
 		<xerces.version>2.11.0</xerces.version>
 		<jython-shaded.version>2.7.0</jython-shaded.version>
-		<slf4j-api.version>1.7.10</slf4j-api.version>
-		<slf4j-log4j12.version>1.7.10</slf4j-log4j12.version>
 
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->

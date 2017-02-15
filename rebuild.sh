@@ -3,11 +3,11 @@ SECONDS=0
 
 rm -rf target
 cd autogen
-mvn clean install
+mvn -T 1C clean install
 cd ../target/
-mvn clean install
+mvn -T 1C clean install
 cd update-site
-mvn clean install
+mvn -T 1C clean install
 
 duration=$SECONDS
 echo "Total buildtime: $(($duration / 60)) minutes and $(($duration %60)) seconds."

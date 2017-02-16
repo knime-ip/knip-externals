@@ -22,7 +22,6 @@
 	<include>bundlegroups/org.knime.knip.xml</include>
 	<include>bundlegroups/org.scijava.xml</include>
 	<include>bundlegroups/com.miglayout.xml</include>
-	<include>bundlegroups/org.slf4j.xml</include>
 	<include>bundlegroups/org.kohsuke.xml</include>
 	<include>bundlegroups/org.apache.xml</include>
 	<include>bundlegroups/xml-apis.xml</include>

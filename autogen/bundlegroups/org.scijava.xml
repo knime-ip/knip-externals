@@ -28,22 +28,6 @@
 		<export>*</export>
 	</bundle>
 
-	<!-- SciJava Log slf4j -->
-	<bundle name="scijava-log-slf4j" version="${scijava-log-slf4j.version}">
-		<artifacts>
-			<artifact>
-				<group>org.scijava</group>
-				<id>scijava-log-slf4j</id>
-				<version>${scijava-log-slf4j.version}</version>
-			</artifact>
-		</artifacts>
-		<export>org.scijava.log.slf4j.*</export>
-		<dependencies>
-			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
-			<bundleref name="org.slf4j:slf4j-api" version="${slf4j-api.version}" />
-		</dependencies>
-	</bundle>
-
 	<!-- SciJava Plugins Commands -->
 	<bundle name="scijava-plugins-commands" version="${scijava-plugins-commands.version}">
 		<artifacts>
@@ -58,7 +42,6 @@
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 		</dependencies>
 	</bundle>
-
 	<!-- SciJava Plugins Text Markdown -->
 	<bundle name="scijava-plugins-text-markdown" version="${scijava-plugins-text-markdown.version}">
 		<artifacts>
@@ -285,7 +268,6 @@
 		</dependencies>
 		<export>org.scijava.ui.swing.script.*</export>
 	</bundle>
-	
 
 
 	<!-- SciJava Cache -->

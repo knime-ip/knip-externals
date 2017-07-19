@@ -21,9 +21,9 @@
 
 	<repositories>
 		<repository>
-			<id>knime33</id>
+			<id>knime34</id>
 			<layout>p2</layout>
-			<url>http://update.knime.org/analytics-platform/3.3</url>
+			<url>http://update.knime.org/analytics-platform/3.4</url>
 		</repository>
 	</repositories>
 

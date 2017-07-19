@@ -8,9 +8,9 @@
 			<url>http://maven.imagej.net/content/groups/public</url>
 		</repository>
 		<repository>
-			<id>knime33</id>
+			<id>knime34</id>
 			<layout>p2</layout>
-			<url>https://update.knime.org/analytics-platform/3.3</url>
+			<url>https://update.knime.org/analytics-platform/3.4</url>
 		</repository>
 	</repositories>
 

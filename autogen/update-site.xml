@@ -29,5 +29,6 @@
 	<include>bundlegroups/org.jdom.xml</include>
 	<include>bundlegroups/com.google.xml</include>
 	<include>bundlegroups/org.jfree.chart.xml</include>
+	<include>bundlegroups/org.ilastik.xml</include>
 
 </updatesite>

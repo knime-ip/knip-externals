@@ -1,0 +1,23 @@
+
+<!-- jdom bundles-->
+<bundlegroup name="org.ilastik">
+	<!-- jdom2 bundle -->
+	<bundle name="ilastik4ij" version="${ilastik4ij.version}">
+		<artifacts>
+			<artifact>
+				<group>org.ilastik</group>
+				<id>ilastik4ij</id>
+				<version>${ilastik4ij.version}</version>
+			</artifact>
+		</artifacts>
+        <dependencies>
+            <bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+            <bundleref name="net.imglib2:imglib2-ij" version="${imglib2-ij.version}"/>
+            <bundleref name="net.imagej:imagej-common" version="${imagej-common.version}"/>
+            <bundleref name="net.imagej:ij" version="${imagej1.version}" />
+            <bundleref name="org.scijava:scijava-common" version="${scijava-common.version}"/>
+        </dependencies>
+		<export>org.ilastik.ilastik4ij.*</export>
+	</bundle>
+
+</bundlegroup>

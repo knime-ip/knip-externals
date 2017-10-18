@@ -33,6 +33,7 @@
 		<xerces.version>2.11.0</xerces.version>
 		<jython-shaded.version>2.7.0</jython-shaded.version>
  		<ilastik4ij.version>1.0.3</ilastik4ij.version>
+                <guava.version>20.0</guava.version>
 
 		<!-- can be removed when KNIME update-site offer 2.6.1 -->
 		<rsyntaxtextarea.version>2.5.8</rsyntaxtextarea.version>

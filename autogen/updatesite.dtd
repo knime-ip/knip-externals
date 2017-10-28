@@ -9,15 +9,15 @@
 		<!ELEMENT bundle (artifacts|export?|import?|dependencies?|instructions?)>
 		<!ATTLIST bundle name CDATA #REQUIRED
 						 version CDATA #REQUIRED>
-						 
+
 			<!ELEMENT artifacts (artifact+)>
-				<!ELEMENT artifact (id|group|version)>
+				<!ELEMENT artifact (id|group|version|attachSource?)>
 			<!ELEMENT export (#PCDATA)>
 			<!ELEMENT import (#PCDATA)>
 			<!ELEMENT dependencies (bundleref*)>
 					<!ELEMENT bundleref EMPTY>
 					<!ATTLIST bundleref name CDATA #REQUIRED
-									version CDATA #REQUIRED isExternal CDATA "false" >
+									version CDATA #REQUIRED isExternal CDATA "false" bundleSymbolicName CDATA #IMPLIED>
 			<!ELEMENT instructions ANY>
 	<!ELEMENT id (#PCDATA)>
 	<!ELEMENT layout (#PCDATA)>

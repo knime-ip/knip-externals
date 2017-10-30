@@ -281,7 +281,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
-			<bundleref name="com.google.guava:guava" version="${guava.version}" />
+			<bundleref name="com.google.guava:guava" version="${guava-external.version}" isExternal="true" bundleId="com.google.guava"/>
 		</dependencies>
 		<export>org.scijava.cache.*</export>
 	</bundle>

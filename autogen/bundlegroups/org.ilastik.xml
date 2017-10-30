@@ -1,7 +1,7 @@
 
-<!-- jdom bundles-->
+<!-- ilastik bundles-->
 <bundlegroup name="org.ilastik">
-	<!-- jdom2 bundle -->
+	<!-- ilastik4ij bundle -->
 	<bundle name="ilastik4ij" version="${ilastik4ij.version}">
 		<artifacts>
 			<artifact>

@@ -10,14 +10,4 @@
 		</artifacts>
 		<export>org.apache.commons.collections.*</export>
 	</bundle>
-	<bundle name="commons-math3" version="${commons-math3.version}">
-		<artifacts>
-			<artifact>
-				<group>org.apache.commons</group>
-				<id>commons-math3</id>
-				<version>${commons-math3.version}</version>
-			</artifact>
-		</artifacts>
-		<export>org.apache.commons.math3.*</export>
-	</bundle>
 </bundlegroup>

@@ -38,12 +38,12 @@ class Artifact {
 		this.attachSource = true
 	}
 	Artifact(project, group, name, version, attachSource) {
-		this.group 	= group
-		this.name 	= name
-		this.version	= Helper.resolveProperty(project, version, false)
-		if(attachSource.equals("") || attachSource.equals("true")) {
+		this.group = group
+		this.name = name
+		this.version = Helper.resolveProperty(project, version, false)
+		if(attachSource == "" || attachSource == "true") {
 			this.attachSource = true
-		} else if (attachSource.equals("false")) {
+		} else if (attachSource == "false") {
 			this.attachSource = false
 		} else {
 			throw new IllegalArgumentException("The property \"attachSource\" must be either 'false','true', or unset!")
@@ -57,18 +57,22 @@ class Artifact {
  */
 class BundleRef extends Artifact {
 	Boolean isExternal
-	BundleRef(project, p_group, p_name, p_version, p_isExternal) {
+    String bundleId
+
+	BundleRef(project, p_group, p_name, p_version, p_isExternal, p_bundleId) {
 		super(project, p_group, p_name, p_version)
 		this.isExternal = p_isExternal
+		this.bundleId = p_bundleId
 	}
 
 	String getBundleName(){
 		if(!isExternal){
 			return name
 		}
-		else{
-			return group + "." + name
+        if(bundleId!= ''){
+			return bundleId
 		}
+		return group + "." + name
 	}
 
 }
@@ -107,8 +111,8 @@ class Bundle {
 		this.artifacts.add(artifact)
 	}
 
-	void addDependency(p_project, p_group, p_name, p_version, p_isExternal) {
-		this.dependencies.add(new BundleRef(p_project, p_group, p_name, p_version, p_isExternal))
+	void addDependency(p_project, p_group, p_name, p_version, p_isExternal, p_bundleId) {
+		this.dependencies.add(new BundleRef(p_project, p_group, p_name, p_version, p_isExternal, p_bundleId))
 	}
 
 	void addDependency(BundleRef p_br) {
@@ -278,9 +282,10 @@ class DataCollector {
 									if (bundleTag.'dependencies'.size() > 0) {
 										bundleTag.'dependencies'[0].'bundleref'.each {
 											bundleref ->
-											def name = bundleref.'@name'.split(':')
-											def isExternal = Boolean.parseBoolean(bundleref.'@isExternal')
-											bundle.addDependency(project, name[0], name[1], bundleref.'@version',isExternal)
+												def name = bundleref.'@name'.split(':')
+												def isExternal = Boolean.parseBoolean(bundleref.'@isExternal')
+												def bundleId = bundleref.'@bundleId'
+												bundle.addDependency(project, name[0], name[1], bundleref.'@version', isExternal, bundleId)
 										}
 									}
 								}

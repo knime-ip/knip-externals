@@ -11,10 +11,10 @@ import groovy.util.logging.Slf4j
 class Helper{
 	static String resolveProperty(p_project, p_version, p_compatible){
 
-		String version = p_version;
+		String version = p_version
 		if(p_version.startsWith("\${")){
 			// maven version we need to worry!
-			version = p_project.properties.getProperty(p_version.substring(2, p_version.length()-1));
+			version = p_project.properties.getProperty(p_version.substring(2, p_version.length()-1))
 		}
 		if(p_compatible)
 			version = version.replaceAll("[^\\d.]", "")
@@ -119,21 +119,18 @@ class Bundle {
 		if (p_instructions != null) {
 			this.instructions = p_instructions
 		}
-		return
 	}
 
 	void setImport(p_imports) {
 		if (p_imports != null) {
 			this.imports = p_imports
 		}
-		return
 	}
 
 	void setExport(p_exports) {
 		if (p_exports != null) {
 			this.exports = p_exports
 		}
-		return
 	}
 }
 
@@ -154,7 +151,6 @@ class BundleGroup {
 		if (p_bundle != null) {
 			this.bundles.add(p_bundle)
 		}
-		return
 	}
 }
 
@@ -198,7 +194,6 @@ class UpdateSite {
 			return
 		}
 		this.repositories.add(p_repo)
-		return
 	}
 
 	void addRepository(p_id, p_layout, p_url) {
@@ -227,7 +222,7 @@ class DataCollector {
 	UpdateSite site
 
 	DataCollector() {
-		this.site = null;
+		this.site = null
 	}
 
 	void collectDataFromXML(project, String buildDir, String p_filename) throws IOException {
@@ -243,13 +238,13 @@ class DataCollector {
 			}
 
 
-			def mainTag = groovy.xml.DOMBuilder.parse(reader).documentElement
+			def mainTag = DOMBuilder.parse(reader).documentElement
 			use (DOMCategory) {
 
 			def bundleGroupTags = null
 			if (mainTag.name() == "updatesite") {
 				def splitName = mainTag.'@name'.split(':')
-				this.site = new UpdateSite(splitName[0], splitName[1]);
+				this.site = new UpdateSite(splitName[0], splitName[1])
 
 				if (mainTag.'repositories' != null) {
 					mainTag.repositories[0].'repository'.each {
@@ -358,7 +353,7 @@ def main() {
 		fail("Property 'input' undefined. Please define a .xml input file in <properties> tag.")
 	}
 
-	def DataCollector data = new DataCollector()
+	DataCollector data = new DataCollector()
 	data.collectDataFromXML(project, buildDir, inputFile)
 
 	log.info("> Generating parent, bundlegroup and bundle poms...")
@@ -366,37 +361,37 @@ def main() {
 	/*
 	 * Generate Bundle Poms
 	 */
-	def String templateDir = properties['templateDir']
+	String templateDir = properties['templateDir']
 	if (templateDir == null) {
 		log.warn("Property 'templateDir' undefined. Assuming buildDir.")
 		templateDir = ""
 	}
 
-	def String parentTemplateFilename = properties['parentTemplate']
+	String parentTemplateFilename = properties['parentTemplate']
 	if (parentTemplateFilename == null) {
 		fail("Property 'parentTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
-	def String bundleTemplateFilename = properties['bundleTemplate']
+	String bundleTemplateFilename = properties['bundleTemplate']
 	if (bundleTemplateFilename == null) {
 		fail("Property 'bundleTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
-	def String sourceBundleTemplateFilename = properties['sourceBundleTemplate']
+	String sourceBundleTemplateFilename = properties['sourceBundleTemplate']
 	if (sourceBundleTemplateFilename == null) {
 		fail("Property 'sourceBundleTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
-	def String bundleGroupTemplateFilename = properties['bundleGroupTemplate']
+	String bundleGroupTemplateFilename = properties['bundleGroupTemplate']
 	if (bundleGroupTemplateFilename == null) {
 		fail("Property 'bundleGroupTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
 
-	def Template bundleTemplate = new Template(templateDir + File.separator + bundleTemplateFilename)
-	def Template sourceBundleTemplate = new Template(templateDir + File.separator + sourceBundleTemplateFilename)
-	def Template bundleGroupTemplate = new Template(templateDir + File.separator + bundleGroupTemplateFilename)
-	def Template parentTemplate = new Template(templateDir + File.separator + parentTemplateFilename)
+	Template bundleTemplate = new Template(templateDir + File.separator + bundleTemplateFilename)
+	Template sourceBundleTemplate = new Template(templateDir + File.separator + sourceBundleTemplateFilename)
+	Template bundleGroupTemplate = new Template(templateDir + File.separator + bundleGroupTemplateFilename)
+	Template parentTemplate = new Template(templateDir + File.separator + parentTemplateFilename)
 	try {
-		def String modules = ""
-		def String parentModules = "<modules>\n"
-		def String parentRepos = "<repositories>\n"
+		String modules = ""
+		String parentModules = "<modules>\n"
+		String parentRepos = "<repositories>\n"
 
 		// add repositories
 		for(Repository repo : data.site.repositories) {
@@ -407,7 +402,7 @@ def main() {
 
 		// add bundle groups and generate bundlegroup poms
 		for(BundleGroup group : data.site.bundleGroups) {
-			def Map group_map = ["BUNDLEGROUP_NAME":group.name]
+			Map group_map = ["BUNDLEGROUP_NAME":group.name]
 			modules = "\t<modules>\n"
 			parentModules += "\t\t<module>" + group.name + "</module>\n"
 
@@ -435,7 +430,7 @@ def main() {
 								+ "\t\t</dependency>\n")
 					}
 				}
-				def first = true;
+				def first = true
 				for (BundleRef bundleRef : bundle.dependencies) {
 					dependencies += ("\n\t\t<dependency>\n"
 						+ "\t\t\t<groupId>" + bundleRef.group + "</groupId>\n"
@@ -466,7 +461,7 @@ def main() {
 				])
 
 				if (sourceDependencies.equals("\t<dependencies>\n")){  // if all artifacts have no source attachment, we skip this bundle
-					bundle.attachSources = false;
+					bundle.attachSources = false
 					continue
 				}
 				// write source bundle pom
@@ -485,17 +480,17 @@ def main() {
 		}
 		parentTemplate.writeFile(buildDir, "pom.xml", ["MODULES":parentModules+"\t</modules>","REPOSITORIES":parentRepos+"\t</repositories>"])
 	} catch(IOException e) {
-		fail("Could not open template file '" + p_filename + "'.")
+		fail("Could not open template file '" + p_filename + "'." + e)
 	}
 
 	log.info("> Generating update site pom.xml...")
-	def String updateSiteTemplateFilename = properties['updateSiteTemplate']
+	String updateSiteTemplateFilename = properties['updateSiteTemplate']
 	if (updateSiteTemplateFilename == null) {
 		fail("Property 'updateSiteTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
 
 	// Create updatesite pom
-	def Template updateSiteTemplate = new Template(templateDir + File.separator + updateSiteTemplateFilename)
+	Template updateSiteTemplate = new Template(templateDir + File.separator + updateSiteTemplateFilename)
 
 	def dependencies = "\t<dependencies>\n"
 	def bundles = ""
@@ -521,12 +516,12 @@ def main() {
 	updateSiteTemplate.writeFile(buildDir + File.separator + "update-site", "pom.xml", ["GROUP":data.site.group,"NAME":data.site.name,"DEPENDENCIES":dependencies+"\t</dependencies>\n"])
 
 	log.info("> Generating category.xml...")
-	def String categoryTemplateFilename = properties['categoryTemplate']
+	String categoryTemplateFilename = properties['categoryTemplate']
 	if (categoryTemplateFilename == null) {
 		fail("Property 'categoryTemplate' undefined. Please define a .xml template file in <properties> tag.")
 	}
 
-	def Template categoryTemplate = new Template(templateDir + File.separator + categoryTemplateFilename)
+	Template categoryTemplate = new Template(templateDir + File.separator + categoryTemplateFilename)
 	categoryTemplate.writeFile(buildDir + File.separator + "update-site", "category.xml", ["BUNDLES":bundles])
 
 	log.info("> SUCCESS!")

@@ -32,19 +32,22 @@ After successfully building the update site is available in two forms:
 1. Create or locate the appropriate bundle group file in the ``auogen/bundlegroups``
    folder. There is one bundlegroup per maven group. The example artifact
    ``com.examplegroup.exampleartifact`` thus would be placed into the
-   bundle group `com.examplegroup.xml`. A bundlegroup file has the following structure:
-   ```xml
+   bundle group ``com.examplegroup.xml``. A bundlegroup file has the following structure:
+
+```xml
   <bundlegroup name="org.examplegroup">
       <!-- bundles -->
   </bundlegroup>
-  ```
-  Don't forget to add new bundlegroups to the `updatesite.xml` file in the `autogen` folder.
-  ```xml
+```
+
+Don't forget to add new bundlegroups to the `updatesite.xml` file in the `autogen` folder.
+```xml
   <include>bundlegroups/com.examplegroup.xml</include>
-  ```
+```
+
 
 2. Add a bundle to a bundlegroup following this template:
-   ```xml
+```xml
    <bundle name="example-bundle-name" version="${example-bundle-name.version}">
        <artifacts>
        <!-- List all artifacts that belong to this bundle. -->
@@ -63,7 +66,7 @@ After successfully building the update site is available in two forms:
        <!-- List all the packages you need to export: you can use the wildcard: "*" to export a packaga and all subpackages, different roots are seperated by ","  -->
        <export>com.examplegroup.exampleartifact.*, com.examplegroup.otherartifact.*</export> 
    </bundle>
-  ```
+```
 
 ### Optional parameters for bundles
 - __Don't attach a source bundle:__
@@ -72,16 +75,16 @@ After successfully building the update site is available in two forms:
     is incompatible with OSGi (e.g. classes in the default package). To skip
     the creation of a source bundle, set the ``attachSource`` property to
     `false` by adding the following code to an artifact:
-    ```xml
+```xml
     <artifact>
         ...
         <attachSource>false</attachSource>
     </artifact>
-    ```
+```
  __External dependencies with a custom name:__ Sometimes you need to depend on osgi bundles that are not shipped with this update site, but provided otherwise, e.g. by th KNIME target platform, where they might have a different bundle id from the one infered by this tool. You can specify such a custom bundleId as follows:
 ```xml
 <dependencies>
-...
+    ...
     <bundleref name="com.examplegroup:externaldependency" version="${externaldependency.version}" isExternal="true" bundleId="com.externaldependency:customname" />
 </dependencies>
 ``` 

@@ -31,7 +31,7 @@ After successfully building the update site is available in two forms:
 
 1. Create or locate the appropriate bundle group file in the ``auogen/bundlegroups``
    folder. There is one bundlegroup per maven group. The example artifact
-   `com.examplegroup.exampleartifact` thus would be placed into the
+   ``com.examplegroup.exampleartifact`` thus would be placed into the
    bundle group `com.examplegroup.xml`. A bundlegroup file has the following structure:
    ```xml
   <bundlegroup name="org.examplegroup">
@@ -78,6 +78,13 @@ After successfully building the update site is available in two forms:
         <attachSource>false</attachSource>
     </artifact>
     ```
+ __External dependencies with a custom name:__ Sometimes you need to depend on osgi bundles that are not shipped with this update site, but provided otherwise, e.g. by th KNIME target platform, where they might have a different bundle id from the one infered by this tool. You can specify such a custom bundleId as follows:
+```xml
+<dependencies>
+...
+    <bundleref name="com.examplegroup:externaldependency" version="${externaldependency.version}" isExternal="true" bundleId="com.externaldependency:customname" />
+</dependencies>
+``` 
 
 - __Additional instructions:__ You can pass additional arguments for a specific
   bundle to the [Apache felix bundle plugin](http://felix.apache.org/documentation/subprojects/apache-felix-maven-bundle-plugin-bnd.html).

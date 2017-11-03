@@ -35,7 +35,13 @@
  		<ilastik4ij.version>1.0.3</ilastik4ij.version>
  		<!-- We do not want to override the version of guava used during the build, only the one defined in update site -->
 		<guava-external.version>21.0</guava-external.version>
+
+        <!-- This is the version shipped with the KNIME update site -->
 		<commons-math3.version>3.4.1</commons-math3.version>
+
+        <!-- Manual overide until latest version is available in pom-scijava -->
+        <scifio.version>0.33.0</scifio.version>
+
 
 		<!-- can be removed when KNIME update-site offer 2.6.1 -->
 		<rsyntaxtextarea.version>2.5.8</rsyntaxtextarea.version>

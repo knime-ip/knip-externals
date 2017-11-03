@@ -34,7 +34,7 @@
 		<jython-shaded.version>2.7.0</jython-shaded.version>
  		<ilastik4ij.version>1.0.3</ilastik4ij.version>
  		<!-- We do not want to override the version of guava used during the build, only the one defined in update site -->
-		<guava-external.version>21.0</guava-external.version>
+		<guava-external.version>19.0</guava-external.version>
 
         <!-- This is the version shipped with the KNIME update site -->
 		<commons-math3.version>3.4.1</commons-math3.version>

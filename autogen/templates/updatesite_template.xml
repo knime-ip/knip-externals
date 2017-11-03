@@ -21,9 +21,9 @@
 
 	<repositories>
 		<repository>
-			<id>knime34</id>
+			<id>knimeTrunk</id>
 			<layout>p2</layout>
-			<url>http://update.knime.org/analytics-platform/3.4</url>
+            <url>https://jenkins.knime.org/download/trunk/</url>
 		</repository>
 	</repositories>
 

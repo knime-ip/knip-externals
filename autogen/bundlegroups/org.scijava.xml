@@ -12,7 +12,7 @@
 		</artifacts>
 		<export>org.nfunk.jep.*, org.lsmp.djep.*</export>
 		<dependencies>
-			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 		</dependencies>
 	</bundle>
 

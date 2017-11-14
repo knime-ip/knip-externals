@@ -16,7 +16,7 @@
 	<version>1.0.0</version>
 
 	<description>
-	  	This project generates multiple pom.xml from a single xml file 
+	  	This project generates multiple pom.xml from a single xml file
 	  	which can be used to generate a p2-repository from maven dependencies.
   	</description>
 
@@ -35,6 +35,7 @@
  		<ilastik4ij.version>1.0.3</ilastik4ij.version>
  		<!-- We do not want to override the version of guava used during the build, only the one defined in update site -->
 		<guava-external.version>19.0</guava-external.version>
+		<jama.version>1.0.3</jama.version>
 
         <!-- This is the version shipped with the KNIME update site -->
 		<commons-math3.version>3.4.1</commons-math3.version>
@@ -48,7 +49,7 @@
 		<autocomplete.version>2.5.8</autocomplete.version>
 		<languagesupport.version>2.5.8</languagesupport.version>
 
-		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
+		<!-- Deprecated package definitions. We shouldn't base on snapshots and
 			knip-ops should be gone soon -->
 		<knip-tmp-imglib2-ops.version>0.4.1</knip-tmp-imglib2-ops.version>
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>

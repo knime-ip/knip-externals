@@ -22,7 +22,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
@@ -41,7 +41,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
@@ -61,7 +61,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
@@ -81,7 +81,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
@@ -100,7 +100,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="gov.nist.math:jama" version="${jama.version}" />
+			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 		</dependencies>
 		<export>net.imglib2.realtransform.*</export>

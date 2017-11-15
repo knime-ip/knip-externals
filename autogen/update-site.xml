@@ -23,7 +23,6 @@
 	<include>bundlegroups/org.kohsuke.xml</include>
 	<include>bundlegroups/xml-apis.xml</include>
 	<include>bundlegroups/sc.fiji.xml</include>
-	<include>bundlegroups/org.jdom.xml</include>
 	<include>bundlegroups/org.jfree.chart.xml</include>
 	<include>bundlegroups/org.ilastik.xml</include>
 

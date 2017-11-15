@@ -16,7 +16,7 @@
 			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
 			<bundleref name="net.imglib2:imglib2-ui" version="${imglib2-ui.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
-			<bundleref name="com.google.code.gson:gson" version="${gson.version}" />
+            <bundleref name="com.google.code.gson:gson" version="${gson.version}" isExternal="true" bundleId="com.google.gson"/>
 	        <bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" isExternal="true" bundleId="net.sf.trove4j"/>
 			<bundleref name="org.scijava:ui-behaviour" version="${ui-behaviour.version}" />
 	</dependencies>
@@ -57,7 +57,7 @@
 			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
 			<bundleref name="net.imglib2:imglib2-ui" version="${imglib2-ui.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
-			<bundleref name="com.google.code.gson:gson" version="${gson.version}" />
+			<bundleref name="com.google.code.gson:gson" version="${gson.version}" isExternal="true" bundleId="com.google.gson"/>
 			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" isExternal="true" bundleId="net.sf.trove4j"/>
 			<bundleref name="org.scijava:ui-behaviour" version="${ui-behaviour.version}" />
 		</dependencies>

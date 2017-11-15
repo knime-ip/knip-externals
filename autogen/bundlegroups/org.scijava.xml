@@ -118,7 +118,7 @@
 		<export>org.scijava.ui.behaviour.*</export>
 		<dependencies>
             <bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" isExternal="true" bundleId="net.sf.trove4j"/>
-			<bundleref name="com.google.code.gson:gson" version="${gson.version}" />
+			<bundleref name="com.google.code.gson:gson" version="${gson.version}" isExternal="true" bundleId="com.google.gson"/>
 		</dependencies>
 	</bundle>
 

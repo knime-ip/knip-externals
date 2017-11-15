@@ -26,7 +26,7 @@
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
-			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
+			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" isExternal="true" bundleId="net.sf.trove4j"/>
 		</dependencies>
 		<export>net.imglib2.algorithm.*,net.imglib2.multithreading.*</export>
 	</bundle>
@@ -117,7 +117,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
-			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
+			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" isExternal="true" bundleId="net.sf.trove4j"/>
 		</dependencies>
 		<export>net.imglib2.roi.*,net.imglib2.labeling.*</export>
 	</bundle>

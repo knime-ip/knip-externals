@@ -1,4 +1,4 @@
-<!-- trove4j bundle -->
+<!-- args4j bundle -->
 <bundlegroup name="org.kohsuke">
 	<bundle name="args4j" version="${args4j.version}">
 		<artifacts>

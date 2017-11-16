@@ -27,6 +27,7 @@
 		<!-- manually manged versions -->
 		<ui-behaviour.version>1.2.0</ui-behaviour.version>
 		<vistools.version>1.0.0-beta-4</vistools.version>
+		<trove4j.version>3.0.3</trove4j.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
 		<args4j.version>2.0.29</args4j.version>
 		<xerces.version>2.11.0</xerces.version>
@@ -34,11 +35,10 @@
  		<ilastik4ij.version>1.0.3</ilastik4ij.version>
  		<!-- We do not want to override the version of guava used during the build, only the one defined in update site -->
 		<guava-external.version>19.0</guava-external.version>
-
-        <!-- This are the versions shipped with the KNIME update site -->
-		<commons-math3.version>3.4.1</commons-math3.version>
 		<jama.version>1.0.3</jama.version>
-		<trove4j.version>2.0.2</trove4j.version>
+
+        <!-- This is the version shipped with the KNIME update site -->
+		<commons-math3.version>3.4.1</commons-math3.version>
 
         <!-- Manual overide until latest version is available in pom-scijava -->
         <scifio.version>0.33.0</scifio.version>

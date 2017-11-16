@@ -32,7 +32,7 @@
 			<bundleref name="net.imglib2:imglib2-algorithm-fft" version="${imglib2-algorithm-fft.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm-gpl" version="${imglib2-algorithm-gpl.version}" />
 			<bundleref name="net.imglib2:imglib2-ij" version="${imglib2-ij.version}" />
-			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" isExternal="true" bundleId="net.sf.trove4j"/>
+			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
 			<bundleref name="org.apache.commons:commons-math3" version="${commons-math3.version}" isExternal="true" bundleId="org.apache.commons.math3"/>
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 		</dependencies>
@@ -142,7 +142,7 @@
 			<bundleref name="net.imagej:imagej-ui-awt" version="${imagej-ui-awt.version}" />
 			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
 			<bundleref name="org.jfree:jfreechart" version="${jfreechart.version}"/>
-			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" isExternal="true" bundleId="net.sf.trove4j"/>
+			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
 			<bundleref name="net.imagej:imagej-deprecated" version="${imagej-deprecated.version}" />
 			<bundleref name="net.imagej:imagej-updater" version="${imagej-updater.version}" />
 		</dependencies>
@@ -160,7 +160,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
-			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" isExternal="true" bundleId="net.sf.trove4j"/>
+			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />

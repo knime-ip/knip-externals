@@ -45,9 +45,9 @@
 
 
 		<!-- can be removed when KNIME update-site offer 2.6.1 -->
-		<rsyntaxtextarea.version>2.5.8</rsyntaxtextarea.version>
-		<autocomplete.version>2.5.8</autocomplete.version>
-		<languagesupport.version>2.5.8</languagesupport.version>
+		<rsyntaxtextarea.version>2.6.0</rsyntaxtextarea.version>
+		<autocomplete.version>2.6.0</autocomplete.version>
+		<languagesupport.version>2.6.0-KNIME</languagesupport.version>
 
 		<!-- Deprecated package definitions. We shouldn't base on snapshots and
 			knip-ops should be gone soon -->

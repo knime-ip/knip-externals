@@ -47,7 +47,7 @@
 			<artifact>
 				<group>sc.fiji</group>
 				<id>bigdataviewer-vistools</id>
-				<version>${vistools.version}</version>
+				<version>${bigdataviewer-vistools.version}</version>
 			</artifact>
 		</artifacts>
 		<dependencies>

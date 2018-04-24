@@ -1,0 +1,16 @@
+<!-- args4j bundle -->
+<bundlegroup name="sc.iview">
+	<bundle name="sciview" version="${sciview.version}">
+		<artifacts>
+			<artifact>
+				<group>sc.iview</group>
+				<id>sciview</id>
+				<version>${sciview.version}</version>
+			</artifact>
+		</artifacts>
+		<export>sc.iview.*</export>
+         <instructions>
+            &lt;_failok&gt;true&lt;/_failok&gt; 
+          </instructions>
+	</bundle>
+</bundlegroup>

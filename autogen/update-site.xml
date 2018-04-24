@@ -26,5 +26,6 @@
 	<include>bundlegroups/sc.fiji.xml</include>
 	<include>bundlegroups/org.jfree.chart.xml</include>
 	<include>bundlegroups/org.ilastik.xml</include>
+	<include>bundlegroups/sc.iview.xml</include>
 
 </updatesite>

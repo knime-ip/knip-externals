@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.scijava</groupId>
 		<artifactId>pom-scijava</artifactId>
-		<version>17.1.1</version>
+		<version>21.0.0</version>
 		<relativePath/>
 	</parent>
 
@@ -40,8 +40,11 @@
         <!-- This is the version shipped with the KNIME update site -->
 		<commons-math3.version>3.4.1</commons-math3.version>
 
+        <scijava-common.version>2.72.1-SNAPSHOT</scijava-common.version>
+
+
         <!-- Manual overide until latest version is available in pom-scijava -->
-        <scifio.version>0.33.0</scifio.version>
+        <!-- <scifio.version>0.33.0</scifio.version> -->
 
 
 		<!-- can be removed when KNIME update-site offer 2.6.1 -->

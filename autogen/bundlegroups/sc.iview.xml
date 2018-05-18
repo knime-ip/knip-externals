@@ -6,6 +6,7 @@
 				<group>sc.iview</group>
 				<id>sciview</id>
 				<version>${sciview.version}</version>
+                <attachSource>false</attachSource>
 			</artifact>
 		</artifacts>
 		<export>sc.iview.*</export>

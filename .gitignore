@@ -1,5 +1,6 @@
 # Maven #
-*target/*
+/target/*
+/autogen/target/*
 
 # Java #
 *.class

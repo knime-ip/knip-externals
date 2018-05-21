@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.scijava</groupId>
 		<artifactId>pom-scijava</artifactId>
-		<version>19.2.0</version>
+		<version>21.0.0</version>
 		<relativePath/>
 	</parent>
 
@@ -25,16 +25,16 @@
 		<enforcer.skip>true</enforcer.skip>
 
 
-        <sciview.version>0.0.2-SNAPSHOT</sciview.version>
+        <sciview.version>0.1.0</sciview.version>
 
 		<!-- manually manged versions -->
 		<ui-behaviour.version>1.2.0</ui-behaviour.version>
-		<vistools.version>1.0.0-beta-8</vistools.version>
+		<vistools.version>1.0.0-beta-11</vistools.version>
 		<trove4j.version>3.0.3</trove4j.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
 		<args4j.version>2.0.29</args4j.version>
 		<xerces.version>2.11.0</xerces.version>
-		<jython-shaded.version>2.7.0</jython-shaded.version>
+		<jython-shaded.version>2.7.1</jython-shaded.version>
  		<ilastik4ij.version>1.0.3</ilastik4ij.version>
  		<!-- We do not want to override the version of guava used during the build, only the one defined in update site -->
 		<guava-external.version>19.0</guava-external.version>

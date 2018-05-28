@@ -25,7 +25,7 @@
 		<enforcer.skip>true</enforcer.skip>
 
         <sciview.version>0.1.0</sciview.version>
-        <scijava-common.version>2.73.1</scijava-common.version>
+        <scijava-common.version>2.73.2</scijava-common.version>
 
 		<!-- manually manged versions -->
 		<ui-behaviour.version>1.2.0</ui-behaviour.version>

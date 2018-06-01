@@ -8,6 +8,6 @@
 				<version>${miglayout.version}</version>
 			</artifact>
 		</artifacts>
-		<export>net.miginfocom.layout.*</export>
+		<export>net.miginfocom.layout.*,net.miginfocom.swing.*</export>
 	</bundle>
 </bundlegroup>

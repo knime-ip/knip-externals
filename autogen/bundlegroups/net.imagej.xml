@@ -148,7 +148,7 @@
 			<bundleref name="net.imagej:imagej-deprecated" version="${imagej-deprecated.version}" />
 			<bundleref name="net.imagej:imagej-updater" version="${imagej-updater.version}" />
 		</dependencies>
-		<export>net.imagej.ui.swing.*,net.miginfocom.swing.*</export>
+		<export>net.imagej.ui.swing.*</export>
 	</bundle>
 
 	<!-- ImageJ Updater (shouldn't be required actually) -->

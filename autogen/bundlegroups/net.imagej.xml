@@ -24,6 +24,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:scijava-search" version="${scijava-search.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imagej:imagej-mesh" version="${imagej-mesh.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />

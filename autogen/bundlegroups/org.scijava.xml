@@ -289,6 +289,22 @@
 		</dependencies>
 		<export>org.scijava.cache.*</export>
 	</bundle>
+	
+		<!-- SciJava Cache -->
+	<bundle name="scijava-search" version="${scijava-search.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-search</id>
+				<version>${scijava-search.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
+		</dependencies>
+		<export>org.scijava.search.*</export>
+	</bundle>
 
 	<!-- SciJava Expression Parser aka Parsington -->
 	<bundle name="parsington" version="${parsington.version}">

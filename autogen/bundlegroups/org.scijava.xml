@@ -25,7 +25,10 @@
 				<version>${scijava-common.version}</version>
 			</artifact>
 		</artifacts>
-		<export>*</export>
+		<export>org.scijava.*</export>
+		<dependencies>
+			<bundleref name="org.bushe:eventbus" version="1.4" />
+		</dependencies>
 	</bundle>
 
 	<!-- SciJava Plugins Commands -->

@@ -26,6 +26,7 @@
 	<include>bundlegroups/sc.fiji.xml</include>
 	<include>bundlegroups/org.jfree.chart.xml</include>
 	<include>bundlegroups/org.ilastik.xml</include>
+	<include>bundlegroups/org.bushe.xml</include>
 	<!-- <include>bundlegroups/sc.iview.xml</include> temporarly excluded due to oom error-->
 
 </updatesite>

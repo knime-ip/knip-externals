@@ -1,0 +1,13 @@
+<!-- bushe bundle -->
+<bundlegroup name="org.bushe">
+	<bundle name="eventbus" version="1.4">
+		<artifacts>
+			<artifact>
+				<group>org.bushe</group>
+				<id>eventbus</id>
+				<version>1.4</version>
+			</artifact>
+		</artifacts>
+		<export>org.bushe.*</export>
+	</bundle>
+</bundlegroup>

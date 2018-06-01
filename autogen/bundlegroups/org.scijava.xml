@@ -28,6 +28,7 @@
 		<export>org.scijava.*</export>
 		<dependencies>
 			<bundleref name="org.bushe:eventbus" version="1.4" />
+			<bundleref name="org.scijava:parsington" version="${parsington.version}" />
 		</dependencies>
 	</bundle>
 

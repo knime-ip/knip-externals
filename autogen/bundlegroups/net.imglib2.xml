@@ -137,4 +137,19 @@
 		</dependencies>
 		<export>net.imglib2.ui.*</export>
 	</bundle>
+
+	<!-- ImgLib2-cache -->
+	<bundle name="imglib2-cache" version="${imglib2-cache.version}">
+		<artifacts>
+			<artifact>
+				<group>net.imglib2</group>
+				<id>imglib2-cache</id>
+				<version>${imglib2-cache.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+		</dependencies>
+		<export>net.imglib2.cache.*</export>
+	</bundle>
 </bundlegroup>

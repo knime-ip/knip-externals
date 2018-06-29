@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
@@ -6,8 +7,8 @@
 	<parent>
 		<groupId>org.scijava</groupId>
 		<artifactId>pom-scijava</artifactId>
-		<version>22.1.0</version>
-		<relativePath/>
+		<version>23.0.0</version>
+		<relativePath />
 	</parent>
 
 	<artifactId>org.knime.knip.external.generator</artifactId>
@@ -24,33 +25,31 @@
 		<!-- There are several properties enforced, which we currently don't maintain -->
 		<enforcer.skip>true</enforcer.skip>
 
-        <sciview.version>0.1.0</sciview.version>
-        <scijava-common.version>2.74.1</scijava-common.version>
+		<sciview.version>0.1.0</sciview.version>
 
 		<!-- manually manged versions -->
-		<ui-behaviour.version>1.2.0</ui-behaviour.version>
-		<vistools.version>1.0.0-beta-11</vistools.version>
 		<trove4j.version>3.0.3</trove4j.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
 		<args4j.version>2.0.29</args4j.version>
 		<xerces.version>2.11.0</xerces.version>
 		<jython-shaded.version>2.7.1</jython-shaded.version>
- 		<ilastik4ij.version>1.0.3</ilastik4ij.version>
- 		<!-- We do not want to override the version of guava used during the build, only the one defined in update site -->
+		<ilastik4ij.version>1.0.3</ilastik4ij.version>
+		<!-- We do not want to override the version of guava used during the build, 
+			only the one defined in update site -->
 		<guava-external.version>19.0</guava-external.version>
 
 		<jama.version>1.0.3</jama.version>
 
-        <!-- This is the version shipped with the KNIME update site -->
+		<!-- This is the version shipped with the KNIME update site -->
 		<commons-math3.version>3.4.1</commons-math3.version>
-        <gson.version>2.8.1</gson.version>
+		<gson.version>2.8.1</gson.version>
 
 		<!-- can be removed when KNIME update-site offer 2.6.1 -->
 		<rsyntaxtextarea.version>2.6.0</rsyntaxtextarea.version>
 		<autocomplete.version>2.6.0</autocomplete.version>
 		<languagesupport.version>2.6.0-KNIME</languagesupport.version>
 
-		<!-- Deprecated package definitions. We shouldn't base on snapshots and
+		<!-- Deprecated package definitions. We shouldn't base on snapshots and 
 			knip-ops should be gone soon -->
 		<knip-tmp-imglib2-ops.version>0.4.1</knip-tmp-imglib2-ops.version>
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>

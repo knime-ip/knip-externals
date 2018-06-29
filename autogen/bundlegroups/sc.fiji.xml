@@ -42,7 +42,7 @@
 	</bundle>
 
 	<!-- vistools Bundle -->
-	<bundle name="bigdataviewer-vistools" version="${vistools.version}">
+	<bundle name="bigdataviewer-vistools" version="${bigdataviewer-vistools.version}">
 		<artifacts>
 			<artifact>
 				<group>sc.fiji</group>

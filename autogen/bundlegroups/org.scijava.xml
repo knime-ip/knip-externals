@@ -306,6 +306,22 @@
 		<export>org.scijava.search.*</export>
 	</bundle>
 
+
+	<!-- SciJava-io-http -->
+	<bundle name="scijava-io-http" version="${scijava-io-http.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-io-http</id>
+				<version>${scijava-io-http.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+		</dependencies>
+		<export>org.scijava.io.*</export>
+	</bundle>
+
 	<!-- SciJava Expression Parser aka Parsington -->
 	<bundle name="parsington" version="${parsington.version}">
 		<artifacts>

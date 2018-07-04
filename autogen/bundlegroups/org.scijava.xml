@@ -290,7 +290,7 @@
 		<export>org.scijava.cache.*</export>
 	</bundle>
 	
-		<!-- SciJava Cache -->
+	<!-- SciJava Search -->
 	<bundle name="scijava-search" version="${scijava-search.version}">
 		<artifacts>
 			<artifact>

@@ -62,7 +62,7 @@
 				<group>io.scif</group>
 				<id>scifio-bf-compat</id>
 				<version>${scifio-bf-compat.version}</version>
-				<attachSource>false</attachSource>
+				<attachSource>true</attachSource>
 			</artifact>
 			<artifact>
 				<group>xerces</group>

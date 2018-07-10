@@ -54,6 +54,7 @@
 		<knip-tmp-imglib2-ops.version>0.4.1</knip-tmp-imglib2-ops.version>
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
         <imglib2-realtransform.version>2.0.99</imglib2-realtransform.version>
+        <imglib2.version>5.4.0</imglib2.version>
 	</properties>
 
 	<dependencies>

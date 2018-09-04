@@ -55,7 +55,7 @@
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
 		<imglib2-realtransform.version>2.0.99</imglib2-realtransform.version>
 		<imglib2.version>5.4.0</imglib2.version>
-		<scifio.version>0.37.1</scifio.version>
+		<scifio.version>0.37.2</scifio.version>
 	</properties>
 
 	<dependencies>

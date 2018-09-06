@@ -62,7 +62,7 @@
 				<group>io.scif</group>
 				<id>scifio-bf-compat</id>
 				<version>${scifio-bf-compat.version}</version>
-				<attachSource>true</attachSource>
+				<attachSource>false</attachSource>
 			</artifact>
 			<artifact>
 				<group>xerces</group>
@@ -79,7 +79,7 @@
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="xml-apis:xml-apis" version="1.4.01" />
 		</dependencies>
-		<export>io.scif.bf.*,loci.*,ome.xml.*,io.scif.ome.*,io.scif.cli.*</export>
+		<export>io.scif.bf.*,loci.formats.*,loci.common.*,ome.xml.*,io.scif.ome.*,io.scif.cli.*</export>
 	</bundle>
 
 	<!-- SCIFIO Lifesci -->

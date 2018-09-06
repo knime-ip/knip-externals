@@ -7,7 +7,7 @@ Processing.
 
 ### Requirements:
 
-To be able to build this project the following projects must be installed via
+To be able to build this project, the following projects must be installed via
 maven beforehand:
 
 - [knip-imglib2-ops](https://github.com/knime-ip/knip-imglib2-ops) 
@@ -21,7 +21,7 @@ Build the update site by running the ``rebuild.sh`` script.
 
 ## How to install into your eclipse
 
-After successfully building the update site is available in two forms:
+After successfully building, the update site is available in two forms:
 
 - As archive: `target/update-site/target/knip-osgi-update-site-1.0.0.zip`
 - As folder:  `target/update-site/target/repository`
@@ -70,8 +70,8 @@ Don't forget to add new bundlegroups to the `updatesite.xml` file in the `autoge
 
 ### Optional parameters for bundles
 - __Don't attach a source bundle:__
-    In some cases you might not want to attach a source bundle to an artifact. E.g. if the
-    creation takes a very long time or the source bundle causes problems do to a layout that
+    In some cases you might not want to attach a source bundle to an artifact, e.g. if the
+    creation takes a very long time, or if the source bundle causes problems due to a layout that
     is incompatible with OSGi (e.g. classes in the default package). To skip
     the creation of a source bundle, set the ``attachSource`` property to
     `false` by adding the following code to an artifact:
@@ -81,7 +81,7 @@ Don't forget to add new bundlegroups to the `updatesite.xml` file in the `autoge
         <attachSource>false</attachSource>
     </artifact>
 ```
- __External dependencies with a custom name:__ Sometimes you need to depend on osgi bundles that are not shipped with this update site, but provided otherwise, e.g. by th KNIME target platform, where they might have a different bundle id from the one infered by this tool. You can specify such a custom bundleId as follows:
+ __External dependencies with a custom name:__ Sometimes you need to depend on osgi bundles that are not shipped with this update site, but provided otherwise, e.g. by the KNIME target platform, where they might have a different bundle id from the one inferred by this tool. You can specify such a custom bundleId as follows:
 ```xml
 <dependencies>
     ...
@@ -102,13 +102,13 @@ Don't forget to add new bundlegroups to the `updatesite.xml` file in the `autoge
             <!-- ... -->
         </export>
         <instructions>
-            <!-- instrucitons must escaped xml: <exampleInstruction>exampleValue</exampleInstruction> becomes:-->
+            <!-- instructions must escape xml: <exampleInstruction>exampleValue</exampleInstruction> becomes:-->
           &lt;exampleInstruction&gt;exampleValue&lt;/exampleInstruction&gt;
         </instructions>
 	</bundle>
     ```
     - __Accept OSGi errors:__ One such instruction is `_failok` which will allow
-      the bundle to be build even if errors occur. This is needed if you want to
+      the bundle to be built even if errors occur. This is needed if you want to
       bundle code that does not follow to OSGi standards, e.g. has classes in the
       default package. The code snippet for `_failok`:
         

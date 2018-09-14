@@ -14,7 +14,7 @@
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="net.imglib2:imglib2-realtransform"
@@ -40,7 +40,7 @@
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="net.imglib2:imglib2-realtransform"

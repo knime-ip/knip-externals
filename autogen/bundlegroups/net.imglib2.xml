@@ -1,17 +1,5 @@
 <!-- net.imglib bundles -->
 <bundlegroup name="net.imglib2">
-	<!-- ImgLib2 -->
-	<bundle name="imglib2" version="${imglib2.version}">
-		<artifacts>
-			<artifact>
-				<id>imglib2</id>
-				<group>net.imglib2</group>
-				<version>${imglib2.version}</version>
-			</artifact>
-		</artifacts>
-		<export>net.imglib2.*</export>
-	</bundle>
-
 	<!-- ImgLib2-Algorithms -->
 	<bundle name="imglib2-algorithm" version="${imglib2-algorithm.version}">
 		<artifacts>
@@ -23,7 +11,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
@@ -43,7 +31,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
@@ -63,7 +51,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
@@ -86,7 +74,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imagej:ij" version="${imagej1.version}" />
@@ -105,7 +93,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 		</dependencies>
 		<export>net.imglib2.realtransform.*</export>
 	</bundle>
@@ -120,7 +108,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
 		</dependencies>
 		<export>net.imglib2.roi.*,net.imglib2.labeling.*</export>
@@ -136,7 +124,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
 		</dependencies>
 		<export>net.imglib2.ui.*</export>
@@ -152,7 +140,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 		</dependencies>
 		<export>net.imglib2.cache.*</export>
 	</bundle>

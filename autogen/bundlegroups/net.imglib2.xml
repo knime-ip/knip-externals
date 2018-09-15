@@ -13,7 +13,7 @@
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
-			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" isExternal="true" bundleId="net.imglib2.roi" />
 			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
 			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}"/>
 		</dependencies>
@@ -32,7 +32,7 @@
 		<dependencies>
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
-			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" isExternal="true" bundleId="net.imglib2.roi" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 		</dependencies>
@@ -52,7 +52,7 @@
 		<dependencies>
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
-			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" isExternal="true" bundleId="net.imglib2.roi" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 		</dependencies>
@@ -72,7 +72,7 @@
 		<dependencies>
 			<bundleref name="gov.nist.math:jama" version="${jama.version}" isExternal="true"/>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
-			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" isExternal="true" bundleId="net.imglib2.roi" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
 			<bundleref name="net.imagej:ij" version="${imagej1.version}" />
 		</dependencies>
@@ -95,23 +95,7 @@
 		<export>net.imglib2.realtransform.*</export>
 	</bundle>
 
-	<!-- ImgLib2-ROI -->
-	<bundle name="imglib2-roi" version="${imglib2-roi.version}">
-		<artifacts>
-			<artifact>
-				<group>net.imglib2</group>
-				<id>imglib2-roi</id>
-				<version>${imglib2-roi.version}</version>
-			</artifact>
-		</artifacts>
-		<dependencies>
-			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
-			<bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
-		</dependencies>
-		<export>net.imglib2.roi.*,net.imglib2.labeling.*</export>
-	</bundle>
-
-	<!-- ImgLib2-ROI -->
+	<!-- ImgLib2-UI -->
 	<bundle name="imglib2-ui" version="${imglib2-ui.version}">
 		<artifacts>
 			<artifact>

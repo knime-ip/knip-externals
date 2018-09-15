@@ -17,7 +17,6 @@
 	<include>bundlegroups/io.scif.xml</include>
 	<include>bundlegroups/net.imagej.xml</include>
 	<include>bundlegroups/net.imglib2.xml</include>
-	<include>bundlegroups/net.sf.trove4j.xml</include>
 	<include>bundlegroups/org.knime.knip.xml</include>
 	<include>bundlegroups/org.scijava.xml</include>
 	<include>bundlegroups/com.miglayout.xml</include>

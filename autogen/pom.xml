@@ -28,7 +28,6 @@
 		<sciview.version>0.1.0</sciview.version>
 
 		<!-- manually manged versions -->
-		<trove4j.version>3.0.3</trove4j.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
 		<args4j.version>2.0.29</args4j.version>
 		<xerces.version>2.11.0</xerces.version>

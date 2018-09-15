@@ -13,7 +13,7 @@
 		<dependencies>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" isExternal="true" bundleId="net.imglib2.roi" />
-			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" isExternal="true" bundleId="net.imglib2.realtransform" />
 			<bundleref name="net.imglib2:imglib2-ui" version="${imglib2-ui.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
           		<bundleref name="com.google.code.gson:gson" version="${gson.version}" isExternal="true" bundleId="com.google.gson"/>
@@ -36,7 +36,7 @@
 			<bundleref name="org.scijava:parsington" version="${parsington.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-ui" version="${imglib2-ui.version}" />
-			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" isExternal="true" bundleId="net.imglib2.realtransform" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" isExternal="true" bundleId="net.imglib2.roi" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="sc.fiji:bigdataviewer-vistools" version="${bigdataviewer-vistools.version}" />
@@ -61,7 +61,7 @@
 		</artifacts>
 		<dependencies>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
-			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" isExternal="true" bundleId="net.imglib2.realtransform" />
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 			<bundleref name="org.jdom:jdom2" version="${jdom2.version}" isExternal="true" bundleId="org.jdom.2"/>
 		</dependencies>
@@ -82,7 +82,7 @@
 			<bundleref name="sc.fiji:bigdataviewer-core" version="${bigdataviewer-core.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" isExternal="true" bundleId="net.imglib2.roi" />
-			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" isExternal="true" bundleId="net.imglib2.realtransform" />
 			<bundleref name="net.imglib2:imglib2-ui" version="${imglib2-ui.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="com.google.code.gson:gson" version="${gson.version}" isExternal="true" bundleId="com.google.gson"/>

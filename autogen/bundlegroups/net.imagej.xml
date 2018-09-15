@@ -33,7 +33,7 @@
 			<bundleref name="net.imagej:imagej-mesh" version="${imagej-mesh.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" isExternal="true" bundleId="net.imglib2.roi" />
-			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" isExternal="true" bundleId="net.imglib2.realtransform" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm-fft" version="${imglib2-algorithm-fft.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm-gpl" version="${imglib2-algorithm-gpl.version}" />
@@ -99,7 +99,7 @@
 			<bundleref name="net.imagej:imagej-deprecated" version="${imagej-deprecated.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" isExternal="true" bundleId="net.imglib2.roi" />
-			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" isExternal="true" bundleId="net.imglib2.realtransform" />
 			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm-fft" version="${imglib2-algorithm-fft.version}" />
 			<bundleref name="net.imglib2:imglib2-algorithm-gpl" version="${imglib2-algorithm-gpl.version}" />

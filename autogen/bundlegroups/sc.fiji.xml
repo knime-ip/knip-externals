@@ -23,6 +23,33 @@
 		<export>bdv.*, net.imglib2.img.basictypeaccess.volatiles.*, net.imglib2.interpolation.randomaccess.*, net.imglib2.type.volatiles.*, net.imglib2.display.*</export>
 	</bundle>
 
+	<bundle name="bigdataviewer-ui-panel" version="${bigdataviewer-ui-panel.version}">
+		<artifacts>
+			<artifact>
+				<group>sc.fiji</group>
+				<id>bigdataviewer-ui-panel</id>
+				<version>${bigdataviewer-ui-panel.version}</version>
+			</artifact>
+		</artifacts>
+		<dependencies>
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:parsington" version="${parsington.version}" />
+			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" />
+			<bundleref name="net.imglib2:imglib2-ui" version="${imglib2-ui.version}" />
+			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" />
+			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" />
+			<bundleref name="net.imglib2:imglib2-algorithm" version="${imglib2-algorithm.version}" />
+			<bundleref name="sc.fiji:bigdataviewer-vistools" version="${bigdataviewer-vistools.version}" />
+			<bundleref name="sc.fiji:bigdataviewer-core" version="${bigdataviewer-core.version}" />
+			<bundleref name="org.scijava:ui-behaviour" version="${ui-behaviour.version}" />
+	        <bundleref name="net.sf.trove4j:trove4j" version="${trove4j.version}" />
+			<bundleref name="org.jdom:jdom2" version="${jdom2.version}" isExternal="true" bundleId="org.jdom.2"/>
+			<bundleref name="sc.fiji:spim_data" version="${spim_data.version}" />
+            <bundleref name="com.miglayout:miglayout" version="${miglayout.version}" />
+	    </dependencies>
+	    <export>bdv.ui.panel.*</export>
+	</bundle>
+
 	<!-- SPIMDATA Bundle -->
 	<bundle name="spim_data" version="${spim_data.version}">
 		<artifacts>

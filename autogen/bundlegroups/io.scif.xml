@@ -11,7 +11,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" isExternal="true" bundleId="org.scijava.common" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-roi" version="${imglib2-roi.version}" isExternal="true" bundleId="net.imglib2.roi" />
 			<bundleref name="net.imagej:imagej-common" version="${imagej-common.version}" />
@@ -72,7 +72,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" isExternal="true" bundleId="org.scijava.common" />
 			<bundleref name="args4j:args4j" version="${args4j.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="io.scif:scifio" version="${scifio.version}" />
@@ -92,7 +92,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" isExternal="true" bundleId="org.scijava.common" />
 			<bundleref name="io.scif:scifio" version="${scifio.version}" />
 		</dependencies>
 		<export>io.scif.lifesci.*</export>

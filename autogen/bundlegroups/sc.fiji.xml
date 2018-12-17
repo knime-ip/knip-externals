@@ -32,7 +32,7 @@
 			</artifact>
 		</artifacts>
 		<dependencies>
-			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" isExternal="true" bundleId="org.scijava.common" />
 			<bundleref name="org.scijava:parsington" version="${parsington.version}" />
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-ui" version="${imglib2-ui.version}" />
@@ -62,7 +62,7 @@
 		<dependencies>
 			<bundleref name="net.imglib2:imglib2" version="${imglib2.version}" isExternal="true" bundleId="net.imglib2" />
 			<bundleref name="net.imglib2:imglib2-realtransform" version="${imglib2-realtransform.version}" isExternal="true" bundleId="net.imglib2.realtransform" />
-			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
+			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" isExternal="true" bundleId="org.scijava.common" />
 			<bundleref name="org.jdom:jdom2" version="${jdom2.version}" isExternal="true" bundleId="org.jdom.2"/>
 		</dependencies>
 		<export>mpicbg.spim.data.*</export>

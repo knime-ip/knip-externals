@@ -71,6 +71,9 @@
 				<attachSource>false</attachSource>
 			</artifact>
 		</artifacts>
+		<instructions>
+			&lt;_failok&gt;true&lt;/_failok&gt;
+		</instructions>
 		<dependencies>
 			<bundleref name="org.scijava:scijava-common" version="${scijava-common.version}" />
 			<bundleref name="args4j:args4j" version="${args4j.version}" />

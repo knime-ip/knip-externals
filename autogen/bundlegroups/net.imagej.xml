@@ -11,6 +11,9 @@
 			</artifact>
 		</artifacts>
 		<export>ij.*</export>
+		<instructions>
+			&lt;_failok&gt;true&lt;/_failok&gt;
+		</instructions>
 	</bundle>
 
 

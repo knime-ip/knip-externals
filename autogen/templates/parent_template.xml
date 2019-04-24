@@ -17,7 +17,7 @@
 	</prerequisites>
 
 	<properties>
-		<felix-plugin.version>2.4.0</felix-plugin.version>
+		<felix-plugin.version>4.2.0</felix-plugin.version>
 	</properties>
 
 	%(MODULES)

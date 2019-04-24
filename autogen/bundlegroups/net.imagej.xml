@@ -7,6 +7,7 @@
 				<id>ij</id>
 				<group>net.imagej</group>
 				<version>${imagej1.version}</version>
+				<attachSource>false</attachSource>
 			</artifact>
 		</artifacts>
 		<export>ij.*</export>

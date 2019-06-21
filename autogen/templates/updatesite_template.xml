@@ -21,9 +21,9 @@
 
 	<repositories>
 		<repository>
-			<id>knimeTrunk</id>
+			<id>knime-4.0</id>
 			<layout>p2</layout>
-            <url>https://update.knime.org/analytics-platform/nightly/</url>
+            <url>https://update.knime.com/analytics-platform/4.0/</url>
 		</repository>
 	</repositories>
 

@@ -333,4 +333,16 @@
 		</artifacts>
 		<export>org.scijava.sjep.*</export>
 	</bundle>
+
+    <!-- Scijava table -->
+	<bundle name="scijava-table" version="${scijava-table.version}">
+		<artifacts>
+			<artifact>
+				<group>org.scijava</group>
+				<id>scijava-table</id>
+				<version>${scijava-table.version}</version>
+			</artifact>
+		</artifacts>
+		<export>org.scijava.table.*</export>
+	</bundle>
 </bundlegroup>

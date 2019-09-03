@@ -52,9 +52,13 @@
 			knip-ops should be gone soon -->
 		<knip-tmp-imglib2-ops.version>0.4.1</knip-tmp-imglib2-ops.version>
 		<knip-trackmate-fork.version>2.7.3</knip-trackmate-fork.version>
-		<imglib2-realtransform.version>2.0.0</imglib2-realtransform.version>
 		<imglib2.version>5.4.0</imglib2.version>
+		<imglib2-roi.version>0.5.2</imglib2-roi.version>
+		<imglib2-realtransform.version>2.0.0</imglib2-realtransform.version>
 		<scifio.version>0.37.3</scifio.version>
+		<scijava-common.version>2.76.1</scijava-common.version>
+		<scijava-parsington.version>1.0.4</scijava-parsington.version>
+		<ui-behaviour.version>1.7.3</ui-behaviour.version>
         <imagej-ops.version>0.44.0</imagej-ops.version>
         <bigdataviewer-ui-panel.version>0.1.1</bigdataviewer-ui-panel.version>
 	</properties>

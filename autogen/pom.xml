@@ -37,6 +37,7 @@
 		<!-- We do not want to override the version of guava used during the build, 
 			only the one defined in update site -->
 		<guava-external.version>19.0</guava-external.version>
+		<imglib2-realtransform.version>3.1.2</imglib2-realtransform.version>
 
 		<jama.version>1.0.3</jama.version>
 

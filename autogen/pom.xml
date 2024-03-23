@@ -38,7 +38,7 @@
 			only the one defined in update site -->
 		<guava-external.version>19.0</guava-external.version>
 		<imglib2-realtransform.version>3.1.2</imglib2-realtransform.version>
-		<imglib2-roi.version>0.14.1</imglib2-roi.version>
+		<imglib2-roi.version>0.8.0</imglib2-roi.version>
 
 		<jama.version>1.0.3</jama.version>
 

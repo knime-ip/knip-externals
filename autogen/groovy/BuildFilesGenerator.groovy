@@ -424,6 +424,12 @@ def main() {
 						+ "\t\t\t<groupId>" + artifact.group + "</groupId>\n"
 						+ "\t\t\t<artifactId>" + artifact.name + "</artifactId>\n"
 						+ "\t\t\t<version>" + artifact.version + "</version>\n"
+						+ "\t\t\t<exclusions>\n"
+						+ "\t\t\t\t<exclusion>\n"
+						+ "\t\t\t\t\t<groupId>log4j</groupId>\n"
+						+ "\t\t\t\t\t<artifactId>log4j</artifactId>\n"
+						+ "\t\t\t\t</exclusion>\n"
+						+ "\t\t\t</exclusions>\n"
 						+ "\t\t</dependency>\n")
 
 					if(artifact.attachSource) {

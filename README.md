@@ -90,8 +90,8 @@ Don't forget to add new bundlegroups to the `updatesite.xml` file in the `autoge
 ``` 
 
 - __Additional instructions:__ You can pass additional arguments for a specific
-  bundle to the [Apache felix bundle plugin](http://felix.apache.org/documentation/subprojects/apache-felix-maven-bundle-plugin-bnd.html).
-  The xml code must be escaped ([syntax](http://stackoverflow.com/questions/1091945/what-characters-do-i-need-to-escape-in-xml-documents)).
+  bundle to the [Apache felix bundle plugin](https://felix.apache.org/documentation/subprojects/apache-felix-maven-bundle-plugin-bnd.html).
+  The xml code must be escaped ([syntax](https://stackoverflow.com/questions/1091945/what-characters-do-i-need-to-escape-in-xml-documents)).
   Example 
     ```xml
 	<bundle name="example-bundle" version="${example-bundle.version}">
